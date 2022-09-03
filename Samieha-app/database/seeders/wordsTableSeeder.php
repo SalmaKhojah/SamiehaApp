@@ -20,18 +20,20 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'1',
                     'word'=>'سرير',
-                    'image'=> '',
-                    //نطق أول حرف
-                    'cue1'=>'',
-                    //نطق أول مقطع
-                    'cue2'=>'',
-                    //كتابة أول حرف
-                    'cue3'=>'',
+                    'image'=> 'img/nouns/furniture/bed.jpg',
+                    //semantic cue
+                    'cue1'=>'تستلقي عليه عندما تخلد للنوم',
+                    //sentence completion
+                    'cue2'=>'أنت تنام على ....',
+                    //first sound 
+                    'cue3'=>'ا',
+                    //first syllable 
                     'cue4'=>'',
-                    'cue5'=>'',
-                    //كتابة الكلمة
-                    'cue6'=>'',
-                    //نطق الكلمة
+                    //first letter (written only)
+                    'cue5'=>'س',
+                    // written word (written only) 
+                    'cue6'=>'سرير',
+                    //spoken word(modeling) 
                     'cue7'=>'',
 
                 ],
@@ -39,13 +41,13 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'1',
                     'word'=>'طاولة',
-                    'image'=> '',
-                    'cue1'=>'',
-                    'cue2'=>'',
+                    'image'=> 'img/nouns/furniture/table.jpg',
+                    'cue1'=>'توضع عليه الأطباق',
+                    'cue2'=>'أنت تأكل على ...',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
-                    'cue6'=>'',
+                    'cue5'=>'ط',
+                    'cue6'=>'طا',
                     'cue7'=>'',
 
                 ],
@@ -53,13 +55,13 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'1',
                     'word'=>'كرسي',
-                    'image'=> '',
-                    'cue1'=>'',
-                    'cue2'=>'',
+                    'image'=> 'img/nouns/furniture/chair.jpg',
+                    'cue1'=>'يصنع من الخشب',
+                    'cue2'=>'أنت تجلس على ...',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
-                    'cue6'=>'',
+                    'cue5'=>'ك',
+                    'cue6'=>'ك',
                     'cue7'=>'',
 
                 ],
@@ -68,13 +70,13 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'2',
                     'word'=>'برتقال',
-                    'image'=> '',
+                    'image'=> 'img/nouns/fruits/orange.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
-                    'cue6'=>'',
+                    'cue5'=>'ب',
+                    'cue6'=>'ب',
                     'cue7'=>'',
 
                 ],
@@ -83,13 +85,13 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'2',
                     'word'=>'تفاح',
-                    'image'=> '',
+                    'image'=> 'img/nouns/fruits/apple.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
-                    'cue6'=>'',
+                    'cue5'=>'ت',
+                    'cue6'=>'ت',
                     'cue7'=>'',
 
                 ],
@@ -98,13 +100,13 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'2',
                     'word'=>'موز',
-                    'image'=> '',
+                    'image'=> 'img/nouns/fruits/banana.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
-                    'cue6'=>'',
+                    'cue5'=>'م',
+                    'cue6'=>'مو',
                     'cue7'=>'',
 
                 ],
@@ -112,7 +114,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'3',
                     'word'=>'فستان',
-                    'image'=> '',
+                    'image'=> 'img/nouns/Clothes/dress.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -126,7 +128,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'3',
                     'word'=>'بنطال',
-                    'image'=> '',
+                    'image'=> 'img/nouns/Clothes/pants.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -140,7 +142,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'3',
                     'word'=>'معطف',
-                    'image'=> '',
+                    'image'=> 'img/nouns/Clothes/coat.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -153,7 +155,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'4',
                     'word'=>'يركض',
-                    'image'=> '',
+                    'image'=> 'img/verbs/movement/run.png',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -166,7 +168,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'4',
                     'word'=>'يمشي',
-                    'image'=> '',
+                    'image'=> 'img/verbs/movement/walk.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -179,7 +181,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'4',
                     'word'=>'يحبو',
-                    'image'=> '',
+                    'image'=> 'img/verbs/movement/crawling.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -192,7 +194,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'5',
                     'word'=>'يزرع',
-                    'image'=> '',
+                    'image'=> 'img/verbs/Farming/Planting.jpeg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -205,7 +207,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'5',
                     'word'=>'يحرث',
-                    'image'=> '',
+                    'image'=> 'img/verbs/Farming/plough.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -218,7 +220,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'5',
                     'word'=>'يحصد',
-                    'image'=> '',
+                    'image'=> 'img/verbs/Farming/reaped.png',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -232,7 +234,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'6',
                     'word'=>'يركل',
-                    'image'=> '',
+                    'image'=> 'img/verbs/sports/kicks.jpeg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -245,7 +247,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'6',
                     'word'=>'يرمي',
-                    'image'=> '',
+                    'image'=> 'img/verbs/sports/throws.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -258,7 +260,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'6',
                     'word'=>'يسدد',
-                    'image'=> '',
+                    'image'=> 'img/verbs/sports/shoot the goal.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -272,7 +274,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'7',
                     'word'=>'حزين',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/feelings/happy.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -285,7 +287,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'7',
                     'word'=>'سعيد',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/feelings/happy.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -298,7 +300,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'7',
                     'word'=>'قلق',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/feelings/Worry.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -312,7 +314,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'8',
                     'word'=>'كبير',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/Sizes/big.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -325,7 +327,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'8',
                     'word'=>'طويل',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/Sizes/tall.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
@@ -338,7 +340,7 @@ class wordsTableSeeder extends Seeder
                 [
                     'subcategory_id'=>'8',
                     'word'=>'قصير',
-                    'image'=> '',
+                    'image'=> 'img/adjectives/Sizes/tall.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
                     'cue3'=>'',
