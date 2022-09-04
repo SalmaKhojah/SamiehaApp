@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('speech_and_language_pathologist', function (Blueprint $table) {
+        Schema::create('slp', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patient_national_id');
+            $table->foreign('patient_national_id')->references('national_id')->on('patient')->onDelete('SET NULL')->onUpdate('cascade');
             $table->string('work_place');
             $table->timestamps();
         });

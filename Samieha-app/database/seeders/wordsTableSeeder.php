@@ -26,7 +26,7 @@ class wordsTableSeeder extends Seeder
                     //sentence completion
                     'cue2'=>'أنت تنام على ....',
                     //first sound 
-                    'cue3'=>'ا',
+                    'cue3'=>'',
                     //first syllable 
                     'cue4'=>'',
                     //first letter (written only)

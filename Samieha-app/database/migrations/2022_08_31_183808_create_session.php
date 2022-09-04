@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patient')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('slp_id');
-            $table->foreign('slp_id')->references('id')->on('speech_and_language_pathologist')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('slp_id')->references('id')->on('slp')->onDelete('cascade')->onUpdate('cascade');
             $table->string('time_limit');
             $table->timestamps();
         });
