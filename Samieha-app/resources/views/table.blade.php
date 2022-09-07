@@ -934,9 +934,9 @@
 <script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="{{URL::asset('assets/dist/js/adminlte.min.js')}}"></script>
+<script src="{{URL::asset('assets/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{URL::asset('assets/dist/js/demo.js')}}"></script>
+<script src="{{URL::asset('assets/js/demo.js')}}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
