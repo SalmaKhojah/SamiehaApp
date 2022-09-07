@@ -916,8 +916,6 @@
   @endsection
 
 @section('scripts')
-<!-- jQuery -->
-<script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- DataTables  & Plugins -->
@@ -933,8 +931,7 @@
 <script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{URL::asset('assets/js/adminlte.min.js')}}"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{URL::asset('assets/js/demo.js')}}"></script>
 <!-- Page specific script -->

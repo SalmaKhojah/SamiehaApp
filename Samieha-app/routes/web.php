@@ -18,6 +18,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/table', function () {
-    return view('table');
+Route::get('/patientTable', function () {
+    return view('patientTable');
+});
+
+Route::get('/slpTable', function () {
+    return view('slpTable');
+});
+
+Route::get('/new', function () {
+    return view('new');
 });

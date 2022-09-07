@@ -22,6 +22,6 @@
    
   @endsection
 
-@section('scripts')
+  @section('scripts')
 
-@endsection
+ @endsection
