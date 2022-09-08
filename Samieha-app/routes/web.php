@@ -26,6 +26,10 @@ Route::get('/slpTable', function () {
     return view('slpTable');
 });
 
+Route::get('/uploadMat', function () {
+    return view('uploadMat');
+});
+
 Route::get('/new', function () {
     return view('new');
 });
