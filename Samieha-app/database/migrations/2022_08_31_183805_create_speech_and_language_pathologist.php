@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('slp', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_national_id');
-            $table->foreign('patient_national_id')->references('national_id')->on('patient')->onDelete('SET NULL')->onUpdate('cascade');
+            $table->string('F_slp_name');
+            $table->string('L_slp_name');
+            $table->string('slp_email');
             $table->string('work_place');
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('speech_and_language_pathologist');
+        Schema::dropIfExists('slp');
     }
 };

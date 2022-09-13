@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('patient', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('slp_id');
-            $table->foreign('slp_id')->references('id')->on('slp')->onDelete('SET NULL')->onUpdate('cascade')->nullable;
+            $table->unsignedBigInteger('slp_id')->nullable();
+            $table->foreign('slp_id')->nullable()->references('id')->on('slp')->onDelete('SET NULL')->onUpdate('cascade');
             $table->string('national_id');
             $table->string('first_name');
             $table->string('last_name');

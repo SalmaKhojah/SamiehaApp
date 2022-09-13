@@ -10,7 +10,9 @@ class slp extends Model
     use HasFactory;
 
     protected $fillable = [
-        'patient_national_id',
+        'F_slp_name',
+        'L_slp_name',
+        'slp_email',
         'work_place',
     ];
 
