@@ -15,7 +15,7 @@ class categoriesTableSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('categories')->insert([
+       \DB::table('categories')->insert([
         [ 'category'=>'الأسماء'],
         [ 'category'=>'الأفعال'],
         [ 'category'=>'الصفات'],

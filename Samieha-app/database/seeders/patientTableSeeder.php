@@ -16,7 +16,7 @@ class patientTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('patient')->insert([
+        \DB::table('patient')->insert([
             [
                'national_id'=>'1111021031',
                'first_name'=>'أحمد',

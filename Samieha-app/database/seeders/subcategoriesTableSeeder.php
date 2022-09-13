@@ -6,7 +6,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facads\DB;
 
-
 class subcategoriesTableSeeder extends Seeder
 {
     /**
@@ -16,7 +15,7 @@ class subcategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('subcategories')->insert([
+       \DB::table('subcategories')->insert([
         [
          'subcategory'=>'أثاث',
          'category_id' =>'1'  

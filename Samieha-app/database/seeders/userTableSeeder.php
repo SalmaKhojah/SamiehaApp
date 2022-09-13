@@ -7,7 +7,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facads\DB;
 
 
-
 class userTableSeeder extends Seeder
 {
     /**
@@ -17,7 +16,7 @@ class userTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
+        \DB::table('users')->insert(
             [
                 [
                     'role'=>'0',

@@ -6,7 +6,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facads\DB;
 
-
 class sessionTableSeeder extends Seeder
 {
     /**
@@ -17,7 +16,7 @@ class sessionTableSeeder extends Seeder
     public function run()
     {
 
-     DB::table('session')->insert([
+     \DB::table('session')->insert([
         [
           'patient_id'=>'1',
           'slp_id'=>'2',
