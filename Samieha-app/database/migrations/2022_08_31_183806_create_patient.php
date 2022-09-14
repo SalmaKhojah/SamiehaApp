@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('patient', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('slp_id')->nullable();
-            $table->foreign('slp_id')->nullable()->references('id')->on('slp')->onDelete('SET NULL')->onUpdate('cascade');
+            $table->string('p_email');
+            $table->string('p_password');
             $table->string('national_id');
             $table->string('first_name');
             $table->string('last_name');
@@ -30,6 +30,8 @@ return new class extends Migration
             $table->string('neurological_damage');
             $table->string('severity');
             $table->string('assesment_method');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('slp', function (Blueprint $table) {
             $table->id();
+            $table->string('slp_email');
+            $table->string('slp_password');
             $table->string('F_slp_name');
             $table->string('L_slp_name');
-            $table->string('slp_email');
             $table->string('work_place');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

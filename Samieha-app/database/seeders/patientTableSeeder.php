@@ -18,7 +18,9 @@ class patientTableSeeder extends Seeder
     {
 
         \DB::table('patient')->insert([
-            [
+            [  
+               'p_email'=>'Ahmadd@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                'national_id'=>'1111021031',
                'first_name'=>'أحمد',
                'last_name'=>'الثنيان',
@@ -35,6 +37,8 @@ class patientTableSeeder extends Seeder
             ],
 
             [
+               'p_email'=>'Nouraah@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1141050162',
                 'first_name'=>'نورة',
                 'last_name'=>'الأحمري',
@@ -51,6 +55,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'faisall@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1171081093',
                 'first_name'=>'فيصل',
                 'last_name'=>'الغامدي',
@@ -67,6 +73,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'muhammed@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1151071094',
                 'first_name'=>'محمد',
                 'last_name'=>'الزهراني',
@@ -83,6 +91,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'zahraa@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1171081035',
                 'first_name'=>'زهرا',
                 'last_name'=>'ابو نجا',
@@ -99,6 +109,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'majed@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1181101266',
                 'first_name'=>'ماجد',
                 'last_name'=>'النوح',
@@ -115,6 +127,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'hayfaa@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1101311014',
                 'first_name'=>'هيفا',
                 'last_name'=>'الابراهيم',
@@ -131,6 +145,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'muhammedZa@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1991199800',
                 'first_name'=>'محمد',
                 'last_name'=>'زهير',
@@ -147,6 +163,8 @@ class patientTableSeeder extends Seeder
              ],
 
              [
+               'p_email'=>'joud@gmail.com',
+               'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
                 'national_id'=>'1176453278',
                 'first_name'=>'جود',
                 'last_name'=>'العتيبي',

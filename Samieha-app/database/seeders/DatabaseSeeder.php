@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
             wordsTableSeeder::class,
             SLPTableSeeder::class,
             patientTableSeeder::class,
-            userTableSeeder::class,
             sessionTableSeeder::class,
             sessionMaterialTableSeeder::class,
+            slp_patients::class,
+
 
         ]);
     }
