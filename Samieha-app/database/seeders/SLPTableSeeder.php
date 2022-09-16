@@ -15,7 +15,7 @@ class SLPTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('slp')->insert([
+        \DB::table('slps')->insert([
             [
             'slp_email'=>'alhunof@gmail.com',
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',

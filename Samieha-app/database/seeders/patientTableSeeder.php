@@ -17,7 +17,7 @@ class patientTableSeeder extends Seeder
     public function run()
     {
 
-        \DB::table('patient')->insert([
+        \DB::table('patients')->insert([
             [  
                'p_email'=>'Ahmadd@gmail.com',
                'p_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',

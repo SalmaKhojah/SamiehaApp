@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-  قائمة الاختصاصيين
+  قائمة المرضى
   @endsection
 
   @section('css')
@@ -12,45 +12,64 @@
   @endsection
 
   @section('bar1')
-  قائمة الاختصاصيين
+  قائمة المرضى
   @endsection
 
   @section('bar2')
   الرئيسية
   @endsection
-
+  @section('link2')
+   /
+   @endsection
 
 
   @section('content')
+
+     @if(session()->has('success'))
+       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
+       </div>
+      @endif
+
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-
+          
+            <!-- /.card -->
+         
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">قائمة الاختصاصيين</h3>
+                <h3 class="card-title">قائمة المرضى</h3>
+                <a href="{{route('patientTable.create')}}">
+                      <div class="container text-left">
+                       <button class="btn btn-primary" type="button">إضافة مريض</button>
+                     </div>
+                </a>
               </div>
+              
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>اسم الاختصاصي</th>
-                    <th>البريد الإلكتروني</th>
-                    <th>مقر العمل</th>
-                    <th>قائمة المرضى</th>
+                    <th>اسم المريض</th>
+                    <th>رقم الهوية</th>
+                    <th>التشخيص</th>
+                    <th>الحدة</th>
                     <th>العمليات</th>
                   </tr>
                   </thead>
                   <tbody>
-               @foreach($data as $item)  
+                  @foreach($data as $item)  
                   <tr>
-                    <td>{{$item->F_slp_name}} {{$item->L_slp_name}}</td>
-                    <td>{{$item->slp_email}}</td>
-                    <td>{{$item->work_place}}</td>
-                    <td>4</td>
+                    <td>{{$item->first_name}} {{$item->last_name}}</td>
+                    <td>{{$item->national_id}}</td>
+                    <td>{{$item->diagnosis}}</td>
+                    <td>{{$item->severity}}</td>
                     <td>
                     <a class="btn btn-app"><i class="fa fa-search"></i>View</a>
                     <a class="btn btn-app"><i class="fas fa-edit"></i>Edit</a>
@@ -119,4 +138,6 @@
     });
   });
 </script>
+
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 @endsection

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('slp', function (Blueprint $table) {
+        Schema::create('slps', function (Blueprint $table) {
             $table->id();
             $table->string('slp_email');
             $table->string('slp_password');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slp');
+        Schema::dropIfExists('slps');
     }
 };

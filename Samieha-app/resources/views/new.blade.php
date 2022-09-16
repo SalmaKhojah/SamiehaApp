@@ -12,10 +12,17 @@
    
   @endsection
 
+  @section('link1')
+   
+   @endsection
+  
   @section('bar2')
    
   @endsection
 
+  @section('link2')
+   
+   @endsection
 
 
   @section('content')
