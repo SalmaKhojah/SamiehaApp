@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\slpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,10 @@ Route::get('/patientTable', function () {
     return view('patientTable');
 });
 
-Route::get('/slpTable', function () {
-    return view('slpTable');
-});
+Route::resource('/slpTable' , slpController::class);
+
+
+
 
 Route::get('/uploadMat', function () {
     return view('uploadMat');
