@@ -10,8 +10,8 @@ class slpController extends Controller
     
     public function index()
     {
-        $slp=slp::all();
-        return view('slpTable')->with('slp',$slp);
+        $data=slp::all();
+        return view('slpTable')->with('data',$data);
     }
 
    
