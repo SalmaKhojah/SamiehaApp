@@ -22,7 +22,7 @@
 
   @section('link2')
    
-   @endsection
+  @endsection
 
 
   @section('content')

@@ -15,15 +15,16 @@ use App\Http\Controllers\patientController;
 |
 */
 
+/*Home Page route*/
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-
+/*Speeach and Language Pathologist route*/
 Route::resource('/slpTable' , slpController::class);
 
-
+/* patient route*/
 Route::resource('/patientTable' , patientController::class);
 
 

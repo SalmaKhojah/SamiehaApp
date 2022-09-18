@@ -1,11 +1,48 @@
 @extends('layout.master')
 
 @section('title')
-  
+  إضافة مريض
   @endsection
 
   @section('css')
+ 
+  <Style>
 
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 1.6em;
+  width: 1.6em;
+  margin: 0 4em;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.line{
+  height: 1.6em;
+  width: 1.6em;
+  display: inline-block;
+  color:red;
+}
+/* Mark the active step: */
+.step.active {
+  background-color: #02b070;
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+  opacity: 1;
+
+}
+</Style>
   @endsection
 
   @section('bar1')
@@ -35,9 +72,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm">
+              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
                 @csrf
+                <!--progress bar-->
+                <div  style="text-align:center;margin-top:1em;">
+                      <span class="step">1</span>
+                      <ul class="line"></ul>
+                      <span class="step">2</span>
+                    </div>
+
                     <div class="card-body">
+                    <div class="tab">
                       <div class="form-group">
                         <label for="exampleInputName1">الاسم الأول</label>
                         <input type="text" name="first_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
@@ -83,6 +128,8 @@
                         <label for="exampleInputPassword1">كلمة المرور</label>
                         <input type="password" name="p_password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
                       </div>
+                    </div>
+                    <div class="tab">
                       <div class="form-group">
                         <label for="exampleInputdiagnosis1">التشخيص</label>
                         <input type="text" name="diagnosis" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
@@ -109,11 +156,22 @@
                           <label class="custom-control-label" for="exampleCheck1">أوافق على <a href="#">شروط الخدمة</a>.</label>
                         </div>
                       </div>
+                     </div>
+                     <!-- /.card-body -->
+                    <!--- <div class="card-footer">
+                       <button type="submit" class="btn btn-primary">إضافة</button>
+                     </div> --->
                     </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">إضافة</button>
+
+                    <div style="overflow:auto;">
+                      <div style="float:right;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                      </div>
                     </div>
+                    
+               
+
               </form>
             </div>
             <!-- /.card -->
@@ -139,7 +197,6 @@
   @section('scripts')
 <!-- jQuery -->
 <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
 <!-- jquery-validation -->
 <script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
@@ -147,7 +204,15 @@
 <!-- date-range-picker -->
 <script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
-<!-- Page specific script -->
+
+<!-- InputMask -->
+<script src="{{URL::asset('assets/plugins/moment/moment.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{URL::asset('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!--validate the add paitent form-->
 <script>
 $(function () {
   $('#quickForm').validate({
@@ -162,6 +227,36 @@ $(function () {
         required: true,
         minlength: 10,
         maxlength: 10,
+      },
+      birth_date: {
+        required: true,
+      },
+      phone: {
+        required: true,
+      },
+      nationality: {
+        required: true,
+      },
+      region: {
+        required: true,
+      },
+      city: {
+        required: true,
+      },
+      diagnosis: {
+        required: true,
+      },
+      characteristics: {
+        required: true,
+      },
+      neurological_damage: {
+        required: true,
+      },
+      severity: {
+        required: true,
+      },
+      assesment_method: {
+        required: true,
       },
       p_email: {
         required: true,
@@ -180,13 +275,43 @@ $(function () {
         required: "الرجاء إدخال الاسم الأول",
         },
         last_name: {
-        required: "الرجاء إدخال الاسم الأول",
+        required: "الرجاء إدخال الاسم الأخير",
         },
         national_id: {
         required: "الرجاء إدخال رقم الهوية ",
         minlength: "يجب أن تتكون رقم الهوية الخاصة بك لا تقل عن 10 أرقام",
         maxlength: "يجب أن تتكون رقم الهوية الخاصة بك لا تزيد عن 10 أرقام",
         },
+        birth_date: {
+        required: "الرجاء إدخال تاريخ الميلاد",
+          },
+          phone: {
+            required: "الرجاء إدخال رقم الهاتف",
+          },
+          nationality: {
+            required: "الرجاء إدخال الجنسية",
+          },
+          region: {
+            required: "الرجاء إدخال المنطقة",
+          },
+          city: {
+            required: "الرجاء إدخال المدينة",
+          },
+          diagnosis: {
+            required: "الرجاء إدخال التشخيص",
+          },
+          characteristics: {
+            required: "الرجاء إدخال الأعراض",
+          },
+          neurological_damage: {
+            required: "الرجاء إدخال منطقة الإصابة العصبية",
+          },
+          severity: {
+            required: "الرجاء إدخال شدة الإصابة العصبية",
+          },
+          assesment_method: {
+            required: "الرجاء إدخال طريقة التقييم",
+          },
         p_email: {
         required: "الرجاء إدخال عنوان البريد الإلكتروني",
         email: "يرجى إدخال عنوان بريد إلكتروني صالح"
@@ -212,7 +337,94 @@ $(function () {
   
 });
 </script>
+<!--date picker-->
+<script>
+  $(function () {
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+  })
+</script>
 
+<script>
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("quickForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+</script>
 
   
  @endsection
