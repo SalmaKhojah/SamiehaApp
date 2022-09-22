@@ -71,20 +71,47 @@
                     <td>{{$item->diagnosis}}</td>
                     <td>{{$item->severity}}</td>
                     <td>
-                    <a class="btn btn-app"><i class="fa fa-search"></i>View</a>
-                    <a class="btn btn-app"><i class="fas fa-edit"></i>Edit</a>
-                    <a class="btn btn-app"><i class="fa fa-trash"></i>Delete</a>
+                    <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+                    <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
+
+                    <form action="{{ route('patientTable.destroy', $item->id) }}" method="POST">
+                      <!-- Modal -->
+                      
+                    <div class="modal fade" id="exampleModalCenter{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات المريض {{$item->first_name}} {{$item->last_name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                          هل أنت متأكد أنك تريد حذف المريض؟ سيتم إزالة جميع بيانات المريض بشكل دائم. لا يمكنك التراجع عن هذا الإجراء.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                            @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">حذف</button>                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    </form>
+
                   </td>
                   </tr>
                 @endforeach
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>اسم المريض</th>
+                    <th>رقم الهوية</th>
+                    <th>التشخيص</th>
+                    <th>الحدة</th>
+                    <th>العمليات</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -99,6 +126,14 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+
+
+
+
+
+
+
+
   @endsection
 
 @section('scripts')
