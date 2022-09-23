@@ -6,7 +6,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facads\DB;
 
-
 class sessionMaterialTableSeeder extends Seeder
 {
     /**
@@ -16,7 +15,7 @@ class sessionMaterialTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('session_material')->insert(
+      \DB::table('session_material')->insert(
 
         [
             [

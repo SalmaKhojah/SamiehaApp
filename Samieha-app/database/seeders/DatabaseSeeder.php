@@ -14,11 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            categoriesTableSeeder::class,
+            subcategoriesTableSeeder::class,
+            wordsTableSeeder::class,
+            userTableSeeder::class,
+            SLPTableSeeder::class,
+            patientTableSeeder::class,
+            sessionTableSeeder::class,
+            sessionMaterialTableSeeder::class,
+            slp_patients::class,
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+        ]);
     }
 }

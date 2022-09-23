@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\slpController;
+use App\Http\Controllers\patientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Home Page route*/
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+/*Speeach and Language Pathologist route*/
+Route::resource('/slpTable' , slpController::class);
+
+/* patient route*/
+Route::resource('/patientTable' , patientController::class);
+
+
+Route::get('/uploadMat', function () {
+    return view('uploadMat');
+});
+
+Route::get('/new', function () {
+    return view('new');
 });

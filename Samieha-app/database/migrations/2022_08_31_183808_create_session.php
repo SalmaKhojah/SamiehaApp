@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('session', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patient_id');
-            $table->foreign('patient_id')->references('id')->on('patient')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('slp_id');
-            $table->foreign('slp_id')->references('id')->on('slp')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('slp_id')->references('id')->on('slps')->onDelete('cascade')->onUpdate('cascade');
             $table->string('time_limit');
             $table->timestamps();
         });

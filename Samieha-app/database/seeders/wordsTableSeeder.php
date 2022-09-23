@@ -15,7 +15,7 @@ class wordsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('words')->insert(
+        \DB::table('words')->insert(
             [
                 [
                     'subcategory_id'=>'1',

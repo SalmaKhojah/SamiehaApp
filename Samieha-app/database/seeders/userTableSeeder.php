@@ -17,7 +17,7 @@ class userTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
+        \DB::table('users')->insert(
             [
                 [
                     'role'=>'0',
@@ -28,120 +28,120 @@ class userTableSeeder extends Seeder
 
                 [
                     'role'=>'1',
-                    'name'=> 'قاسم',
-                    'email'=>'qasim@gmail.com',
+                    'name'=> 'أحمد الثنيان',
+                    'email'=>'Ahmadd@gmail.com',
+                    'password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'نورة الأحمري',
+                    'email'=>'Nouraah@gmail.com',
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
                 [
                     'role'=>'1',
-                    'name'=> 'مها',
-                    'email'=>'maha@gmail.com',
+                    'name'=> 'فيصل الغامدي',
+                    'email'=>'faisall@gmail.com',
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
                 [
                     'role'=>'1',
-                    'name'=> 'هلا',
+                    'name'=> 'محمد الزهراني',
+                    'email'=>'muhammed@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'زهرا أبونجا',
+                    'email'=>'zahraa@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'ماجد النوح',
+                    'email'=>'majed@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'هيفا الابراهيم',
+                    'email'=>'hayfaa@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'محمد زهير',
+                    'email'=>'muhammedZa@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'1',
+                    'name'=> 'جود العتيبي',
+                    'email'=>'joud@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'الهنوف المعمر',
+                    'email'=>'alhunof@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'نورة الخوالد',
+                    'email'=>'nourahkh@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'عبير الحمدي',
+                    'email'=>'Abeer@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'خالد الأحمد',
+                    'email'=>'khaled@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'حمزة اليوسف',
+                    'email'=>'hamza@gmail.com',
+                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                ],
+
+                [
+                    'role'=>'2',
+                    'name'=> 'هلا السيد',
                     'email'=>'hala@gmail.com',
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
                 [
-                    'role'=>'1',
-                    'name'=> 'مروى',
-                    'email'=>'marwa@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'1',
-                    'name'=> 'ياسر',
-                    'email'=>'yaser@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'1',
-                    'name'=> 'موسى',
-                    'email'=>'mosua@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'1',
-                    'name'=> 'صالح',
-                    'email'=>'saleh@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'1',
-                    'name'=> 'وليد',
-                    'email'=>'waleed@gmail.com',
+                    'role'=>'2',
+                    'name'=> 'يزيد القحطاني',
+                    'email'=>'yazeed@gmail.com',
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
                 [
                     'role'=>'2',
-                    'name'=> 'احمد',
-                    'email'=>'ahmadalthnian@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'نورة',
-                    'email'=>'Nourahalahmari@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'فيصل',
-                    'email'=>'faisalalghamdi@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'محمد',
-                    'email'=>'muhammedalzahrani@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'زهرا',
-                    'email'=>'zahraAbounaja@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'ماجد',
-                    'email'=>'majedalnuah@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'هيفا',
-                    'email'=>'hayfaalebrahim@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'محمد',
-                    'email'=>'mohammedzuhair@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
-
-                [
-                    'role'=>'2',
-                    'name'=> 'جود',
-                    'email'=>'joudalotaibi@gmail.com',
+                    'name'=> 'عبد الإله الثنيان',
+                    'email'=>'Abdullelah@gmail.com',
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
             ]
