@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('slps', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userslp_id');
-            $table->foreign('userslp_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('slp_email');
-            $table->string('slp_password');
-            $table->string('F_slp_name');
-            $table->string('L_slp_name');
-            $table->string('work_place');
+            $table->string('role');
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slps');
+        Schema::dropIfExists('users');
     }
 };

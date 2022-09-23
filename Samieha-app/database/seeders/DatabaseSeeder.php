@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             categoriesTableSeeder::class,
             subcategoriesTableSeeder::class,
             wordsTableSeeder::class,
+            userTableSeeder::class,
             SLPTableSeeder::class,
             patientTableSeeder::class,
             sessionTableSeeder::class,
