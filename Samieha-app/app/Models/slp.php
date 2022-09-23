@@ -12,7 +12,7 @@ class slp extends Model
     protected $fillable = [
         'slp_email',
         'slp_password',
-        'users_id',
+        'userslp_id',
         'F_slp_name',
         'L_slp_name',
         'work_place',
