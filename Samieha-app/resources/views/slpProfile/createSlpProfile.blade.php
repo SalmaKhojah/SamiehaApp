@@ -101,12 +101,26 @@ $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
       "يجب أن يتكون الاسم الأول من أحرف عربية"
       ); 
 
+      //ما تشتغل صح
+  $.validator.addMethod( "uniqueEmail" , function( value,element, $emails ) {
+    for (let i = 0; i < $emails.length; i++) {
+       if(value.val() === $emails[i].val())
+        return false;
+     }
+	   return this.optional( element );
+      } ,
+       "البريد الإلكتروني مستخدم مسبقا"
+      ); 
+
+      
+
 $(function () {
   $('#quickForm').validate({
     rules: {
       slp_email: {
         required: true,
         email: true,
+        uniqueEmail: true,
       },
       slp_password: {
         required: true,
@@ -131,7 +145,8 @@ $(function () {
     messages: {
       slp_email: {
         required: "الرجاء إدخال عنوان البريد الإلكتروني",
-        email: "يرجى إدخال عنوان بريد إلكتروني صالح"
+        email: "يرجى إدخال عنوان بريد إلكتروني صالح",
+        uniqueEmail:"البريد الإلكتروني مستخدم مسبقا"
       },
       slp_password: {
         required: "الرجاء إدخال كلمة مرور",

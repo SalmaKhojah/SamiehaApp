@@ -235,6 +235,12 @@
 
 <!--validate the add paitent form-->
 <script>
+    $.validator.addMethod( "validKSUmobileNumber" , function( value,element ) {
+   	return this.optional( element ) || /^(05)([0-9]{8})$/.test( value );
+     } ,
+     "Please specify a valid ksu mobile number format 05XXXXXXXX"
+     ); 
+
 $(function () {
   $('#quickForm').validate({
     rules: {
@@ -254,6 +260,7 @@ $(function () {
       },
       phone: {
         required: true,
+        validKSUmobileNumber: " يجب أن تكون صيغة رقم الهاتف05 XXXXXXXX "
       },
       nationality: {
         required: true,

@@ -21,7 +21,8 @@ class slpController extends Controller
    
     public function create()
     {
-        return view('slpProfile.createSlpProfile');
+        $emails = User::pluck('email');
+        return view('slpProfile.createSlpProfile')->with('emails',$emails);
     }
 
   
