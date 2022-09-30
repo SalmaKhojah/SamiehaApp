@@ -21,7 +21,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'الهنوف',
             'L_slp_name'=>'المعمر',
-            'userslp_id'=> '11',
+            'users_id'=> '11',
             'work_place'=>'مدينة الأمير سلطان الطبية العسكرية'
             ],
 
@@ -30,7 +30,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',                
             'F_slp_name'=>'نورة',
             'L_slp_name'=>'الخوالد',
-            'userslp_id'=> '12',
+            'users_id'=> '12',
             'work_place'=>' مستشفى مجمع الدمام الطبي'
             ],
 
@@ -39,7 +39,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'عبير',
             'L_slp_name'=>'الحمدي',
-            'userslp_id'=> '13',
+            'users_id'=> '13',
             'work_place'=>'مدينة الملك فهد الطبية'
             ],
 
@@ -48,7 +48,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'خالد',
             'L_slp_name'=>'الأحمد',
-            'userslp_id'=> '14',
+            'users_id'=> '14',
             'work_place'=>'مستشفى قوى الأمن'
             ],
 
@@ -57,7 +57,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'حمزة',
             'L_slp_name'=>'اليوسف',
-            'userslp_id'=> '15',   
+            'users_id'=> '15',   
             'work_place'=>'مستشفى الملك فهد التخصصي بالدمام'
             ],
 
@@ -66,7 +66,7 @@ class SLPTableSeeder extends Seeder
             'slp_email'=>'hala@gmail.com',
             'F_slp_name'=>'هلا',
             'L_slp_name'=>'السيد',
-            'userslp_id'=> '16',
+            'users_id'=> '16',
             'work_place'=>'مستشفى الملك خالد الجامعي'
             ],
 
@@ -75,7 +75,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'يزيد',
             'L_slp_name'=>'القحطاني',
-            'userslp_id'=> '17',
+            'users_id'=> '17',
             'work_place'=>'مستشفى نجران العام'
             ],
             
@@ -84,7 +84,7 @@ class SLPTableSeeder extends Seeder
             'slp_password'=>'$1$F7gWFFzd$Cl0.i7xtj.n4jw93UCVQp.',
             'F_slp_name'=>'عبدالإله',
             'L_slp_name'=>'الثنيان',
-            'userslp_id'=> '18',  
+            'users_id'=> '18',  
             'work_place'=>'مستشفى طريف العام'
         ],
 

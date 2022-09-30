@@ -54,7 +54,7 @@
  
     <div class="tab-content">
         <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
-        <section class="content">
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -108,7 +108,7 @@
                       </div>
                          <div class="form-group">
                         <label for="exampleInputEmail1">البريد الإلكتروني</label>
-                        <input type="email" name="p_email" class="form-control" id="exampleInputEmail1" placeholder="xxxx@example.com">
+                        <input type="email" name="p_email" class="form-control" id="exampleInputEmail1" placeholder="example@example.com">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">كلمة المرور</label>
@@ -285,7 +285,7 @@ $(function () {
       },
       p_password: {
         required: true,
-        minlength: 5
+        minlength: 8
       },
       terms: {
         required: true
@@ -339,7 +339,7 @@ $(function () {
       },
       p_password: {
         required: "الرجاء إدخال كلمة مرور",
-        minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 5 أحرف على الأقل"
+        minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
       },
       terms: "الرجاء قبول شروطنا"
     },

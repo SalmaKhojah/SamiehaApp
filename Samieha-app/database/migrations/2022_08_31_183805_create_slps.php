@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('slps', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userslp_id');
-            $table->foreign('userslp_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('slp_email');
             $table->string('slp_password');
             $table->string('F_slp_name');
