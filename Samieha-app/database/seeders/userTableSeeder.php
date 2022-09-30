@@ -100,7 +100,7 @@ class userTableSeeder extends Seeder
                     'role'=>'2',
                     'name'=> 'نورة الخوالد',
                     'email'=>'nourahkh@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
+                    'password'=>'$1$yr.sT9D8$6t4LF9YKk7XnDHdjKif8g1'
                 ],
 
                 [
