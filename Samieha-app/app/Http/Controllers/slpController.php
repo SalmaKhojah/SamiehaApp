@@ -93,7 +93,9 @@ class slpController extends Controller
     public function destroy($id)
     {
         $Slp=slp::find($id); 
+        $user=User::where('id',$Slp->users_id); 
         $Slp->delete();
+        $user->delete();
         return redirect()->route('slpTable.index')
                         ->with('success','تم حذف الاختصاصي بنجاح');
     }

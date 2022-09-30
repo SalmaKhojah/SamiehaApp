@@ -123,8 +123,9 @@ class patientController extends Controller
     public function destroy($id)
     {
         $patient=patient::find($id); 
+        $user=User::where('id',$patient->users_id); 
         $patient->delete();
-       
+        $user->delete();
         return redirect()->route('patientTable.index')
                         ->with('success','تم حذف المريض بنجاح');
     }
