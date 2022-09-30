@@ -25,10 +25,6 @@ class patientController extends Controller
   
     public function store(Request $request)
     {
-        $last_user_id = DB::table('users')->latest('id')->first();
-        $g=$last_user_id->id;
-        //$last_user_id=DB::select('SELECT id FROM users ORDER BY created_at DESC LIMIT 1');
-        $next_user_id=$g++;
         
         $request->validate([
             'users_id'=>'required',
@@ -55,9 +51,10 @@ class patientController extends Controller
             'email' => $request->p_email,
             'password' => $request->p_password,
         ]);
-      
+
+
             $Patient=patient::create([
-            'users_id'=>$next_user_id,
+            'users_id'=>$User_p->id,
             'p_email' => $request->p_email,
             'p_password' => $request->p_password,
             'national_id' => $request->national_id,
