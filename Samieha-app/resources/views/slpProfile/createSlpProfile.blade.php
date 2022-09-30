@@ -94,6 +94,13 @@
 
 <!-- Page specific script -->
 <script>
+
+$.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
+	   return this.optional( element ) || /^[\u0621-\u064A ]+$/.test( value );
+      } ,
+      "يجب أن يتكون الاسم الأول من أحرف عربية"
+      ); 
+
 $(function () {
   $('#quickForm').validate({
     rules: {
@@ -107,10 +114,12 @@ $(function () {
       },
       F_slp_name: {
         required: true,
+        acceptArabicCharSpaces:"يجب أن يتكون الاسم الأول من أحرف عربية",
         minlength: 2
       },
       L_slp_name: {
         required: true,
+        acceptArabicCharSpaces:"يجب أن يتكون الاسم الأول من أحرف عربية",
         minlength: 2
       },
       work_place: {
