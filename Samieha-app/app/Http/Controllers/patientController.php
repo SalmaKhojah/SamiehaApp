@@ -27,7 +27,6 @@ class patientController extends Controller
     {
         
         $request->validate([
-            'users_id'=>'required',
             'p_email' => 'required',
             'p_password' => 'required',
             'national_id' => 'required',
@@ -45,7 +44,7 @@ class patientController extends Controller
             'assesment_method' => 'required',
         ]);
 
-        $User_p=User::create([
+        $User_p_id=DB::table('users')->insertGetId([
             'role' => '1',
             'name' => $request->first_name,
             'email' => $request->p_email,
@@ -54,7 +53,7 @@ class patientController extends Controller
 
 
             $Patient=patient::create([
-            'users_id'=>$User_p->id,
+            'users_id'=>$User_p_id,
             'p_email' => $request->p_email,
             'p_password' => $request->p_password,
             'national_id' => $request->national_id,

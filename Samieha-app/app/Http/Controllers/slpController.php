@@ -30,13 +30,12 @@ class slpController extends Controller
         $request->validate([
             'slp_email'=>'required',
             'slp_password'=>'required',
-            'users_id'=>'required',
             'F_slp_name'=>'required',
             'L_slp_name'=>'required',
             'work_place'=>'required',
         ]);
 
-        $User_slp=User::create([
+        $User_slp_id=DB::table('users')->insertGetId([
             'role' => '2',
             'name' => $request->F_slp_name,
             'email' => $request->slp_email,
@@ -44,10 +43,9 @@ class slpController extends Controller
         ]);
 
 
-        $slp_id=$User_slp->id;
 
         $Sllp=slp::create([
-            'users_id'=>$slp_id,
+            'users_id'=>$User_slp_id,
             'slp_email'=>$request->slp_email,
             'slp_password'=>$request->slp_password,
             'F_slp_name'=>$request->F_slp_name,
