@@ -102,12 +102,12 @@ $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
       ); 
 
       //ما تشتغل صح
-  $.validator.addMethod( "uniqueEmail" , function( value,element, $emails ) {
-    for (let i = 0; i < $emails.length; i++) {
-       if(value.val() === $emails[i].val())
-        return false;
+  $.validator.addMethod( "uniqueEmail" , function( value,element, $email ) {
+    for (let i = 0; i < $email.length; i++) {
+       if(value.val() === $email[i].val())
+        return true;
      }
-	   return this.optional( element );
+	     return false;
       } ,
        "البريد الإلكتروني مستخدم مسبقا"
       ); 
