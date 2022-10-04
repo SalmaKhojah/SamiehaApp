@@ -2,47 +2,47 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sanctum/models/post.dart';
+import 'package:flutter_sanctum/models/session.dart';
 import 'package:dio/dio.dart' as Dio;
 
 import '../dio.dart';
 
-class PostsScreen extends StatefulWidget {
+class SessionScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return PostsState();
+    return SessionState();
   }
 }
 
-class PostsState extends State<PostsScreen> {
-  Future<List<Post>> getPosts() async {
+class SessionState extends State<SessionScreen> {
+  Future<List<Session>> getSessions() async {
 
     Dio.Response response = await dio().get(
-      'user/posts',
+      'user/image',
       options: Dio.Options(
         headers: { 'auth': true }
       )
     );
 
-    List posts = json.decode(response.toString());
-    return posts.map((post) => Post.fromJson(post)).toList();
+    List sessions = json.decode(response.toString());
+    return sessions.map((session) => Session.fromJson(session)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-         centerTitle: false,
+         backgroundColor: Colors.amber,
+          centerTitle: false,
       title: new Padding(
         padding: const EdgeInsets.only(left: 240.0),
-        child: new Text("الجلسات"),
+        child: new Text("الجلسة-1"),
       ),
 
       ),
       body: Center(
-          child: FutureBuilder<List<Post>> (
-            future: getPosts(),
+          child: FutureBuilder<List<Session>> (
+            future: getSessions(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
 
@@ -52,7 +52,7 @@ class PostsState extends State<PostsScreen> {
                       var item = snapshot.data[index];
 
                       return ListTile(
-                        title: Text(item.title),
+                        title: Text(item.image),
                       );
                     }
 
@@ -60,7 +60,7 @@ class PostsState extends State<PostsScreen> {
 
 
               } else if (snapshot.hasError) {
-                return Text('لا توجد جلسات متاحة');
+                return Text('لا توجد عناصر متاحة');
               }
 
               return CircularProgressIndicator();

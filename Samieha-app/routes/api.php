@@ -16,6 +16,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     });
 
     Route::get('/user/posts', function (Request $request) {
+        return $request->user()->words;
+    });
+
+    Route::get('/user/image', function (Request $request) {
         return $request->user()->posts;
     });
 
