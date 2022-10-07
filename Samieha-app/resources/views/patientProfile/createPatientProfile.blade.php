@@ -10,7 +10,7 @@
     <!-- CSS -->
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
-    
+
   @endsection
 
   @section('bar1')
@@ -42,12 +42,6 @@
                           <a class="nav-link default done" href="#step-2">
                             <span class="num">2</span>
                             معلومات طبية
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link default done" href="#step-3">
-                            <span class="num">3</span>
-                             وش احط
                           </a>
                         </li>
                     </ul>
@@ -115,11 +109,7 @@
                         <input type="password" name="p_password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
                       </div>
                      </div>
-                     <!-- /.card-body -->
-  
-
-                    
-               
+                     <!-- /.card-body -->   
             </div>
             <!-- /.card -->
             </div>
@@ -132,7 +122,7 @@
 
         </div>
         <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
-        <section class="content">
+    <section class="content" id="quickForm2">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -176,10 +166,6 @@
                       <div class="card-footer">
                        <button type="submit" class="btn btn-primary">إضافة</button>
                      </div> 
-
-                    
-               
-
               </form>
             </div>
             <!-- /.card -->
@@ -193,16 +179,22 @@
 
 
         </div>
-        <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-            Step content
-        </div>
+
 
     </div>
  
 
 </div> 
 
+<script>
+  $(function () {
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+  })
 
+</script>
   @endsection
 
   @section('scripts')
@@ -211,10 +203,6 @@
 <!-- jquery-validation -->
 <script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
-
-<!-- date-range-picker -->
-<script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
-
 
 <!-- InputMask -->
 <script src="{{URL::asset('assets/plugins/moment/moment.min.js')}}"></script>
@@ -240,6 +228,8 @@
      } ,
      "Please specify a valid ksu mobile number format 05XXXXXXXX"
      ); 
+
+   
 
 $(function () {
   $('#quickForm').validate({
@@ -294,9 +284,6 @@ $(function () {
         required: true,
         minlength: 8
       },
-      terms: {
-        required: true
-      },
     },
     messages: {
         first_name: {
@@ -348,7 +335,6 @@ $(function () {
         required: "الرجاء إدخال كلمة مرور",
         minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
       },
-      terms: "الرجاء قبول شروطنا"
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
@@ -364,19 +350,7 @@ $(function () {
   });
   
 });
-</script>
-<!--date picker-->
-<script>
-  $(function () {
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-    //Timepicker
-    $('#timepicker').datetimepicker({
-      format: 'LT'
-    })
-  })
+
 </script>
 
 
@@ -384,24 +358,23 @@ $(function () {
 
 <script>
     var $ = require( "jquery" );
-require( "smartwizard/dist/css/smart_wizard_all.css");
-const smartWizard = require("smartwizard");
-
-$(function() {
-    $('#smartwizard').smartWizard();
-});
-</script>
-
-<script>
-import $ from "jquery";
-import "smartwizard/dist/css/smart_wizard_all.css";
-import smartWizard from 'smartwizard';
-
-$(function() {
-    $('#smartwizard').smartWizard();
+    require( "smartwizard/dist/css/smart_wizard_all.css");
+    const smartWizard = require("smartwizard");
     
-});
-
+    $(function() {
+        $('#smartwizard').smartWizard();
+    });
+    </script>
+    
+    <script>
+    import $ from "jquery";
+    import "smartwizard/dist/css/smart_wizard_all.css";
+    import smartWizard from 'smartwizard';
+    
+    $(function() {
+        $('#smartwizard').smartWizard();
+    });
+    
 </script>
 
 <script>
@@ -416,10 +389,11 @@ $(function() {
                          showNextButton: true,
                          showPreviousButton: true
                      }
-                     
+     
       })
 
       
 </script>
+
 
  @endsection

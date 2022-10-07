@@ -69,28 +69,11 @@ class MaterialController extends Controller
             'category_id'=>$category_id,
            ]);
            
-           if($category_id===1)
-           {$pathImage = $request->file('image')->store('public/img/nouns');
-           $pathAudiocue3 = $request->file('cue3')->store('public/audio/nouns');
-           $pathAudiocue5 = $request->file('cue5')->store('public/audio/nouns');
-           $pathAudiocue7 = $request->file('cue7')->store('public/audio/nouns');}
-           else
-           if($category_id===2)
-           {$pathImage = $request->file('image')->store('public/img/verbs');
-           $pathAudiocue3 = $request->file('cue3')->store('public/audio/verbs');
-           $pathAudiocue5 = $request->file('cue5')->store('public/audio/verbs');
-           $pathAudiocue7 = $request->file('cue7')->store('public/audio/verbs');}
-           else
-           if($category_id===3)
-          { $pathImage = $request->file('image')->store('public/img/adjectives');
-           $pathAudiocue3 = $request->file('cue3')->store('public/audio/adjectives');
-           $pathAudiocue5 = $request->file('cue5')->store('public/audio/adjectives');
-           $pathAudiocue7 = $request->file('cue7')->store('public/audio/adjectives');}
-           else
-           { $pathImage = $request->file('image')->store('public/img/'.$request->category);
-            $pathAudiocue3 = $request->file('cue3')->store('public/audio/'.$request->category);
-            $pathAudiocue5 = $request->file('cue5')->store('public/audio/'.$request->category);
-            $pathAudiocue7 = $request->file('cue7')->store('public/audio/'.$request->category);}
+ 
+            $pathImage = $request->file('image')->store('public/img/'.$request->category.'/'.$request->subcategory);
+            $pathAudiocue3 = $request->file('cue3')->store('public/audio/'.$request->category.'/'.$request->subcategory);
+            $pathAudiocue5 = $request->file('cue5')->store('public/audio/'.$request->category.'/'.$request->subcategory);
+            $pathAudiocue7 = $request->file('cue7')->store('public/audio/'.$request->category.'/'.$request->subcategory);
 
         $word=words::create([
             'subcategory_id'=>$subcategory_id,

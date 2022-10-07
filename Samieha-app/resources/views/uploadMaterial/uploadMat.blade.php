@@ -1,116 +1,443 @@
 @extends('layout.master')
 
 @section('title')
-  رفع مواد الجلسة
+  إضافة مريض
   @endsection
 
   @section('css')
-
-    <!-- BS Stepper -->
-    <link rel="stylesheet" href="{{asset('assets/plugins/bs-stepper/css/bs-stepper.min.css')}}">
+ 
+  <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <!-- CSS -->
+    <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    
   @endsection
 
   @section('bar1')
-   رفع مواد الجلسة
+   رفع مواد الجلسات
+  @endsection
+  
+  @section('bar2')
+ الرئيسية 
   @endsection
 
-  @section('bar2')
-   الرئيسية
-  @endsection
+  @section('link2')
+   {{url('/')}}
+   @endsection
+
+
 
   @section('content')
-    <!-- Main content -->
+
+<!-- SmartWizard html -->
+<div id="smartwizard">
+<ul class="nav nav-progress">
+                        <li class="nav-item">
+                          <a class="nav-link default done" href="#step-1">
+                            <div class="num">1</div>
+                             التصنيف الرئيسي
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link default done" href="#step-2">
+                            <span class="num">2</span>
+                            التصنيف الفرعي
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link default done" href="#step-3">
+                            <span class="num">3</span>
+                            الصورة
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link default done" href="#step-4">
+                            <span class="num">4</span>
+                            الكلمة
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link default done" href="#step-5">
+                            <span class="num">5</span>
+                            التلميحات
+                          </a>
+                        </li>
+                    </ul>
+ 
+    <div class="tab-content">
+        <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+          <!-- left column -->
           <div class="col-md-12">
-            <div class="card card-default">
+            <!-- jquery validation -->
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">رفع مواد الجلسات</h3>
+                <h3 class="card-title">إضافة معلومات المريض الشخصية</h3>
               </div>
-              <div class="card-body p-0">
-                <div class="bs-stepper">
-                  <div class="bs-stepper-header" role="tablist">
-                    <!-- your steps here -->
-                    <div class="step" data-target="#logins-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
-                        <span class="bs-stepper-circle">1</span>
-                        <span class="bs-stepper-label">Logins</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#information-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Various information</span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="bs-stepper-content">
-                    <!-- your steps content here -->
-                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
+                @csrf
+                    <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <label for="exampleInputName1">الاسم الأول</label>
+                        <input type="text" name="first_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="exampleInputName2">الاسم الأخير</label>
+                        <input type="text" name="last_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                          </div>
-                        </div>
+                        <label for="exampleInputnational_id">رقم الهوية</label>
+                        <input type="text" name="national_id" class="form-control" id="exampleInputnational_id" placeholder="ادخل رقم الهوية">
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
+                         <div class="form-group">
+                         <label for="exampleInputbirth_date">تاريخ الميلاد</label>
+                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                 <input type="text" name="birth_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="form-group">
+                        <label for="exampleInputphone1">رقم الهاتف</label>
+                        <input type="tel" name="phone" class="form-control" id="exampleInputphone1" placeholder="ادخل رقم الهاتف">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputnationality1">الجنسية</label>
+                        <input type="text" name="nationality" class="form-control" id="exampleInputnationality1" placeholder="ادخل الجنسية">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputregion1">المنطقة</label>
+                        <input type="text" name="region" class="form-control" id="exampleInputregion1" placeholder="ادخل المنطقة">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputcity1">المدينة</label>
+                        <input type="text" name="city" class="form-control" id="exampleInputcity1" placeholder="ادخل المدينة">
+                      </div>
+                         <div class="form-group">
+                        <label for="exampleInputEmail1">البريد الإلكتروني</label>
+                        <input type="email" name="p_email" class="form-control" id="exampleInputEmail1" placeholder="example@example.com">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">كلمة المرور</label>
+                        <input type="password" name="p_password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
+                      </div>
+                     </div>
+                     <!-- /.card-body -->
+  
+
+                    
+               
             </div>
             <!-- /.card -->
-          </div>
+            </div>
+
         </div>
-      </div>
-      <!-- /.container-fluid -->
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+  
+
+
+        </div>
+        <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+        <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">إضافة معلومات المريض الطبية</h3>
+              </div>
+
+
+                    <div class="card-body">
+                      <div class="form-group">
+                        <label for="exampleInputdiagnosis1">التشخيص</label>
+                        <input type="text" name="diagnosis" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputcharacteristics1">الأعراض</label>
+                        <input type="text" name="characteristics" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
+                        <input type="text" name="neurological_damage" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
+                        <input type="text" name="severity" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputassesment_method1">طريقة التقييم</label>
+                        <input type="text" name="assesment_method" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
+                      </div>
+                      <div class="form-group mb-0">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                          <label class="custom-control-label" for="exampleCheck1">أوافق على <a href="#">شروط الخدمة</a>.</label>
+                        </div>
+                      </div>
+                     </div>
+                     <!-- /.card-body -->
+                      <div class="card-footer">
+                       <button type="submit" class="btn btn-primary">إضافة</button>
+                     </div> 
+
+                    
+               
+
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+  
+
+
+        </div>
+        <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+            Step content
+        </div>
+        <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+            Step content
+        </div>
+        <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+            Step content
+        </div>
+
+    </div>
+ 
+
+</div> 
+
+
   @endsection
 
   @section('scripts')
 <!-- jQuery -->
 <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- bs-custom-file-input -->
-<script src="{{URL::asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{URL::asset('assets/js/demo.js')}}"></script>
-<!-- Page specific script -->
+<!-- jquery-validation -->
+<script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+
+<!-- date-range-picker -->
+<script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+
+
+<!-- InputMask -->
+<script src="{{URL::asset('assets/plugins/moment/moment.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{URL::asset('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!---Wizerd--->
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+<!--validate the add paitent form-->
 <script>
+    $.validator.addMethod( "validKSUmobileNumber" , function( value,element ) {
+   	return this.optional( element ) || /^(05)([0-9]{8})$/.test( value );
+     } ,
+     "Please specify a valid ksu mobile number format 05XXXXXXXX"
+     ); 
+
 $(function () {
-  bsCustomFileInput.init();
+  $('#quickForm').validate({
+    rules: {
+        first_name: {
+        required: true,
+      },
+      last_name: {
+        required: true,
+      },
+      national_id: {
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      },
+      birth_date: {
+        required: true,
+      },
+      phone: {
+        required: true,
+        validKSUmobileNumber: " يجب أن تكون صيغة رقم الهاتف05 XXXXXXXX "
+      },
+      nationality: {
+        required: true,
+      },
+      region: {
+        required: true,
+      },
+      city: {
+        required: true,
+      },
+      diagnosis: {
+        required: true,
+      },
+      characteristics: {
+        required: true,
+      },
+      neurological_damage: {
+        required: true,
+      },
+      severity: {
+        required: true,
+      },
+      assesment_method: {
+        required: true,
+      },
+      p_email: {
+        required: true,
+        email: true,
+      },
+      p_password: {
+        required: true,
+        minlength: 8
+      },
+      terms: {
+        required: true
+      },
+    },
+    messages: {
+        first_name: {
+        required: "الرجاء إدخال الاسم الأول",
+        },
+        last_name: {
+        required: "الرجاء إدخال الاسم الأخير",
+        },
+        national_id: {
+        required: "الرجاء إدخال رقم الهوية ",
+        minlength: "يجب أن تتكون رقم الهوية الخاصة بك لا تقل عن 10 أرقام",
+        maxlength: "يجب أن تتكون رقم الهوية الخاصة بك لا تزيد عن 10 أرقام",
+        },
+        birth_date: {
+        required: "الرجاء إدخال تاريخ الميلاد",
+          },
+          phone: {
+            required: "الرجاء إدخال رقم الهاتف",
+          },
+          nationality: {
+            required: "الرجاء إدخال الجنسية",
+          },
+          region: {
+            required: "الرجاء إدخال المنطقة",
+          },
+          city: {
+            required: "الرجاء إدخال المدينة",
+          },
+          diagnosis: {
+            required: "الرجاء إدخال التشخيص",
+          },
+          characteristics: {
+            required: "الرجاء إدخال الأعراض",
+          },
+          neurological_damage: {
+            required: "الرجاء إدخال منطقة الإصابة العصبية",
+          },
+          severity: {
+            required: "الرجاء إدخال شدة الإصابة العصبية",
+          },
+          assesment_method: {
+            required: "الرجاء إدخال طريقة التقييم",
+          },
+        p_email: {
+        required: "الرجاء إدخال عنوان البريد الإلكتروني",
+        email: "يرجى إدخال عنوان بريد إلكتروني صالح"
+      },
+      p_password: {
+        required: "الرجاء إدخال كلمة مرور",
+        minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
+      },
+      terms: "الرجاء قبول شروطنا"
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+  
 });
 </script>
-<!-- BS-Stepper -->
-<script src="{{URL::asset('assets/plugins/bs-stepper/js/bs-stepper.min.js')}}"></script>
+<!--date picker-->
 <script>
-  // BS-Stepper Init
-  document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  $(function () {
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
   })
+</script>
+
+
+  
+
+<script>
+    var $ = require( "jquery" );
+require( "smartwizard/dist/css/smart_wizard_all.css");
+const smartWizard = require("smartwizard");
+
+$(function() {
+    $('#smartwizard').smartWizard();
+});
+</script>
+
+<script>
+import $ from "jquery";
+import "smartwizard/dist/css/smart_wizard_all.css";
+import smartWizard from 'smartwizard';
+
+$(function() {
+    $('#smartwizard').smartWizard();
+    
+});
+
+</script>
+
+<script>
+
+     $('#smartwizard').smartWizard({
+                     theme: 'dots',
+                     transitionEffect: 'fade',
+                     transitionSpeed: '400',
+                     lang: { next: 'التالي', previous: 'السابق'},
+                     toolbarSettings: {
+                         toolbarButtonPosition: 'left',
+                         showNextButton: true,
+                         showPreviousButton: true
+                     }
+                     
+      })
+
+      
 </script>
 
  @endsection
