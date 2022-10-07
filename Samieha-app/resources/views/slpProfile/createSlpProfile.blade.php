@@ -105,9 +105,9 @@ $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
   $.validator.addMethod( "uniqueEmail" , function( value,element, $email ) {
     for (let i = 0; i < $email.length; i++) {
        if(value.val() === $email[i].val())
-        return true;
+        return false;
      }
-	     return false;
+	     return true;
       } ,
        "البريد الإلكتروني مستخدم مسبقا"
       ); 

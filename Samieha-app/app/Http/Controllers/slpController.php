@@ -30,7 +30,7 @@ class slpController extends Controller
             $email[] = $em->email;
         }
 
-
+//dd($email);
 
            if(isset($email)){
 
