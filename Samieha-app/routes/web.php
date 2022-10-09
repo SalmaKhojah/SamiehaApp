@@ -35,3 +35,7 @@ Route::get('/uploadMat', function () {
 Route::get('/new', function () {
     return view('new');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
