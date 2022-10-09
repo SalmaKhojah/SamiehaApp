@@ -62,14 +62,10 @@
                     <option value="الأسماء" selected="selected">الأسماء</option>
                     <option value="الأفعال" >الأفعال</option>
                     <option value="الصفات">الصفات</option>
-                    <!-- <option value="أخرى">أخرى</option> -->
                   </select>
                   </div>
 
-                  <!-- <div id="mainCategoryother" class="form-group" style="display:none;">
-                    <label for="exampleInputt">التصنيف الرئيسي</label>
-                    <input name="category" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الرئيسي">
-                  </div> -->
+  
                   
                   <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
@@ -77,15 +73,25 @@
                     <option value="أثاث" selected="selected">أثاث</option>
                     <option value="فواكه" >فواكه</option>
                     <option value="ملابس">ملابس</option>
-                    <!-- <option value="أخرى">أخرى</option> -->
+                    <option value="أخرى">أخرى</option>
                   </select>
                   </div>
+                   <!-- to set the name value of SubCategory of id=subcategoryother -->
+                  <script>
+                  $(document).on("change","#SubCategory", function(){
+                    var SubCategory = $(this).val();
+                    if(SubCategory === "أخرى"){
+                      $("#subcategoryother").attr("name", "subcategory");
+                    }
+                  });
+                </script>
 
-                  <!-- <div id="subcategoryother" class="form-group" style="display:none;">
+
+                  <div id="subcategoryother" class="form-group" style="display:none;">
                     <label for="exampleInput">التصنيف الفرعي</label>
                     <input name="subcategory" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
-                  </div> -->
-        
+                  </div>
+            
                      
                   <div class="form-group">
                      <label for="exampleInputName1">الصورة</label>
@@ -292,26 +298,16 @@
 </script>
 
 
-<!-- <script>
-$(document).on("change","#mainCategory", function(){
-  var mainCategory = $(this).val();
-  if(mainCategory === "أخرى"){
-    $("#mainCategoryother").show();
-  }else{
-    $("#mainCategoryother").hide();
-  }
-});
-</script>
-
 <script>
 $(document).on("change","#SubCategory", function(){
   var SubCategory = $(this).val();
   if(SubCategory === "أخرى"){
+    $("#subcategoryother").attr("name", "subcategory");
     $("#subcategoryother").show();
   }else{
     $("#subcategoryother").hide();
   }
 });
-</script> -->
+</script>
 
  @endsection

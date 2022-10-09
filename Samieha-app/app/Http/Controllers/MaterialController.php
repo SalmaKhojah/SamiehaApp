@@ -29,6 +29,18 @@ class MaterialController extends Controller
      */
     public function create()
     {
+        $Nounes = subcategories::where('category_id', 1)->get();
+        $Verbs = subcategories::where('category_id', 2)->get();
+        $Adjectives = subcategories::where('category_id', 3)->get();
+
+
+
+        
+
+dd($Nounes);
+        $subcategory_id=subcategories::where('subcategory', $request->subcategory )->first();
+
+
         return view('uploadMaterial.uploadMat');
     }
 
@@ -66,18 +78,20 @@ class MaterialController extends Controller
         ]);
 
 
-        // $category_id=DB::select('SELECT id FROM categories where category = "'.$request->category.'"');
-        // $subcategory_id=DB::select('SELECT id FROM subcategories where subcategory = "'.$request->subcategory.'"');
+           $category_id=categories::where('category', $request->category )->first()->id;
 
-        $category_id=DB::table('categories')->insertGetId([
-            'category'=>$request->category,
-           ]);  
+           $subcategory_id=subcategories::where('subcategory', $request->subcategory )->first();
 
-        $subcategory_id=DB::table('subcategories')->insertGetId([
-            'subcategory'=>$request->subcategory,
-            'category_id'=>$category_id,
-           ]);  
- 
+           if(isset($subcategory_id)){
+            $subcategoryId=$subcategory_id->id; 
+           }
+           else{
+             $subcategoryId=DB::table('subcategories')->insertGetId([
+                 'subcategory'=>$request->subcategory,
+                 'category_id'=>$category_id,
+                ]); 
+           }
+
 
             $pathImage = $request->file('image')->store('public/img/'.$request->category.'/'.$request->subcategory);
             $pathAudiocue3 = $request->file('cue3')->store('public/audio/'.$request->category.'/'.$request->subcategory);
@@ -85,7 +99,7 @@ class MaterialController extends Controller
             $pathAudiocue7 = $request->file('cue7')->store('public/audio/'.$request->category.'/'.$request->subcategory);
            
             $word=words::create([
-                'subcategory_id'=>$subcategory_id,
+                'subcategory_id'=>$subcategoryId,
                 'word'=>$request->word,
                 'image'=>$pathImage,
                 'cue1'=>$request->cue1,
@@ -97,6 +111,7 @@ class MaterialController extends Controller
                 'cue7'=>$pathAudiocue7,
             ]);
 
+      
 
     
 
