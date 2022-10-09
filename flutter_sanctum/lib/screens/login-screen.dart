@@ -35,7 +35,10 @@ class LoginState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('تسجيل الدخول'),
+        title: new Padding(
+        padding: const EdgeInsets.only(left: 200.0),
+        child: new Text("تسجيل الدخول"),
+      ),
       ),
       body: Form(
         //to vslidate input
@@ -47,6 +50,7 @@ class LoginState extends State<LoginScreen> {
             child: Column(
               children: [
                 TextFormField(
+                textAlign: TextAlign.right,
                   initialValue: '',
                   decoration: InputDecoration(
                     labelText: 'البريد الإلكتروني',
@@ -55,12 +59,12 @@ class LoginState extends State<LoginScreen> {
                   
                    validator: (value) {
                      if (value.isEmpty) {
-                       return 'Please enter your email';
+                       return 'أدخل البريد الإلكتروني';
                     } else  {
                       bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value);
 
                     if (!emailValid) {
-                       return 'Please enter a valid email address';
+                       return 'أدخل البريد الإلكتروني بشكل صحيح';
                     }
                   }
                     return null;
@@ -78,14 +82,15 @@ class LoginState extends State<LoginScreen> {
 
                 ),
                 TextFormField(
+                 textAlign: TextAlign.right,
                   initialValue: '',
                   decoration: InputDecoration(
                       labelText: 'كلمة المرور',
-                      hintText: 'Enter you password'
+                      hintText: 'أدخل كلمة المرور'
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
-                       return 'Please enter your account password';
+                       return 'أدخل كلمة المرور';
                     }
                   },
                   onSaved: (value) {

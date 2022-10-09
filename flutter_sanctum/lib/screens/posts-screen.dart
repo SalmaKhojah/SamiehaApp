@@ -32,7 +32,12 @@ class PostsState extends State<PostsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('الجلسات'),
+        backgroundColor: Colors.amber,
+         centerTitle: false,
+      title: new Padding(
+        padding: const EdgeInsets.only(left: 240.0),
+        child: new Text("الجلسات"),
+      ),
       ),
       body: Center(
           child: FutureBuilder<List<Post>> (

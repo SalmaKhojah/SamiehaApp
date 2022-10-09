@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sanctum/providers/auth.dart';
 import 'package:flutter_sanctum/screens/login-screen.dart';
 import 'package:flutter_sanctum/screens/posts-screen.dart';
+import 'package:flutter_sanctum/screens/session_screen.dart';
 import 'package:provider/provider.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -21,6 +22,12 @@ class NavDrawer extends StatelessWidget {
                   title: Text('الجلسات'),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => PostsScreen()));
+                  },
+                ),
+                ListTile(
+                  title: Text('الجلسة الأولى'),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SessionScreen()));
                   },
                 ),
                 ListTile(
