@@ -155,12 +155,6 @@
                         <label for="exampleInputassesment_method1">طريقة التقييم</label>
                         <input type="text" name="assesment_method" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
                       </div>
-                      <div class="form-group mb-0">
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                          <label class="custom-control-label" for="exampleCheck1">أوافق على <a href="#">شروط الخدمة</a>.</label>
-                        </div>
-                      </div>
                      </div>
                      <!-- /.card-body -->
                       <div class="card-footer">

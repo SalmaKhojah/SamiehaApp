@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\categories;
 use App\Models\subcategories;
 use App\Models\words;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -31,6 +32,8 @@ class MaterialController extends Controller
         return view('uploadMaterial.uploadMat');
     }
 
+    
+
     /**
      * Store a newly created resource in storage.
      * 
@@ -39,55 +42,68 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $request->validate([
-            'category'=>'required|string',
-            'subcategory'=>'required|string',
-            'word'=>'required|string',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'category'=>'required',
+            'subcategory'=>'required',
+            'word'=>'required',
+            'image' => 'required',
                 //semantic cue
-            'cue1'=>'required|string',
+            'cue1'=>'required',
                 //sentence completion
-            'cue2'=>'required|string',
+            'cue2'=>'required',
                 //first sound 
-            'cue3'=>'required|audio|duration_min:5|duration_max:50|codec:mp3,pcm_s16le',
+            'cue3'=>'required|audio',
+                 //first syllable (spoken)
+            'cue4'=>'required|audio',
                 //first letter (written only)
-            'cue4'=>'required|string',
-                //first syllable (spoken)
-            'cue5'=>'required|string',
+            'cue5'=>'required',
                 // written word (written only) 
-            'cue6'=>'required|string',
+            'cue6'=>'required',
                 //spoken word(modeling) 
-            'cue7'=>'required|audio|duration_min:10|duration_max:100|codec:mp3,pcm_s16le',
+            'cue7'=>'required|audio',
         ]);
 
+
+        // $category_id=DB::select('SELECT id FROM categories where category = "'.$request->category.'"');
+        // $subcategory_id=DB::select('SELECT id FROM subcategories where subcategory = "'.$request->subcategory.'"');
+
         $category_id=DB::table('categories')->insertGetId([
-         'category'=>$request->category,
-        ]);
+            'category'=>$request->category,
+           ]);  
 
         $subcategory_id=DB::table('subcategories')->insertGetId([
             'subcategory'=>$request->subcategory,
             'category_id'=>$category_id,
-           ]);
-           
+           ]);  
  
+
             $pathImage = $request->file('image')->store('public/img/'.$request->category.'/'.$request->subcategory);
             $pathAudiocue3 = $request->file('cue3')->store('public/audio/'.$request->category.'/'.$request->subcategory);
-            $pathAudiocue5 = $request->file('cue5')->store('public/audio/'.$request->category.'/'.$request->subcategory);
+            $pathAudiocue4 = $request->file('cue4')->store('public/audio/'.$request->category.'/'.$request->subcategory);
             $pathAudiocue7 = $request->file('cue7')->store('public/audio/'.$request->category.'/'.$request->subcategory);
+           
+            $word=words::create([
+                'subcategory_id'=>$subcategory_id,
+                'word'=>$request->word,
+                'image'=>$pathImage,
+                'cue1'=>$request->cue1,
+                'cue2'=>$request->cue2,
+                'cue3'=>$pathAudiocue3,
+                'cue4'=>$pathAudiocue4,
+                'cue5'=>$request->cue5,
+                'cue6'=>$request->cue6,
+                'cue7'=>$pathAudiocue7,
+            ]);
 
-        $word=words::create([
-            'subcategory_id'=>$subcategory_id,
-            'word'=>$request->word,
-            'image'=>$pathImage,
-            'cue1'=>$request->cue1,
-            'cue2'=>$request->cue2,
-            'cue3'=>$request->pathAudiocue3,
-            'cue4'=>$request->cue4,
-            'cue5'=>$request->pathAudiocue5,
-            'cue6'=>$request->cue6,
-            'cue7'=>$request->pathAudiocue7,
-        ]);
-    }
+
+    
+
+        return redirect()->route('slpTable.index')
+                         ->with('success','تمت الإضافة بنجاح');
+
+        }
 
     /**
      * Display the specified resource.

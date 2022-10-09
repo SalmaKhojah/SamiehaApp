@@ -65,7 +65,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">إضافة</button>
                 </div>
               </form>
 
@@ -133,7 +133,7 @@ $(function () {
       },
       L_slp_name: {
         required: true,
-        acceptArabicCharSpaces:"يجب أن يتكون الاسم الأول من أحرف عربية",
+        acceptArabicCharSpaces:"يجب أن يتكون الاسم الأخير من أحرف عربية",
         minlength: 2
       },
       work_place: {
