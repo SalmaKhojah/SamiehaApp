@@ -29,19 +29,39 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        $Nounes = subcategories::where('category_id', 1)->get();
-        $Verbs = subcategories::where('category_id', 2)->get();
-        $Adjectives = subcategories::where('category_id', 3)->get();
+        $Nounes = DB::select('SELECT subcategory from subcategories where category_id = 1');
+        $Verbs = DB::select('SELECT subcategory from subcategories where category_id = 2');
+        $Adjectives = DB::select('SELECT subcategory from subcategories where category_id = 3');
+
+        // $Noune = [];
+        // $Verb = [];
+        // $Adjective = [];
+
+        // foreach( $Nounes as $Nou )
+        // {
+        //     $Noune[] = $Nou->subcategory;
+        // }
+
+        // foreach( $Verbs as $Ver )
+        // {
+        //     $Verb[] = $Ver->subcategory;
+        // }
+
+        // foreach( $Adjectives as $Adj )
+        // {
+        //     $Adjective[] = $Adj->subcategory;
+        // }
 
 
+        // if(isset($Nounes)&&isset($Verbs)&&isset($Adjectives)){
+        //     return view('uploadMaterial.uploadMat',compact('Nounes' ,'Verbs', 'Adjectives'));
 
-        
-
-dd($Nounes);
-        $subcategory_id=subcategories::where('subcategory', $request->subcategory )->first();
-
+        // }else{
+        // }
 
         return view('uploadMaterial.uploadMat');
+
+
     }
 
     

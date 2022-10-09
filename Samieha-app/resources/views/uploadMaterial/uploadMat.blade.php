@@ -63,10 +63,7 @@
                     <option value="الأفعال" >الأفعال</option>
                     <option value="الصفات">الصفات</option>
                   </select>
-                  </div>
-
-  
-                  
+                  </div>                
                   <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
@@ -164,7 +161,7 @@
 
 <!-- Page specific script -->
 
-<!-- <script>
+<script>
 
   $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
   	   return this.optional( element ) || /^[\u0621-\u064A ]+$/.test( value );
@@ -283,7 +280,7 @@
       }
     });
   });
-</script> -->
+</script>
 
 <script>
   $(function () {
@@ -311,3 +308,6 @@ $(document).on("change","#SubCategory", function(){
 </script>
 
  @endsection
+
+
+
