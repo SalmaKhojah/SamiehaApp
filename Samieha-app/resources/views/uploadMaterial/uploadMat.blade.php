@@ -65,16 +65,18 @@
             <form action="{{route('Material.store')}}" method="POST" enctype="multipart/form-data" id="quickForm">
               @csrf
                 <div class="card-body">
+
+                
                   <div>
                     <label for="exampleInputName1">التصنيف الرئيسي</label>
                   <select id="mainCategory" name="category" class="form-control select2" style="width: 100%;">
-                    <option value="الأسماء" selected="selected">الأسماء</option>
-                    <option value="الأفعال" >الأفعال</option>
-                    <option value="الصفات">الصفات</option>
+                  @foreach($categories as $cat )
+                  <option value="{{$cat->category}}">{{$cat->category}}</option>
+                  @endforeach
                   </select>
                   </div> 
 
-                  <div>
+                    <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
                     <option value="أثاث" selected="selected">أثاث</option>
@@ -83,6 +85,7 @@
                     <option value="أخرى">أخرى</option>
                   </select>
                   </div>
+
                    <!-- to set the name value of SubCategory of id=subcategoryother -->
                   <script>
                   $(document).on("change","#SubCategory", function(){
