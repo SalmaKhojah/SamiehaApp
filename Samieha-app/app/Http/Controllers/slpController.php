@@ -53,4 +53,10 @@ class slpController extends Controller
     {
         //
     }
+
+    //ghada 
+    public function home()
+    {
+        //
+    }
 }

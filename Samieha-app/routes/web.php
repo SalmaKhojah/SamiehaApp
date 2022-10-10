@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\slpController;
 use App\Http\Controllers\patientController;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,26 +16,45 @@ use App\Http\Controllers\patientController;
 */
 
 /*Home Page route*/
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// password A!123456x
+Auth::routes();
 
 
-/*Speeach and Language Pathologist route*/
-Route::resource('/slpTable' , slpController::class);
+// Admin routes
+Route::middleware(['auth','admin'])->group(function () {
+  
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    /*Speeach and Language Pathologist route*/
+    Route::resource('/slpTable' , slpController::class);
 
 /* patient route*/
 Route::resource('/patientTable' , patientController::class);
 
-
 Route::get('/uploadMat', function () {
     return view('uploadMat');
 });
-
 Route::get('/new', function () {
     return view('new');
 });
 
-Auth::routes();
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// SLP routes
+Route::middleware(['auth', 'slp'])->group(function () {
+
+
+Route::get('SLP/home', [App\Http\Controllers\slpController::class, 'home'])->name('SLP-home');
+
+   
+
+});
+
+
+
+
