@@ -28,8 +28,6 @@
 
 
   @section('content')
-
-<!-- SmartWizard html -->
  <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -38,95 +36,89 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">عرض معلومات المريض الشخصية</h3>
+                <h3 class="card-title">عرض معلومات المريض</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
-                @csrf
-            
-
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputName1">الاسم</label>
+                        <label for="exampleInputName1">الاسم:</label>
                         <label> 
                         {{$viewPatient->first_name}}
                         {{$viewPatient->last_name}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputnational_id">رقم الهوية</label>
+                        <label for="exampleInputnational_id">رقم الهوية:</label>
                         <label>
                         {{$viewPatient->national_id}}
                         </label>
                       </div>
                          <div class="form-group">
-                         <label for="exampleInputbirth_date">تاريخ الميلاد</label>
+                         <label for="exampleInputbirth_date">تاريخ الميلاد:</label>
                          <label>
                             {{$viewPatient->birth_date}}
                          </label>
                          </div>
                          <div class="form-group">
-                        <label for="exampleInputphone1">رقم الهاتف</label>
+                        <label for="exampleInputphone1">رقم الهاتف:</label>
                         <label>
                             {{$viewPatient->phone}}
                          </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputnationality1">الجنسية</label>
+                        <label for="exampleInputnationality1">الجنسية:</label>
                         <label>
                             {{$viewPatient->nationality}}
                          </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputregion1">المنطقة</label>
+                        <label for="exampleInputregion1">المنطقة:</label>
                         <label>
                             {{$viewPatient->region}}
                          </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputcity1">المدينة</label>
+                        <label for="exampleInputcity1">المدينة:</label>
                         <label>
                             {{$viewPatient->city}}
                         </label>
                       </div>
                          <div class="form-group">
-                        <label for="exampleInputEmail1">البريد الإلكتروني</label>
+                        <label for="exampleInputEmail1">البريد الإلكتروني:</label>
                         <label>
                             {{$viewPatient->p_email}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputdiagnosis1">التشخيص</label>
+                        <label for="exampleInputdiagnosis1">التشخيص:</label>
                         <label>
                             {{$viewPatient->diagnosis}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputcharacteristics1">الأعراض</label>
+                        <label for="exampleInputcharacteristics1">الأعراض:</label>
                         <label>
                             {{$viewPatient->characteristics}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
+                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية:</label>
                         <label>
                             {{$viewPatient->neurological_damage}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
+                        <label for="exampleInputseverity1">شدة الإصابة العصبية:</label>
                         <label>
                             {{$viewPatient->severity}}
                         </label>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputassesment_method1">طريقة التقييم</label>
+                        <label for="exampleInputassesment_method1">طريقة التقييم:</label>
                         <label>
                             {{$viewPatient->assesment_method}}
                         </label>
                       </div>
-
                      </div>
                      <!-- /.card-body -->
             </div>
@@ -136,7 +128,6 @@
         </div>
         <!-- /.row -->
       </div>
-
 </section>
   
 
