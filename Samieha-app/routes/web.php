@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\slpController;
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\MaterialController;
-
+use App\Http\Controllers\linkPaitent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +31,10 @@ Route::resource('/patientTable' , patientController::class);
 
 /* Material route*/
 Route::resource('/Material' , MaterialController::class);
+
+/* link paitent route*/
+Route::resource('/link' , linkPaitent::class);
+
 
 
 Route::get('/new', function () {
