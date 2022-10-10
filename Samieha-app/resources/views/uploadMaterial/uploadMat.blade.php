@@ -72,9 +72,9 @@
                     <option value="الأفعال" >الأفعال</option>
                     <option value="الصفات">الصفات</option>
                   </select>
-                  </div>                
+                  </div> 
+
                   <div>
-                    
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
                     <option value="أثاث" selected="selected">أثاث</option>
@@ -316,6 +316,8 @@ $(document).on("change","#SubCategory", function(){
   }
 });
 </script>
+
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 
  @endsection
 

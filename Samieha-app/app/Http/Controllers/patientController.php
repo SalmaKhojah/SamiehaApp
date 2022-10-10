@@ -12,7 +12,7 @@ class patientController extends Controller
   
     public function index()
     {
-        $data=patient::all();
+        $data=patient::all(); 
         return view('patientProfile.patientTable')->with('data',$data);
     }
 
