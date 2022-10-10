@@ -44,12 +44,6 @@
                                         معلومات طبية
                                       </a>
                                     </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link default done" href="#step-3">
-                                        <span class="num">3</span>
-                                         وش احط
-                                      </a>
-                                    </li>
               </ul>
  
     <div class="tab-content">
@@ -191,9 +185,6 @@
   
 
 
-        </div>
-        <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-            Step content
         </div>
 
     </div>

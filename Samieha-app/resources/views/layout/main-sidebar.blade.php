@@ -61,7 +61,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                التماذج
+                النماذج
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
