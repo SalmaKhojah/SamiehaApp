@@ -86,7 +86,7 @@
 
                   <div id="subcategoryother" class="form-group" style="display:none;">
                     <label for="exampleInput">التصنيف الفرعي</label>
-                    <input name="subcategory" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
+                    <input name="" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
                   </div>
             
                      
@@ -161,7 +161,7 @@
 
 <!-- Page specific script -->
 
-<script>
+<!-- <script>
 
   $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
   	   return this.optional( element ) || /^[\u0621-\u064A ]+$/.test( value );
@@ -280,7 +280,7 @@
       }
     });
   });
-</script>
+</script> -->
 
 <script>
   $(function () {

@@ -29,9 +29,9 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        $Nounes = DB::select('SELECT subcategory from subcategories where category_id = 1');
-        $Verbs = DB::select('SELECT subcategory from subcategories where category_id = 2');
-        $Adjectives = DB::select('SELECT subcategory from subcategories where category_id = 3');
+        // $Nounes = DB::select('SELECT subcategory from subcategories where category_id = 1');
+        // $Verbs = DB::select('SELECT subcategory from subcategories where category_id = 2');
+        // $Adjectives = DB::select('SELECT subcategory from subcategories where category_id = 3');
 
         // $Noune = [];
         // $Verb = [];
