@@ -12,19 +12,19 @@
   @endsection
 
   @section('bar1')
-   
+  قائمة المرضى   
   @endsection
-
+  
   @section('link1')
-   
+
    @endsection
   
   @section('bar2')
-   
+  قائمة الاختصاصيين
   @endsection
 
   @section('link2')
-   
+   {{route('slpTable.index')}}
   @endsection
 
 
@@ -39,7 +39,11 @@
          
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">قائمة المرضى</h3>
+                <h3 class="card-title">  
+                  @foreach($slpName as $item)  
+                   قائمة مرضى الاختصاصي {{$item->F_slp_name}} {{$item->L_slp_name}}
+                   @endforeach
+                </h3>
               </div>
               
               <!-- /.card-header -->
@@ -58,7 +62,7 @@
                     <td>
                     <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
                     <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
-                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app">نقل</a>
 
                     <form action="{{ route('patientTable.destroy', $item->id) }}" method="POST">
                       <!-- Modal -->
