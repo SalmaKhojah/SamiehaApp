@@ -43,15 +43,17 @@ Route::get('/new', function () {
 
 });
 
-
+Route::get('/SLPhome', function () {
+    return view('SLP.home');
+});
+   
 
 // SLP routes
 Route::middleware(['auth', 'slp'])->group(function () {
 
 
-Route::get('SLP/home', [App\Http\Controllers\slpController::class, 'home'])->name('SLP-home');
+// Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
 
-   
 
 });
 

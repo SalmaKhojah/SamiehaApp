@@ -57,6 +57,6 @@ class slpController extends Controller
     //ghada 
     public function home()
     {
-        //
+        return view('SLP.home');
     }
 }
