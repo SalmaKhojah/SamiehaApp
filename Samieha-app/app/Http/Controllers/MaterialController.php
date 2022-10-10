@@ -135,7 +135,7 @@ class MaterialController extends Controller
 
     
 
-        return redirect()->route('slpTable.index')
+        return redirect()->route('Material.create')
                          ->with('success','تمت الإضافة بنجاح');
 
         }

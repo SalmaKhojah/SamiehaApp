@@ -39,6 +39,12 @@
         </ul>
     </div>
 @endif
+@if(session()->has('success'))
+       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
+       </div>
+      @endif
       <!-- Main content -->
      <section class="content">
       <div class="container-fluid">
