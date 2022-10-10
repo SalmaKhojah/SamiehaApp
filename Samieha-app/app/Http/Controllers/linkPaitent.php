@@ -44,7 +44,20 @@ class linkPaitent extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'slp_id' => 'required',
+            'patient_id' => 'required',
+        ]);
+
+        $linkP=slp_patients::create([
+            'slp_id'=>$request->slp_id,
+            'patient_id'=>$request->patient_id,
+        ]);
+
+        return redirect()->route('link.create')
+        ->with('success','تمت الربط بنجاح');
+
     }
 
     /**
