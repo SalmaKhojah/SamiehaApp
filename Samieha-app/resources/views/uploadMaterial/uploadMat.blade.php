@@ -29,6 +29,7 @@
 
 
   @section('content')
+
   @if($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
@@ -39,12 +40,14 @@
         </ul>
     </div>
 @endif
+
 @if(session()->has('success'))
        <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
          <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
        </div>
       @endif
+
       <!-- Main content -->
      <section class="content">
       <div class="container-fluid">
@@ -71,6 +74,7 @@
                   </select>
                   </div>                
                   <div>
+                    
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
                     <option value="أثاث" selected="selected">أثاث</option>

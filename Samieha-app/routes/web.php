@@ -5,6 +5,8 @@ use App\Http\Controllers\slpController;
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\linkPaitent;
+use App\Http\Controllers\paitentsList;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,9 @@ Route::resource('/Material' , MaterialController::class);
 
 /* link paitent route*/
 Route::resource('/link' , linkPaitent::class);
+
+/*  paitent list route*/
+Route::resource('/paitentsList' , paitentsList::class);
 
 
 

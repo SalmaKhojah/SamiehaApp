@@ -78,6 +78,12 @@
                   <p>ربط المريض بالاختصاصي</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('link.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>نقل المريض</p>
+                </a>
+              </li>
             </ul>
           </li>
       

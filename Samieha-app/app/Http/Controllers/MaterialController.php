@@ -58,9 +58,11 @@ class MaterialController extends Controller
 
         // }else{
         // }
+        $Nounes = DB::select('SELECT subcategory FROM subcategories where category_id = 1');
+        $Verbs = DB::select('SELECT subcategory FROM subcategories where category_id = 2');
+        $Adjectives = DB::select('SELECT subcategory FROM subcategories where category_id = 3');
 
-        return view('uploadMaterial.uploadMat');
-
+        return view('uploadMaterial.uploadMat', compact('Nounes', 'Verbs' , 'Adjectives'));
 
     }
 

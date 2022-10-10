@@ -61,7 +61,7 @@
                 @else
                 <select name="slp_id" class="form-control select2" style="width: 100%;">
                   @foreach($slps as $item)  
-                  <option value="{{$item->id}}" selected="selected">{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
+                  <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
                     @endforeach
                   @endif
                   </select>
@@ -77,7 +77,7 @@
                 @else
                 <select name="patient_id"  class="form-control select2" style="width: 100%;">
                   @foreach($NotLinkedP as $item)  
-                    <option value="{{$item->id}}" selected="selected">{{$item->first_name}} {{$item->last_name}}</option>
+                    <option value="{{$item->id}}" >{{$item->first_name}} {{$item->last_name}}</option>
                     @endforeach
                   @endif
                   </select>
