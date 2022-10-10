@@ -38,6 +38,7 @@
 
 
   @section('content')
+
      @if(session()->has('success'))
        <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -78,7 +79,7 @@
                     <td>
                     <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
                     <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
-                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app">نقل</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-minus" aria-hidden="true"></i>نقل</a>
 
                     <form action="{{route('paitentsList.store')}}" method="POST" id="quickForm">
                      @csrf
