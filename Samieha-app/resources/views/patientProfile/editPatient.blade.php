@@ -13,15 +13,15 @@
     
   @endsection
 
-  @section('bar1')
+  @section('bar2')
   تعديل معلومات المريض  
   @endsection
   
-  @section('bar2')
+  @section('bar1')
   قائمة المرضى  
   @endsection
 
-  @section('link2')
+  @section('link1')
    {{route('patientTable.index')}}
    @endsection
 

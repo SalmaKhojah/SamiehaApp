@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout-slp.master')
 
 @section('title')
 ربط المريض بالاختصاصي
@@ -15,7 +15,7 @@
   @endsection
 
   @section('link2')
-   {{route('link.create')}}
+   {{route('slpLinkP.create')}}
    @endsection
   
   @section('bar1')
@@ -23,7 +23,7 @@
   @endsection
 
   @section('link1')
-   {{url('/')}}
+  {{route('slpPaitentTable.index')}}
   @endsection
 
 
@@ -50,33 +50,18 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form action="{{route('link.store')}}" method="POST" id="quickForm">
+              <form action="{{route('slpLinkP.store')}}" method="POST" id="quickForm">
               @csrf
                 <div class="card-body">
-                  <div>
-                    <label for="exampleInputName1">اسم الاختصاصي</label>
-                @if(count($slps)==0)
-                    <select  disabled class="form-control select2" style="width: 100%;">
-                   <option selected="selected" disabled>لا يوجد أخصائيين</option>
-                @else
-                <select name="slp_id" class="form-control select2" style="width: 100%;">
-                  @foreach($slps as $item)  
-                  <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
-                    @endforeach
-                  @endif
-                  </select>
-                  </div>   
-
-                 <div><br></div>
-
+                <input type="hidden" name="slp_id" value="{{$slp}}">
                   <div>
                     <label for="exampleInputName1">اسم المريض</label>
-                @if(count($NotLinkedP)==0)
+                @if(count($paitentExcepCuur)==0)
                   <select disabled class="form-control select2" style="width: 100%;">
-                  <option selected="selected">لا يوجد مرضى غير مرتبيطن بأخصائيين</option>
+                  <option selected="selected">لا يوجد مرضى مسجلين  </option>
                 @else
                 <select name="patient_id"  class="form-control select2" style="width: 100%;">
-                  @foreach($NotLinkedP as $item)  
+                  @foreach($paitentExcepCuur as $item)  
                     <option value="{{$item->id}}" >{{$item->first_name}} {{$item->last_name}}</option>
                     @endforeach
                   @endif
@@ -85,7 +70,7 @@
 
                 </div>
                 <!-- /.card-body -->
-                @if(count($NotLinkedP)==0 || count($slps)==0 )
+                @if(count($paitentExcepCuur)==0  )
                 <div class="card-footer">
                   <button type="submit" disabled class="btn btn-primary">ربط</button>
                 </div>
@@ -108,8 +93,57 @@
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+     
+<br>
+ 
+@if(isset($LinkedSLP))
+  
+<div class="row">
+   <!-- START ALERTS AND CALLOUTS -->
+  <div class="col-md-12">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          تنبيه
+        </h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <div class="callout callout-danger">
+        
+        @foreach($LinkedSLP as $item) 
+        <h5>هذا المريض مسجل مسبقًا لدى الاختصاصي <b>{{$item->F_slp_name}} {{$item->L_slp_name}}</b></h5>
+        <br>
+          @endforeach
+          <div class="container">
+  <div class="row">
+    <div class="col">البريد الإلكتروني للاختصاصي :
+    <a href="{{$item->slp_email}}" target="_blank">{{$item->slp_email}}</a>
+    </div>
+    
+    <div class="col">مقر العمل :
+    {{$item->work_place}}
+    </div>
+
+</div>
+<br>
+          <h7>الرجاء التواصل مع الاختصاصي المسؤول عن المريض عن طريق <a href="{{$item->slp_email}}" target="_blank">البريد الإلكتروني</a> </h7>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+
+@endif
+
     </section>
-    <!-- /.content -->   
+    <!-- /.content --> 
+      
   @endsection
 
   @section('scripts')
