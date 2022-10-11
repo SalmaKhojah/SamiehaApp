@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\linkPaitent;
 use App\Http\Controllers\paitentsList;
+use App\Http\Controllers\sessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,9 @@ Route::middleware(['auth', 'slp'])->group(function () {
     Route::get('/SLP/home', function () {
         return view('SLP.home');
     });
+
+    Route::resource('/session' , sessionController::class);
+
 
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
 

@@ -22,13 +22,12 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+      <!-- Sidebar Menu  -->
       <nav class="mt-2  ">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-              
 
           <li class="nav-item ">
             <a href="/" class="nav-link ">
@@ -40,7 +39,7 @@
           </li>
 
           <li class="nav-item ">
-            <a href="/" class="nav-link ">
+            <a href="{{route('session.index')}}" class="nav-link ">
             <i class="nav-icon fas fa-edit"></i>
               <p>
 إضافة جلسة علاجية              </p>

@@ -43,4 +43,8 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/dropzone/min/dropzone.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+
+  
+  <!-- tap icon -->
+  <link rel="icon" href="{{asset('assets/img/sameihaicon.svg')}}">
   @yield('css')

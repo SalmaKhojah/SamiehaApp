@@ -16,6 +16,6 @@
     },
     "dependencies": {
         "jquery": "^3.6.1",
-        "smartwizard": "^6.0.5"
+        "smartwizard": "^6.0.6"
     }
 }
