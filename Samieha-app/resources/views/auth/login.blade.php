@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-5">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('كلمة المرور') }}</label>
 
                             <div class="col-md-6">
@@ -41,26 +41,26 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <!-- <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="me-0 form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('تذكرني') }}
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                        <div class="row mb-0 pe-0">
+                            <div class="col-md-8 offset-md-4 ">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('تسجيل الدخول') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link " href="{{ route('password.request') }}">
                                     {{ __('هل نسيت كلمة المرور؟') }}
                                     </a>
                                 @endif
