@@ -8,17 +8,21 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <img src="{{asset('assets/img/SamiehaLogo.svg')}}" hieght="50px" alt="logo">
+      <div class=" mt-3 pb-3 mb-3 d-flex">
+      <img src="{{asset('assets/img/SamiehaLogo.svg')}}" hieght="20px" alt="logo">
+      
 
       </div>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <nav class="mt-2  ">
+        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+
+              
+
+          <li class="nav-item ">
             <a href="/" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -78,23 +82,13 @@
           </li>
 
          
-      
+     
         </ul>
        
       </nav>
       <!-- /.sidebar-menu -->
 
-      <li class="nav-link " style="position:absolute; bottom:0;">
-              <a  href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                       <i class="bi bi-box-arrow-right"></i>  {{ __(' تسجيل خروج ') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-              </li>
+      
     </div>
     <!-- /.sidebar -->
   </aside>
