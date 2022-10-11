@@ -66,7 +66,7 @@ class paitentsList extends Controller
 
         $currentSlpName = DB::select('SELECT F_slp_name , L_slp_name , id FROM slps WHERE slps.id= '.$id.'');
         
-        $Plist = DB::select('SELECT first_name , last_name , id FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
+        $Plist = DB::select('SELECT first_name , last_name ,national_id , diagnosis , severity, id FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
         return view('slpProfile.paitentList', compact('Plist', 'currentSlpName' , 'allSlpsExceptCurrent'));
     }
 

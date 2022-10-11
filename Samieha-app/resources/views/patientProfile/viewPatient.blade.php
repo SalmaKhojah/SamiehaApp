@@ -41,84 +41,108 @@
               <!-- /.card-header -->
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputName1">الاسم:</label>
-                        <label> 
-                        {{$viewPatient->first_name}}
-                        {{$viewPatient->last_name}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputnational_id">رقم الهوية:</label>
-                        <label>
-                        {{$viewPatient->national_id}}
-                        </label>
-                      </div>
-                         <div class="form-group">
-                         <label for="exampleInputbirth_date">تاريخ الميلاد:</label>
-                         <label>
-                            {{$viewPatient->birth_date}}
-                         </label>
-                         </div>
-                         <div class="form-group">
-                        <label for="exampleInputphone1">رقم الهاتف:</label>
-                        <label>
-                            {{$viewPatient->phone}}
-                         </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputnationality1">الجنسية:</label>
-                        <label>
-                            {{$viewPatient->nationality}}
-                         </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputregion1">المنطقة:</label>
-                        <label>
-                            {{$viewPatient->region}}
-                         </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputcity1">المدينة:</label>
-                        <label>
-                            {{$viewPatient->city}}
-                        </label>
-                      </div>
-                         <div class="form-group">
-                        <label for="exampleInputEmail1">البريد الإلكتروني:</label>
-                        <label>
-                            {{$viewPatient->p_email}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputdiagnosis1">التشخيص:</label>
-                        <label>
-                            {{$viewPatient->diagnosis}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputcharacteristics1">الأعراض:</label>
-                        <label>
-                            {{$viewPatient->characteristics}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية:</label>
-                        <label>
-                            {{$viewPatient->neurological_damage}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputseverity1">شدة الإصابة العصبية:</label>
-                        <label>
-                            {{$viewPatient->severity}}
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputassesment_method1">طريقة التقييم:</label>
-                        <label>
-                            {{$viewPatient->assesment_method}}
-                        </label>
-                      </div>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col">
+                          <label for="exampleInputName1">الاسم: </label>
+                          <b> 
+                            {{$viewPatient->first_name}}
+                            {{$viewPatient->last_name}}
+                            </b>
+                          </div>
+                          <div class="col">
+                           <label for="exampleInputnational_id">رقم الهوية:</label>
+                           <b>
+                           {{$viewPatient->national_id}}
+                           </b>
+                          </div>
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputbirth_date">تاريخ الميلاد:</label>
+                          <b>
+                             {{$viewPatient->birth_date}}
+                             </b>
+                          </div>
+                          <div class="col">
+                          <label for="exampleInputphone1">رقم الهاتف:</label>
+                           <b>
+                              {{$viewPatient->phone}}
+                           </b>
+                          </div>
+
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputnationality1">الجنسية:</label>
+                          <b>
+                              {{$viewPatient->nationality}}
+                          </b>
+                          </div>
+                          <div class="col">
+                          <label for="exampleInputregion1">المنطقة:</label>
+                          <b>
+                              {{$viewPatient->region}}
+                            </b>
+                          </div>
+
+
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputcity1">المدينة:</label>
+                          <b>
+                              {{$viewPatient->city}}
+                          </b>
+                          </div>
+                          <div class="col">
+                          <label for="exampleInputEmail1">البريد الإلكتروني:</label>
+                          <b>
+                              {{$viewPatient->p_email}}
+                          </b>
+                          </div>
+
+
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputdiagnosis1">التشخيص:</label>
+                          <b>
+                              {{$viewPatient->diagnosis}}
+                              </b>
+                          </div>
+                          <div class="col">
+                          <label for="exampleInputcharacteristics1">الأعراض:</label>
+                          <b>
+                              {{$viewPatient->characteristics}}
+                          </b>
+                          </div>
+
+
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية:</label>
+                          <b>
+                              {{$viewPatient->neurological_damage}}
+                              </b>
+                          </div>
+                          <div class="col">
+                          <label for="exampleInputseverity1">شدة الإصابة العصبية:</label>
+                           <b>
+                               {{$viewPatient->severity}}
+                           </b>
+                          </div>
+
+                          <div class="w-100"></div>
+                          <div class="col">
+                          <label for="exampleInputassesment_method1">طريقة التقييم:</label>
+                          <b>
+                              {{$viewPatient->assesment_method}}
+                          </b>
+                          </div>
+ 
+
+
+                       
+                        </div>
+
+                 
                      </div>
                      <!-- /.card-body -->
             </div>
@@ -136,3 +160,7 @@
   @section('scripts')
 
  @endsection
+
+
+
+ 

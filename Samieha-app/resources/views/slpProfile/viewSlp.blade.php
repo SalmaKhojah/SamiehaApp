@@ -38,18 +38,23 @@
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputName1">الاسم:</label>
-                    <label>{{ $viewslp->F_slp_name }} {{ $viewslp->L_slp_name }}</label>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputWorkPlace">مقر العمل:</label>
-                    <label>{{ $viewslp->work_place }}</label>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputslp_email">البريد الإلكتروني:</label>
-                    <label>{{ $viewslp->slp_email }}</label>
-                  </div>
+                <div class="container">
+                 <div class="row">
+                   <div class="col">
+                   <label for="exampleInputName1">الاسم:</label>
+                    <b>{{ $viewslp->F_slp_name }} {{ $viewslp->L_slp_name }}</b>
+                   </div>
+                   <div class="col">
+                   <label for="exampleInputWorkPlace">مقر العمل:</label>
+                    <b>{{ $viewslp->work_place }}</b>
+                   </div>
+                   <div class="w-100"></div>
+                   <div class="col">
+                   <label for="exampleInputslp_email">البريد الإلكتروني:</label>
+                    <b>{{ $viewslp->slp_email }}</b>
+                   </div>
+                 </div>
+
                 </div>
                 <!-- /.card-body -->
             </div>

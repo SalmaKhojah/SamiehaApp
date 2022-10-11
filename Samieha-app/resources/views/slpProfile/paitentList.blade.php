@@ -69,6 +69,9 @@
                   <thead>
                   <tr>
                     <th>اسم المريض</th>
+                    <th>رقم الهوية</th>
+                    <th>التشخيص</th>
+                    <th>الحدة</th>
                     <th>العمليات</th>
                   </tr>
                   </thead>
@@ -76,9 +79,13 @@
                   @foreach($Plist as $item)  
                   <tr>
                     <td>{{$item->first_name}} {{$item->last_name}}</td>
+                    <td>{{$item->national_id}}</td>
+                    <td>{{$item->diagnosis}}</td>
+                    <td>{{$item->severity}}</td>
                     <td>
                     <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
                     <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
+               
                     <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-minus" aria-hidden="true"></i>نقل</a>
 
                     <form action="{{route('paitentsList.store')}}" method="POST" id="quickForm">
@@ -126,6 +133,9 @@
                   <tfoot>
                   <tr>
                     <th>اسم المريض</th>
+                    <th>رقم الهوية</th>
+                    <th>التشخيص</th>
+                    <th>الحدة</th>
                     <th>العمليات</th>
                   </tr>
                   </tfoot>

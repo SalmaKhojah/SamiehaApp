@@ -34,7 +34,6 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="@yield('link1')">@yield('bar1')</a></li>
               <li class="breadcrumb-item active"><a href="@yield('link2')">@yield('bar2')</a></li>
-              
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
