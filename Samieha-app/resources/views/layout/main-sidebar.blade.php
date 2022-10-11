@@ -77,21 +77,24 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+         
+      
+        </ul>
+       
+      </nav>
+      <!-- /.sidebar-menu -->
+
+      <li class="nav-link " style="position:absolute; bottom:0;">
               <a  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                       <i class="bi bi-box-arrow-right"></i>  {{ __(' تسجيل خروج ') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
               </li>
-      
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
