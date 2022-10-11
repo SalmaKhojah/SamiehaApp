@@ -6,6 +6,8 @@ use App\Http\Controllers\patientController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\linkPaitent;
+use App\Http\Controllers\paitentsList;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,15 +38,20 @@ Route::middleware(['auth','admin'])->group(function () {
 /* patient route*/
 Route::resource('/patientTable' , patientController::class);
 
-Route::get('/uploadMat', function () {
-    return view('uploadMat');
-});
-
 /* Material route*/
 Route::resource('/Material' , MaterialController::class);
 
 /* link paitent route*/
 Route::resource('/link' , linkPaitent::class);
+
+/*  paitent list route*/
+Route::resource('/paitentsList' , paitentsList::class);
+
+Route::get('/uploadMat', function () {
+    return view('uploadMat');
+});
+
+
 
 
 

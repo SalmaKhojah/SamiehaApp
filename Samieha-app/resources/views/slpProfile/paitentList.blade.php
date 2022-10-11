@@ -1,7 +1,11 @@
 @extends('layout.master')
 
 @section('title')
-  قائمة الاختصاصيين
+
+  @foreach($currentSlpName as $item)  
+    قائمة مرضى الاختصاصي {{$item->F_slp_name}} {{$item->L_slp_name}}
+  @endforeach
+
   @endsection
 
   @section('css')
@@ -9,110 +13,119 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+
+   <!-- Select2 -->
+   <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+  
   @endsection
 
   @section('bar1')
+  قائمة المرضى   
+  @endsection
+  
+  @section('link1')
+
+   @endsection
+  
+  @section('bar2')
   قائمة الاختصاصيين
   @endsection
 
-  @section('link1')
-   
-   @endsection
-
-  @section('bar2')
-  الرئيسية
-  @endsection
-
   @section('link2')
-   /
-   @endsection
+   {{route('slpTable.index')}}
+  @endsection
 
 
   @section('content')
 
-  @if(session()->has('success'))
+     @if(session()->has('success'))
        <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
          <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
        </div>
       @endif
 
-    <!-- Main content -->
-    <section class="content">
+      <!-- Main content -->
+      <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-
+          
+            <!-- /.card -->
+         
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">قائمة الاختصاصيين</h3>
-                <a href="{{route('slpTable.create')}}">
-                      <div class="container text-left">
-                       <button class="btn btn-primary" type="button">إضافة اختصاصي</button>
-                     </div>
-                </a>
+                <h3 class="card-title">  
+                  @foreach($currentSlpName as $item)  
+                   قائمة مرضى الاختصاصي {{$item->F_slp_name}} {{$item->L_slp_name}}
+                   @endforeach
+                </h3>
               </div>
+              
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>اسم الاختصاصي</th>
-                    <th>البريد الإلكتروني</th>
-                    <th>مقر العمل</th>
-                    <th>قائمة المرضى</th>
+                    <th>اسم المريض</th>
                     <th>العمليات</th>
                   </tr>
                   </thead>
                   <tbody>
-               @foreach($data as $item)  
+                  @foreach($Plist as $item)  
                   <tr>
-                    <td>{{$item->F_slp_name}} {{$item->L_slp_name}}</td>
-                    <td>{{$item->slp_email}}</td>
-                    <td>{{$item->work_place}}</td>
+                    <td>{{$item->first_name}} {{$item->last_name}}</td>
                     <td>
-                    <a href="{{route('paitentsList.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
-                    </td>
-                    <td>
-                    <a href="{{route('slpTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
-                    <a href="{{route('slpTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
-                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
+                    <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+                    <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-minus" aria-hidden="true"></i>نقل</a>
 
-                    <form action="{{ route('slpTable.destroy', $item->id) }}" method="POST">
+                    <form action="{{route('paitentsList.store')}}" method="POST" id="quickForm">
+                     @csrf
                       <!-- Modal -->
-                      
                     <div class="modal fade" id="exampleModalCenter{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات الاختصاصي {{$item->F_slp_name}} {{$item->L_slp_name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h5 class="modal-title" id="exampleModalLongTitle">نقل المريض {{$item->first_name}} {{$item->last_name}}</h5>
                           </div>
                           <div class="modal-body">
-                          هل أنت متأكد أنك تريد حذف الاختصاصي ؟ سيتم إزالة جميع بيانات الاختصاصي بشكل دائم. لا يمكنك التراجع عن هذا الإجراء.
+                          هل أنت متأكد أنك تريد نقل المريض؟
+                          <input type="hidden" name="patient_id" value="{{$item->id}}"></input>
+                              <div class="card-body">
+                                <div>
+                                  <label for="exampleInputName1">اسم الاختصاصي</label>
+                                <select name="slp_id" class="form-control select2" style="width: 100%;">
+                                @foreach($allSlpsExceptCurrent as $item)  
+                                <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
+                                @endforeach 
+                                </select>
+                                </div>   
+                                </div>  
+                              </div>
+                              <!-- /.card-body -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">نقل</button>        
+                            </div>
+                          </form>
+
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                            @csrf
-                          @method('DELETE')
-                          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">حذف</button>                          </div>
+        
                         </div>
                       </div>
                     </div>
 
                     </form>
+
                   </td>
                   </tr>
                 @endforeach
                   </tbody>
                   <tfoot>
                   <tr>
-                  <th>اسم الاختصاصي</th>
-                    <th>البريد الإلكتروني</th>
-                    <th>مقر العمل</th>
-                    <th>قائمة المرضى</th>
+                    <th>اسم المريض</th>
                     <th>العمليات</th>
                   </tr>
                   </tfoot>
@@ -128,9 +141,12 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+
+
+    
   @endsection
 
-@section('scripts')
+  @section('scripts')
 <!-- Bootstrap 4 -->
 <script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- DataTables  & Plugins -->
@@ -168,6 +184,18 @@
   });
 </script>
 
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })}
+  )
+</script>
+
 <script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 
-@endsection
+ @endsection

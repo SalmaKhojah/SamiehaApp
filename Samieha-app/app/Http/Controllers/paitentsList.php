@@ -8,11 +8,7 @@ use App\Models\patient;
 use App\Models\slp;
 use Illuminate\Support\Facades\DB;
 
-
-
-
-
-class linkPaitent extends Controller
+class paitentsList extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,9 +27,7 @@ class linkPaitent extends Controller
      */
     public function create()
     {
-        $NotLinkedP = DB::select('SELECT first_name , last_name , id FROM patients WHERE id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id)');
-        $slps = DB::select('SELECT F_slp_name , L_slp_name , id FROM slps ');
-        return view('linkPaitents.linkPaitent', compact('NotLinkedP', 'slps'));
+        //
     }
 
     /**
@@ -45,19 +39,18 @@ class linkPaitent extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'slp_id' => 'required',
-            'patient_id' => 'required',
-        ]);
+
+        $deLinkPatient=slp_patients::where('patient_id',$request->patient_id); 
+        $deLinkPatient->delete();
+
 
         $linkP=slp_patients::create([
             'slp_id'=>$request->slp_id,
             'patient_id'=>$request->patient_id,
         ]);
 
-        return redirect()->route('link.create')
-        ->with('success','تم الربط بنجاح');
-
+        return redirect()->back()
+                        ->with('success','تم نقل المريض بنجاح');
     }
 
     /**
@@ -68,7 +61,13 @@ class linkPaitent extends Controller
      */
     public function show($id)
     {
-        //
+
+        $allSlpsExceptCurrent = DB::select('SELECT F_slp_name , L_slp_name , id FROM slps WHERE id != '.$id.'');
+
+        $currentSlpName = DB::select('SELECT F_slp_name , L_slp_name , id FROM slps WHERE slps.id= '.$id.'');
+        
+        $Plist = DB::select('SELECT first_name , last_name , id FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
+        return view('slpProfile.paitentList', compact('Plist', 'currentSlpName' , 'allSlpsExceptCurrent'));
     }
 
     /**
@@ -79,7 +78,7 @@ class linkPaitent extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
