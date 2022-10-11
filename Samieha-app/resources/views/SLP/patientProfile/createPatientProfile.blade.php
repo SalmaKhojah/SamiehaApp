@@ -85,10 +85,10 @@
                       </div>
                          <div class="form-group">
                          <label for="exampleInputbirth_date">تاريخ الميلاد</label>
-                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                 <input type="text" name="birth_date" value="{{ old('birth_date') }}" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                             <div class="input-group " id="reservationdate" data-target-input="nearest">
+                                 <input type="date" name="birth_date" value="{{ old('birth_date') }}" class="form-control" data-target="#reservationdate"/>
+                                 <div class="input-group-append" data-target="#reservationdate" >
+                                     <!-- <div class="input-group-text"><i class="fa fa-calendar"></i></div> -->
                                  </div>
                              </div>
                              @if ($errors->has('birth_date'))
