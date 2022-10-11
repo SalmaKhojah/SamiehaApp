@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\subcategories;
+use App\Models\words;
 
 class sessionController extends Controller
 {
@@ -13,7 +15,13 @@ class sessionController extends Controller
      */
     public function index()
     {
-           return view('SLP.createSession');
+        
+        $nounSub = subcategories::where('category_id', '1')->get();
+        $verbSub = subcategories::where('category_id', '2')->get();
+        $adjSub = subcategories::where('category_id', '3')->get();
+      
+
+           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub'));
     }
 
     /**

@@ -42,7 +42,7 @@
             <a href="{{route('session.index')}}" class="nav-link ">
             <i class="nav-icon fas fa-edit"></i>
               <p>
-إضافة جلسة علاجية              </p>
+إنشاء جلسة علاجية              </p>
             </a>
           </li>
 
