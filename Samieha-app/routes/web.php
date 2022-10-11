@@ -7,7 +7,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\linkPaitent;
 use App\Http\Controllers\paitentsList;
-
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\slpPaitentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,13 +28,15 @@ Auth::routes();
 
 // Admin routes
 Route::middleware(['auth','admin'])->group(function () {
-  
-    Route::get('/', function () {
-        return view('welcome');
-    });
+ 
+    // resource ما يضبط باستخدام 
+Route::get('/',[AdminHomeController::class, 'index']);
 
-    /*Speeach and Language Pathologist route*/
-    Route::resource('/slpTable' , slpController::class);
+// Admin home page controller
+Route::resource('/AdminHome' , AdminHomeController::class);
+
+/*Speeach and Language Pathologist route*/
+Route::resource('/slpTable' , slpController::class);
 
 /* patient route*/
 Route::resource('/patientTable' , patientController::class);
@@ -53,8 +56,6 @@ Route::get('/uploadMat', function () {
 
 
 
-
-
 Route::get('/new', function () {
     return view('new');
 });
@@ -70,6 +71,7 @@ Route::middleware(['auth', 'slp'])->group(function () {
         return view('SLP.home');
     });
 
+    Route::resource('/slpPaitentTable' , slpPaitentController::class);
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
 
 
