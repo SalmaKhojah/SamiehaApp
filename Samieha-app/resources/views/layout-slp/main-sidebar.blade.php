@@ -42,7 +42,17 @@
             <a href="{{route('session.index')}}" class="nav-link ">
             <i class="nav-icon fas fa-edit"></i>
               <p>
-إنشاء جلسة علاجية              </p>
+              إضافة جلسة علاجية 
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="{{route('slpLinkP.create')}}" class="nav-link ">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+                ربط المريض 
+              </p>
             </a>
           </li>
 
