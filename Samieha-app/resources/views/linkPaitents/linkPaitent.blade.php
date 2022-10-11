@@ -28,6 +28,14 @@
 
 
   @section('content')
+
+  @if(session()->has('success'))
+       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
+       </div>
+      @endif
+
         <!-- Main content -->
         <section class="content">
       <div class="container-fluid">
@@ -53,7 +61,7 @@
                 @else
                 <select name="slp_id" class="form-control select2" style="width: 100%;">
                   @foreach($slps as $item)  
-                  <option value="{{$item->id}}" selected="selected">{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
+                  <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
                     @endforeach
                   @endif
                   </select>
@@ -69,7 +77,7 @@
                 @else
                 <select name="patient_id"  class="form-control select2" style="width: 100%;">
                   @foreach($NotLinkedP as $item)  
-                    <option value="{{$item->id}}" selected="selected">{{$item->first_name}} {{$item->last_name}}</option>
+                    <option value="{{$item->id}}" >{{$item->first_name}} {{$item->last_name}}</option>
                     @endforeach
                   @endif
                   </select>
@@ -77,9 +85,15 @@
 
                 </div>
                 <!-- /.card-body -->
+                @if(count($NotLinkedP)==0 || count($slps)==0 )
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">ربط</button>
+                  <button type="submit" disabled class="btn btn-primary">ربط</button>
                 </div>
+                @else
+                <div class="card-footer">
+                  <button type="submit"  class="btn btn-primary">ربط</button>
+                </div>
+                @endif
               </form>
 
             </div>
@@ -111,4 +125,9 @@
     })}
   )
 </script>
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
+
  @endsection
+
+
+          

@@ -29,6 +29,7 @@
 
 
   @section('content')
+
   @if($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
@@ -39,12 +40,14 @@
         </ul>
     </div>
 @endif
-@if(session()->has('success'))
+
+     @if(session()->has('success'))
        <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
          <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
        </div>
       @endif
+
       <!-- Main content -->
      <section class="content">
       <div class="container-fluid">
@@ -62,15 +65,18 @@
             <form action="{{route('Material.store')}}" method="POST" enctype="multipart/form-data" id="quickForm">
               @csrf
                 <div class="card-body">
+
+                
                   <div>
                     <label for="exampleInputName1">التصنيف الرئيسي</label>
                   <select id="mainCategory" name="category" class="form-control select2" style="width: 100%;">
-                    <option value="الأسماء" selected="selected">الأسماء</option>
-                    <option value="الأفعال" >الأفعال</option>
-                    <option value="الصفات">الصفات</option>
+                  @foreach($categories as $cat )
+                  <option value="{{$cat->category}}">{{$cat->category}}</option>
+                  @endforeach
                   </select>
-                  </div>                
-                  <div>
+                  </div> 
+
+                    <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
                     <option value="أثاث" selected="selected">أثاث</option>
@@ -79,6 +85,7 @@
                     <option value="أخرى">أخرى</option>
                   </select>
                   </div>
+
                    <!-- to set the name value of SubCategory of id=subcategoryother -->
                   <script>
                   $(document).on("change","#SubCategory", function(){
@@ -312,6 +319,8 @@ $(document).on("change","#SubCategory", function(){
   }
 });
 </script>
+
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 
  @endsection
 
