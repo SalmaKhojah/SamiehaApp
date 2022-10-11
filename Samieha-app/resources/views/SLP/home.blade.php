@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout-slp.master')
 
 @section('title')
   الرئيسية
@@ -9,7 +9,7 @@
   @endsection
 
   @section('bar1')
-   
+   تجربة
   @endsection
 
   @section('bar2')

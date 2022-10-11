@@ -8,10 +8,18 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class=" mt-3 pb-3 mb-3 d-flex">
+      <div class=" mt-3 pb-3 mb-1 d-flex">
       <img src="{{asset('assets/img/SamiehaLogo.svg')}}" hieght="20px" alt="logo">
-      
 
+      
+      </div>
+      <div class="user-panel pb-3 d-flex">
+      
+      </div>
+      <div class="user-panel mt-2 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a class="d-block">اختصاصي: <b>{{ Auth::user()->name }}</b></a>
+        </div>
       </div>
 
       <!-- Sidebar Menu -->
@@ -23,65 +31,25 @@
               
 
           <li class="nav-item ">
-            <a href="/" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="/" class="nav-link ">
+            <i class="nav-icon fas fa-table"></i>
               <p>
-                الرئيسية
+                قائمة المرضى
               </p>
             </a>
           </li>
+
+          <li class="nav-item ">
+            <a href="/" class="nav-link ">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+إضافة جلسة علاجية              </p>
+            </a>
+          </li>
+
+
       
-          <li class="nav-item">
-          <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                القوائم
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/slpTable" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>قائمة الاختصاصيين</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/patientTable" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>قائمة المرضى</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                النماذج
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('Material.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>رفع مواد الجلسة</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('link.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ربط المريض بالاختصاصي</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-         
+        
      
         </ul>
        

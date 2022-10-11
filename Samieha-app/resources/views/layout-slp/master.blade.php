@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  @include('layout.head')
+  @include('layout-slp.head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -15,31 +15,32 @@
   </div>
 
   <!-- Navbar -->
-  @include('layout.main-headerbar')
+  @include('layout-slp.main-headerbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('layout.main-sidebar')
+  @include('layout-slp.main-sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <!-- <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0"></h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
+          </div> -->
+           <!-- /.col -->
+          <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="@yield('link1')">@yield('bar1')</a></li>
               <li class="breadcrumb-item active"><a href="@yield('link2')">@yield('bar2')</a></li>
               
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -47,7 +48,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-   @include('layout.footer')
+   <!-- @include('layout-slp.footer') -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -57,7 +58,7 @@
 </div>
 <!-- ./wrapper -->
 
-@include('layout.footer-scripts')
+<!-- @include('layout-slp.footer-scripts') -->
 
 </body>
 </html>
