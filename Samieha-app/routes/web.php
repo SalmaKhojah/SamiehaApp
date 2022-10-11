@@ -11,6 +11,7 @@ use App\Http\Controllers\sessionController;
 
 use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\slpPaitentController;
+use App\Http\Controllers\SlpLinksPaitentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +78,9 @@ Route::middleware(['auth', 'slp'])->group(function () {
 
 
     Route::resource('/slpPaitentTable' , slpPaitentController::class);
+
+    Route::resource('/slpLinkP' ,  SlpLinksPaitentController::class);
+
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
 
 

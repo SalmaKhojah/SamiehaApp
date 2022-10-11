@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout-slp.master')
 
 @section('title')
   عرض معلومات المريض
@@ -22,7 +22,7 @@
   @endsection
 
   @section('link1')
-   {{route('patientTable.index')}}
+   {{route('slpPaitentTable.index')}}
    @endsection
 
 

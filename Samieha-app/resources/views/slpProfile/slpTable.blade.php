@@ -12,20 +12,22 @@
   @endsection
 
   @section('bar1')
-  قائمة الاختصاصيين
-  @endsection
-
-  @section('link1')
-   
-   @endsection
-
-  @section('bar2')
   الرئيسية
   @endsection
 
-  @section('link2')
+  @section('link1')
    /
    @endsection
+   
+  @section('bar2')
+  قائمة الاختصاصيين
+  @endsection
+
+  @section('link2')
+   
+   @endsection
+
+
 
 
   @section('content')

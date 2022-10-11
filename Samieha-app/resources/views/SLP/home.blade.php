@@ -9,7 +9,7 @@
   @endsection
 
   @section('bar1')
-   تجربة
+  الرئيسية
   @endsection
 
   @section('bar2')

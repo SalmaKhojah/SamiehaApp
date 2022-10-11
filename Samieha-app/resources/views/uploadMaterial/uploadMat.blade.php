@@ -11,19 +11,19 @@
 
   @endsection
 
-  @section('bar1')
+  @section('bar2')
   رفع مواد الجلسة
   @endsection
 
-  @section('link1')
+  @section('link2')
    {{route('Material.create')}}
    @endsection
   
-  @section('bar2')
+  @section('bar1')
   الرئيسية
   @endsection
 
-  @section('link2')
+  @section('link1')
   {{url('/')}}
   @endsection
 

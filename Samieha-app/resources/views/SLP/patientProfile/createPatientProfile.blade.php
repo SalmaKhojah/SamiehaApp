@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout-slp.master')
 
 @section('title')
   إضافة مريض
@@ -22,7 +22,7 @@
   @endsection
 
   @section('link1')
-   {{route('patientTable.index')}}
+  {{route('slpPaitentTable.index')}}
    @endsection
 
 
@@ -59,7 +59,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
+              <form action="{{route('slpPaitentTable.store')}}" method="POST" id="quickForm" >
                 @csrf
                     <div class="card-body">
                       <div class="form-group">

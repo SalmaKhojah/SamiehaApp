@@ -1,7 +1,7 @@
-@extends('layout.master')
+@extends('layout-slp.master')
 
 @section('title')
-  إضافة مريض
+   تعديل معلومات المريض
   @endsection
 
   @section('css')
@@ -10,11 +10,11 @@
     <!-- CSS -->
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
-
+    
   @endsection
 
   @section('bar2')
-   إضافة مريض
+  تعديل معلومات المريض  
   @endsection
   
   @section('bar1')
@@ -22,32 +22,33 @@
   @endsection
 
   @section('link1')
-   {{route('patientTable.index')}}
+  {{route('slpPaitentTable.index')}}
    @endsection
 
 
 
   @section('content')
+
 <!-- SmartWizard html -->
 <div id="smartwizard">
-<ul class="nav nav-progress">
-                        <li class="nav-item">
-                          <a class="nav-link default done" href="#step-1">
-                            <div class="num">1</div>
-                            معلومات شخصية
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link default done" href="#step-2">
-                            <span class="num">2</span>
-                            معلومات طبية
-                          </a>
-                        </li>
-                    </ul>
+            <ul class="nav nav-progress">
+                                    <li class="nav-item">
+                                      <a class="nav-link default done" href="#step-1">
+                                        <div class="num">1</div>
+                                        معلومات شخصية
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link default done" href="#step-2">
+                                        <span class="num">2</span>
+                                        معلومات طبية
+                                      </a>
+                                    </li>
+              </ul>
  
     <div class="tab-content">
         <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
-    <section class="content">
+  <section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -55,169 +56,143 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">إضافة معلومات المريض الشخصية</h3>
+                <h3 class="card-title">تعديل معلومات المريض الشخصية</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
+              @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+             <form action="{{route('slpPaitentTable.update' , $editPatient->id)}}" method="POST" id="quickForm" >
                 @csrf
+                @method('PUT')
                     <div class="card-body">
                       <div class="form-group">
                         <label for="exampleInputName1">الاسم الأول</label>
-                        <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
-                        @if ($errors->has('first_name'))
-                            <span class="text-danger">{{ $errors->first('first_name') }}</span>
-                        @endif
+                        <input type="text"  value="{{ $editPatient->first_name }}" name="first_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName2">الاسم الأخير</label>
-                        <input type="text" name="last_name"  value="{{ old('last_name') }}" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
-                        @if ($errors->has('last_name'))
-                            <span class="text-danger">{{ $errors->first('last_name') }}</span>
-                        @endif
+                        <input type="text" value="{{ $editPatient->last_name }}" name="last_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputnational_id">رقم الهوية</label>
-                        <input type="text" name="national_id" value="{{ old('national_id') }}" class="form-control" id="exampleInputnational_id" placeholder="ادخل رقم الهوية">
-                        @if ($errors->has('national_id'))
-                            <span class="text-danger">{{ $errors->first('national_id') }}</span>
-                        @endif
+                        <input type="text" value="{{ $editPatient->national_id }}"  name="national_id" class="form-control" id="exampleInputnational_id" placeholder="ادخل رقم الهوية">
                       </div>
                          <div class="form-group">
                          <label for="exampleInputbirth_date">تاريخ الميلاد</label>
                              <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                 <input type="text" name="birth_date" value="{{ old('birth_date') }}" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                 <input type="text" value="{{ $editPatient->birth_date }}"   name="birth_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
                                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                  </div>
                              </div>
-                             @if ($errors->has('birth_date'))
-                                     <span class="text-danger">{{ $errors->first('birth_date') }}</span>
-                                 @endif
                          </div>
                          <div class="form-group">
                         <label for="exampleInputphone1">رقم الهاتف</label>
-                        <input type="tel" name="phone" value="{{ old('phone') }}" class="form-control" id="exampleInputphone1" placeholder="ادخل رقم الهاتف">
-                        @if ($errors->has('phone'))
-                                     <span class="text-danger">{{ $errors->first('phone') }}</span>
-                        @endif
+                        <input type="tel" value="{{ $editPatient->phone }}"  name="phone" class="form-control" id="exampleInputphone1" placeholder="ادخل رقم الهاتف">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputnationality1">الجنسية</label>
-                        <input type="text" name="nationality" value="{{ old('nationality') }}" class="form-control" id="exampleInputnationality1" placeholder="ادخل الجنسية">
-                        @if ($errors->has('nationality'))
-                          <span class="text-danger">{{ $errors->first('nationality') }}</span>
-                        @endif
+                        <input type="text" value="{{ $editPatient->nationality }}"  name="nationality" class="form-control" id="exampleInputnationality1" placeholder="ادخل الجنسية">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputregion1">المنطقة</label>
-                        <input type="text" name="region" value="{{ old('region') }}" class="form-control" id="exampleInputregion1" placeholder="ادخل المنطقة">
-                        @if ($errors->has('region'))
-                          <span class="text-danger">{{ $errors->first('region') }}</span>
-                        @endif
+                        <input type="text" value="{{ $editPatient->region }}"  name="region" class="form-control" id="exampleInputregion1" placeholder="ادخل المنطقة">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputcity1">المدينة</label>
-                        <input type="text" name="city" value="{{ old('city') }}" class="form-control" id="exampleInputcity1" placeholder="ادخل المدينة">
-                        @if ($errors->has('city'))
-                          <span class="text-danger">{{ $errors->first('city') }}</span>
-                        @endif
+                        <input type="text" value="{{ $editPatient->city }}"  name="city" class="form-control" id="exampleInputcity1" placeholder="ادخل المدينة">
                       </div>
                          <div class="form-group">
                         <label for="exampleInputEmail1">البريد الإلكتروني</label>
-                        <input type="email" name="p_email" value="{{ old('p_email') }}" class="form-control" id="exampleInputEmail1" placeholder="example@example.com">
-                        @if ($errors->has('p_email'))
-                          <span class="text-danger">{{ $errors->first('p_email') }}</span>
-                        @endif
+                        <input type="email" value="{{ $editPatient->p_email }}"  name="p_email" class="form-control" id="exampleInputEmail1" placeholder="xxxx@example.com">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">كلمة المرور</label>
-                        <input type="password" name="p_password" value="{{ old('p_password') }}" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
-                        @if ($errors->has('p_password'))
-                          <span class="text-danger">{{ $errors->first('p_password') }}</span>
-                        @endif
-                      </div>
-                     </div>
-                     <!-- /.card-body -->   
-            </div>
-            <!-- /.card -->
-            </div>
-
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-  
-
-
-        </div>
-        <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
-    <section class="content" id="quickForm2">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">إضافة معلومات المريض الطبية</h3>
-              </div>
-
-
-                    <div class="card-body">
-                      <div class="form-group">
-                        <label for="exampleInputdiagnosis1">التشخيص</label>
-                        <input type="text" name="diagnosis" value="{{ old('diagnosis') }}" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputcharacteristics1">الأعراض</label>
-                        <input type="text" name="characteristics" value="{{ old('characteristics') }}" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
-                        <input type="text" name="neurological_damage" value="{{ old('neurological_damage') }}" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
-                        <input type="text" name="severity" value="{{ old('severity') }}" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputassesment_method1">طريقة التقييم</label>
-                        <input type="text" name="assesment_method" value="{{ old('assesment_method') }}" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
+                        <input type="password" value="{{ $editPatient->p_password }}"  name="p_password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
                       </div>
                      </div>
                      <!-- /.card-body -->
-                      <div class="card-footer">
-                       <button type="submit" class="btn btn-primary">إضافة</button>
-                     </div> 
-              </form>
+  
+
+                    
+               
+                </div>
+                <!-- /.card -->
+                </div>
+    
+                 </div>
+                 <!-- /.row -->
+               </div><!-- /.container-fluid -->
+      
+        
+        
+                </div>
+                <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                          <!-- jquery validation -->
+                          <div class="card card-primary">
+                            <div class="card-header">
+                              <h3 class="card-title">إضافة معلومات المريض الطبية</h3>
+                            </div>
+              
+        
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label for="exampleInputdiagnosis1">التشخيص</label>
+                                <input type="text" value="{{ $editPatient->diagnosis }}"  name="diagnosis" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputcharacteristics1">الأعراض</label>
+                                <input type="text" value="{{ $editPatient->characteristics }}"  name="characteristics" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
+                                <input type="text" value="{{ $editPatient->neurological_damage }}"  name="neurological_damage" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
+                                <input type="text" value="{{ $editPatient->severity }}"  name="severity" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputassesment_method1">طريقة التقييم</label>
+                                <input type="text" value="{{ $editPatient->assesment_method }}"  name="assesment_method" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
+                              </div>
+                             </div>
+                             <!-- /.card-body -->
+                              <div class="card-footer">
+                               <button type="submit" class="btn btn-primary">تحديث</button>
+                             </div> 
+            </form>
             </div>
             <!-- /.card -->
             </div>
 
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </section>
   
 
 
         </div>
 
-
     </div>
  
 
 </div> 
 
-<script>
-  $(function () {
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-  })
 
-</script>
   @endsection
 
   @section('scripts')
@@ -226,6 +201,10 @@
 <!-- jquery-validation -->
 <script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+
+<!-- date-range-picker -->
+<script src="{{URL::asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+
 
 <!-- InputMask -->
 <script src="{{URL::asset('assets/plugins/moment/moment.min.js')}}"></script>
@@ -245,15 +224,7 @@
 <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 
 <!--validate the add paitent form-->
-<!-- <script>
-    $.validator.addMethod( "validKSUmobileNumber" , function( value,element ) {
-   	return this.optional( element ) || /^(05)([0-9]{8})$/.test( value );
-     } ,
-     "Please specify a valid ksu mobile number format 05XXXXXXXX"
-     ); 
-
-   
-
+<script>
 $(function () {
   $('#quickForm').validate({
     rules: {
@@ -273,7 +244,6 @@ $(function () {
       },
       phone: {
         required: true,
-        validKSUmobileNumber: " يجب أن تكون صيغة رقم الهاتف05 XXXXXXXX "
       },
       nationality: {
         required: true,
@@ -305,7 +275,10 @@ $(function () {
       },
       p_password: {
         required: true,
-        minlength: 8
+        minlength: 5
+      },
+      terms: {
+        required: true
       },
     },
     messages: {
@@ -356,8 +329,9 @@ $(function () {
       },
       p_password: {
         required: "الرجاء إدخال كلمة مرور",
-        minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
+        minlength: "يجب أن تتكون كلمة المرور الخاصة بك من 5 أحرف على الأقل"
       },
+      terms: "الرجاء قبول شروطنا"
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
@@ -373,31 +347,44 @@ $(function () {
   });
   
 });
-
-</script> -->
+</script>
+<!--date picker-->
+<script>
+  $(function () {
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+  })
+</script>
 
 
   
 
 <script>
     var $ = require( "jquery" );
-    require( "smartwizard/dist/css/smart_wizard_all.css");
-    const smartWizard = require("smartwizard");
+require( "smartwizard/dist/css/smart_wizard_all.css");
+const smartWizard = require("smartwizard");
+
+$(function() {
+    $('#smartwizard').smartWizard();
+});
+</script>
+
+<script>
+import $ from "jquery";
+import "smartwizard/dist/css/smart_wizard_all.css";
+import smartWizard from 'smartwizard';
+
+$(function() {
+    $('#smartwizard').smartWizard();
     
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    </script>
-    
-    <script>
-    import $ from "jquery";
-    import "smartwizard/dist/css/smart_wizard_all.css";
-    import smartWizard from 'smartwizard';
-    
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    
+});
+
 </script>
 
 <script>
@@ -412,11 +399,10 @@ $(function () {
                          showNextButton: true,
                          showPreviousButton: true
                      }
-     
+                     
       })
 
       
 </script>
-
 
  @endsection

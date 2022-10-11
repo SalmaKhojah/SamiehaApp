@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   @endsection
 
-  @section('bar1')
+  @section('bar2')
   قائمة المرضى
   @endsection
 
-  @section('bar2')
+  @section('bar1')
   الرئيسية
   @endsection
-  @section('link2')
+  @section('link1')
    /
    @endsection
 

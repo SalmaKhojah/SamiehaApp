@@ -30,7 +30,7 @@
           <div class="col-sm-6">
             <h1 class="m-0"></h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-10">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="@yield('link1')">@yield('bar1')</a></li>
               <li class="breadcrumb-item active"><a href="@yield('link2')">@yield('bar2')</a></li>

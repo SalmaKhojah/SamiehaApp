@@ -8,19 +8,19 @@
 
   @endsection
 
-  @section('bar1')
+  @section('bar2')
   عرض بيانات الاختصاصي
   @endsection
 
-  @section('link1')
+  @section('link2')
    
    @endsection
   
-  @section('bar2')
+  @section('bar1')
    قائمة الاختصاصيين
   @endsection
 
-  @section('link2')
+  @section('link1')
   {{route('slpTable.index')}}
   @endsection
 

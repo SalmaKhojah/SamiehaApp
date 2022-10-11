@@ -22,17 +22,10 @@ class AdminHomeController extends Controller
         $slpss = DB::select('SELECT id FROM slps');
         $NoOfslps=count($slpss);
 
-        dd($NoOfPatients);
+        $sessions = DB::select('SELECT id FROM session');
+        $NoOfsessions=count($sessions);
 
-
-        $slpss=slps::select('id');
-        $NoOfslps=$slpss->count();
-
-        $sessions=session::select('id');
-        $NoOfsessions=$sessions->count();
-
-
-        return view('welcome', compact());
+        return view('welcome', compact('NoOfPatients','NoOfslps','NoOfsessions'));
     }
 
     /**
