@@ -13,6 +13,9 @@
 
   @endsection
 
+  @section('patientlink') active   @endsection
+
+
   @section('bar2')
    عرض معلومات المريض
   @endsection
@@ -34,7 +37,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">عرض معلومات المريض</h3>
               </div>

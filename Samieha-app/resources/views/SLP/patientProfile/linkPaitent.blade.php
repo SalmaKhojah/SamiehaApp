@@ -5,7 +5,7 @@
   @endsection
 
   @section('css')
-    <!-- Select2 -->
+    <!-- Select2 info-->
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   @endsection
@@ -26,6 +26,8 @@
   {{route('slpPaitentTable.index')}}
   @endsection
 
+  @section('linklink') active   @endsection
+
 
   @section('content')
 
@@ -43,7 +45,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">ربط المريض بالاختصاصي</h3>
               </div>

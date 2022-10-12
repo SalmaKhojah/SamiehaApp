@@ -21,6 +21,7 @@
    {{route('patientTable.index')}}
    @endsection -->
 
+   @section('sessionlink') active   @endsection
 
 
   @section('content')
@@ -239,9 +240,12 @@
                     <div class="card-body">
 
                     <div class="container text-center">
-  <div class="row">
-    <div class="col">
-      مقطع صوتي قصير
+  <div class="row" hieght="200px">
+    <div class="col bg-light pt-2 m-2">
+    <input class="  form-control form-control-md form-check-input " type="checkbox" name="cues[]" value="1" >
+<br >
+<p class="m-5">مقطع صوتي قصير
+</p>
     </div>
     <div class="col">
     مقطع صوتي طويل
@@ -250,10 +254,10 @@
     أوصاف للصورة
     </div>
     <div class="col">
-الكلمة مكتوبة
+الحرف الأول مكتوب
 </div>
     <div class="col">
-      Column
+    الكلمة مكتوبة
     </div>
   </div>
 </div>

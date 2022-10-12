@@ -24,6 +24,7 @@
   @section('link1')
   {{route('slpPaitentTable.index')}}
    @endsection
+   @section('patientlink') active   @endsection
 
 
 

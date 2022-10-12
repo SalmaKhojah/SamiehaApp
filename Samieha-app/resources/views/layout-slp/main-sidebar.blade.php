@@ -38,7 +38,7 @@
             </a>
           </li>
 
-          <li class="nav-item ">
+          <li class="nav-item  ">
             <a href="{{route('session.index')}}" class="nav-link ">
             <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -49,7 +49,7 @@
 
           <li class="nav-item ">
             <a href="{{route('slpLinkP.create')}}" class="nav-link ">
-            <i class="nav-icon fas fa-edit"></i>
+            <i class="nav-icon bi bi-link-45deg"></i>
               <p>
                 ربط المريض 
               </p>

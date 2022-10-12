@@ -24,6 +24,7 @@
   @section('link2')
    @endsection
 
+   @section('patientlink') active   @endsection
 
   @section('content')
 
@@ -53,7 +54,7 @@
                 </a>
               </div>
               
-              <!-- /.card-header -->
+              <!-- /.card-header search -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -158,10 +159,12 @@
 <script>
   $(function () {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
+      "responsive": true, 
+      "lengthChange": false, 
+      "autoWidth": false,
+      // "buttons": ["copy", "excel", "pdf", "print", "colvis"]
+    // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    // $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

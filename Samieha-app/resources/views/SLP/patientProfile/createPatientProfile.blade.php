@@ -5,13 +5,16 @@
   @endsection
 
   @section('css')
- 
+
   <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
-    <!-- CSS -->
+    <!-- CSS prim-->
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 
   @endsection
+
+  @section('patientlink') active   @endsection
+
 
   @section('bar2')
    إضافة مريض
@@ -53,7 +56,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">إضافة معلومات المريض الشخصية</h3>
               </div>
