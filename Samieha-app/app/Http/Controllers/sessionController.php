@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\subcategories;
 use App\Models\words;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class sessionController extends Controller
 {
@@ -19,9 +21,14 @@ class sessionController extends Controller
         $nounSub = subcategories::where('category_id', '1')->get();
         $verbSub = subcategories::where('category_id', '2')->get();
         $adjSub = subcategories::where('category_id', '3')->get();
+
+        
+        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
+        $id=$slpId[0]->id;
+        $data = DB::select('SELECT * FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
       
 
-           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub'));
+           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**

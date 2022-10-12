@@ -21,8 +21,15 @@
    {{route('patientTable.index')}}
    @endsection -->
 
-   @section('sessionlink') active   @endsection
+   @section('sessionlink') active @endsection
 
+   @section('bar2')
+إنشاء جلسة علاجية
+   @endsection
+  
+  @section('bar1')
+الرئيسية
+  @endsection
 
   @section('content')
 <!-- SmartWizard html -->
@@ -43,7 +50,7 @@
                         <li class="nav-item">
                           <a class="nav-link default done" href="#step-3">
                             <span class="num">3</span>
-                            الوقت والمرضى
+                            المريض
                           </a>
                         </li>
                     </ul>
@@ -64,7 +71,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('patientTable.store')}}" method="POST" id="quickForm" >
+              <form action="{{route('session.store')}}" method="POST" id="quickForm" >
                 @csrf
                     <div class="card-body">
                     
@@ -211,7 +218,7 @@
                     
                     
                     </div>
-                     <!-- /.card-body -->   
+                     <!-- /.card-body prim -->   
                      <div class="card-footer">
                      </div> 
             </div>
@@ -242,23 +249,44 @@
                     <div class="container text-center">
   <div class="row" hieght="200px">
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" name="cues[]" value="1" >
+    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="1" >
 <br >
 <p class="m-5">مقطع صوتي قصير
 </p>
     </div>
-    <div class="col">
-    مقطع صوتي طويل
+    <div class="col bg-light pt-2 m-2">
+    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="2" >
+<br >
+<p class="m-5">مقطع صوتي طويل
+</p>
     </div>
-    <div class="col">
-    أوصاف للصورة
+
+    <div class="col bg-light pt-2 m-2">
+    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="3" >
+<br >
+<p class="m-5">  
+      أوصاف للصورة
+
+</p>
     </div>
-    <div class="col">
+    <div class="col bg-light pt-2 m-2">
+    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="4" >
+<br >
+<p class="m-5">  
 الحرف الأول مكتوب
-</div>
-    <div class="col">
-    الكلمة مكتوبة
+
+</p>
     </div>
+   
+    <div class="col bg-light pt-2 m-2">
+    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
+<br >
+<p class="m-5">  
+    الكلمة مكتوبة
+
+</p>
+    </div>
+
   </div>
 </div>
 
@@ -291,35 +319,29 @@
             <!-- jquery validation -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">اختر مؤقت الإجابة وأسماء المرضى</h3>
+                <h3 class="card-title"> اختر المريض</h3>
               </div>
 
 
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputdiagnosis1">التشخيص</label>
-                        <input type="text" name="diagnosis" value="{{ old('diagnosis') }}" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
+                        <label for="exampleInputdiagnosis1">اختر اسم المريض</label>
+                        <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" placeholder="اختر المريض">
+  <option selected>المريض..</option>
+
+  @foreach($data as $item)  
+  <option value="{{$item->id}}">{{$item->first_name}} {{$item->last_name}}</option>
+  @endforeach
+</select>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputcharacteristics1">الأعراض</label>
-                        <input type="text" name="characteristics" value="{{ old('characteristics') }}" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
-                        <input type="text" name="neurological_damage" value="{{ old('neurological_damage') }}" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
-                        <input type="text" name="severity" value="{{ old('severity') }}" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputassesment_method1">طريقة التقييم</label>
-                        <input type="text" name="assesment_method" value="{{ old('assesment_method') }}" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
-                      </div>
+                      
+
+
+
                      </div>
                      <!-- /.card-body -->
                       <div class="card-footer">
-                       <button type="submit" class="btn btn-primary">إضافة</button>
+                       <button type="submit" class="btn btn-info">إضافة</button>
                      </div> 
               </form>
             </div>

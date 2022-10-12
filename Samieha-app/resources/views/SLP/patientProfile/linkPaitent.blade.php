@@ -74,11 +74,11 @@
                 <!-- /.card-body -->
                 @if(count($paitentExcepCuur)==0  )
                 <div class="card-footer">
-                  <button type="submit" disabled class="btn btn-primary">ربط</button>
+                  <button type="submit" disabled class="btn btn-info">ربط</button>
                 </div>
                 @else
                 <div class="card-footer">
-                  <button type="submit"  class="btn btn-primary">ربط</button>
+                  <button type="submit"  class="btn btn-info">ربط</button>
                 </div>
                 @endif
               </form>

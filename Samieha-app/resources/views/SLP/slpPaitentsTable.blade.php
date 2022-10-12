@@ -5,7 +5,7 @@
   @endsection
 
   @section('css')
-  <!-- DataTables -->
+  <!-- DataTables prim-->
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
@@ -49,7 +49,7 @@
                 <h3 class="card-title">قائمة المرضى</h3>
                 <a href="{{route('slpPaitentTable.create')}}">
                       <div class="container text-left">
-                       <button class="btn btn-primary" type="button">إضافة مريض</button>
+                       <button class="btn btn-info" type="button">إضافة مريض</button>
                      </div>
                 </a>
               </div>
