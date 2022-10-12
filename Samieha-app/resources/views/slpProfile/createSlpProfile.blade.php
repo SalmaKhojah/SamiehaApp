@@ -36,33 +36,51 @@
               <div class="card-header">
                 <h3 class="card-title">إضافة معلومات الاختصاصي</h3>
               </div>
+              <br>
               <!-- /.card-header -->
 
               <!-- form start -->
               <form action="{{route('slpTable.store')}}" method="POST" id="quickForm">
               @csrf
-                <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
                   <div class="form-group">
                     <label for="exampleInputName1">الاسم الأول</label>
                     <input type="text" name="F_slp_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
                   </div>
+                  </div>
+                  <div class="col">
                   <div class="form-group">
                     <label for="exampleInputName2">الاسم الأخير</label>
                     <input type="text" name="L_slp_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
                   </div>
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="col">
                   <div class="form-group">
                     <label for="exampleInputWorkPlace">مقر العمل</label>
                     <input type="text" name="work_place" class="form-control" id="exampleInputWorkPlace" placeholder="ادخل مقر العمل">
                   </div>
+                  </div>
+                  <div class="col">
                   <div class="form-group">
                     <label for="exampleInputslp_email">البريد الإلكتروني</label>
                     <input type="email" name="slp_email" class="form-control" id="exampleInputslp_email" placeholder="example@example.com">
                   </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
                   <div class="form-group">
                         <label for="exampleInputslp_password">كلمة المرور</label>
                         <input type="password" name="slp_password" class="form-control" id="exampleInputslp_password" placeholder="ادخل كلمة المرور">
                       </div>
+                  </div>
+                  <div class="col"></div>
                 </div>
+              </div>
+
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">إضافة</button>
