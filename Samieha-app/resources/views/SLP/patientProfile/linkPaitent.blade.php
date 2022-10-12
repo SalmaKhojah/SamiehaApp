@@ -121,7 +121,7 @@
           <div class="container">
   <div class="row">
     <div class="col">البريد الإلكتروني للاختصاصي :
-    <a href="{{$item->slp_email}}" target="_blank">{{$item->slp_email}}</a>
+    <a href="mailto:{{$item->slp_email}}" target="_blank">{{$item->slp_email}}</a>
     </div>
     
     <div class="col">مقر العمل :
