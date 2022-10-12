@@ -83,9 +83,6 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات المريض {{$item->first_name}} {{$item->last_name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
                           </div>
                           <div class="modal-body">
                           هل أنت متأكد أنك تريد حذف المريض؟ سيتم إزالة جميع بيانات المريض بشكل دائم. لا يمكنك التراجع عن هذا الإجراء.

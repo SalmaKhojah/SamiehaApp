@@ -59,15 +59,17 @@
               <div class="card-header">
                 <h3 class="card-title">رفع مواد الجلسة</h3>
               </div>
+              <br>
               <!-- /.card-header -->
 
               <!-- form start -->
             <form action="{{route('Material.store')}}" method="POST" enctype="multipart/form-data" id="quickForm">
               @csrf
-                <div class="card-body">
 
-                
-                  <div>
+              <div class="container">
+               <div class="row">
+                 <div class="col">
+                 <div>
                     <label for="exampleInputName1">التصنيف الرئيسي</label>
                   <select id="mainCategory" name="category" class="form-control select2" style="width: 100%;">
                   @foreach($categories as $cat )
@@ -75,8 +77,10 @@
                   @endforeach
                   </select>
                   </div> 
+                 </div>
+                 <div class="col">
 
-                    <div>
+                 <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
                   <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
                     <option value="أثاث" selected="selected">أثاث</option>
@@ -96,50 +100,81 @@
                   });
                 </script>
 
-
+<br>
                   <div id="subcategoryother" class="form-group" style="display:none;">
                     <label for="exampleInput">التصنيف الفرعي</label>
                     <input name="" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
                   </div>
-            
-                     
-                  <div class="form-group">
-                     <label for="exampleInputName1">الصورة</label>
-                       <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
-                     </div>
-                  <div class="form-group">
+                 </div>
+                 <div class="w-100"><br></div>
+                 <div class="col">
+                 <div class="form-group">
                     <label for="exampleInputt">الكلمة</label>
-                    <input name="word" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
-                  </div>
+                    <input name="word"  type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
+                    <input name="cue6"  type="hidden" value="d"  class="form-control" id="exampleInputt">
 
-                  <div class="form-group">
+                  </div>
+                 </div>
+                 <div class="col">
+                 <div class="form-group">
+                    <label for="exampleInputt">الحرف الأول كتابة</label>
+                    <input name="cue5" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
+                  </div> 
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col">
+                 <div class="form-group">
                     <label for="exampleInputt">الإشارة الدلالية للكلمة</label>
                     <input name="cue1" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الإشارة الدلالية للكلمة">
                   </div>
-                  <div class="form-group">
+                 </div>
+                 <div class="col">
+                 <div class="form-group">
                     <label for="exampleInputt">إتمام الجملة</label>
                     <input name="cue2" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل إتمام الجملة">
                   </div>
-                  <div class="form-group">
+                 </div>
+                 <div class="w-100"><br></div>
+                 <div class="col">
+          
+                 <div class="form-group">
+                    <label for="exampleInputt">الكلمة كتابة</label>
+                    <input name="cue6" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة كتابة">
+                  </div> 
+              
+                 </div>
+                 <div class="col">
+                 <div class="form-group">
                      <label for="exampleInputName1">صوت الحرف الأول</label>
                        <input name="cue3" type="file" class="form-control-file" id="exampleFormControlFile1">
                   </div>
-                  <div class="form-group">
+
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col">
+                 <div class="form-group">
                      <label for="exampleInputName1">صوت المقطع الأول</label>
                        <input name="cue4" type="file" class="form-control-file" id="exampleFormControlFile1">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputt">الحرف الأول كتابة</label>
-                    <input name="cue5" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputt">الكلمة كتابة</label>
-                    <input name="cue6" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة كتابة">
-                  </div>
-                  <div class="form-group">
+                
+                 </div>
+                 <div class="col">
+                 <div class="form-group">
                      <label for="exampleInputName1">الكلمة نطقا</label>
                        <input name="cue7" type="file" class="form-control-file" id="exampleFormControlFile1">
                   </div>
+                 </div>
+                 <div class="w-100"><br></div>
+                 <div class="col">    <div class="form-group">
+                     <label for="exampleInputName1">الصورة</label>
+                       <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
+                     </div>
+             </div>
+               </div>
+             </div>
+             
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">إضافة</button>

@@ -88,9 +88,6 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات الاختصاصي {{$item->F_slp_name}} {{$item->L_slp_name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
                           </div>
                           <div class="modal-body">
                           هل أنت متأكد أنك تريد حذف الاختصاصي ؟ سيتم إزالة جميع بيانات الاختصاصي بشكل دائم. لا يمكنك التراجع عن هذا الإجراء.
