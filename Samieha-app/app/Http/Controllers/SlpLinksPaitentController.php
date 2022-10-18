@@ -29,10 +29,10 @@ class SlpLinksPaitentController extends Controller
     public function create()
     {
         $LinkedSLP=null;
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $slp=$slpId[0]->id;
+        $slp = Auth::user()->id;
+        //$slp=$slpId[0]->id;
 
-        $paitentExcepCuur = DB::select('SELECT first_name , last_name , id FROM patients WHERE id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id='.$slp.')');
+        $paitentExcepCuur = DB::select('SELECT first_name , last_name , national_id , users_id FROM patients WHERE users_id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id AND slp_id='.Auth::user()->id.')');
 
         return view('SLP.patientProfile.linkPaitent', compact('paitentExcepCuur','slp', 'LinkedSLP'));
     }
@@ -50,24 +50,22 @@ class SlpLinksPaitentController extends Controller
             'patient_id' => 'required',
         ]);
 
-        $LinkedP = DB::select('SELECT first_name , last_name , id FROM patients WHERE id  IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id)');
+        $LinkedP = DB::select('SELECT first_name , last_name , national_id , users_id FROM patients WHERE users_id  IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id)');
 
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $slp=$slpId[0]->id;
+        $slp = Auth::user()->id;
 
-        $paitentExcepCuur = DB::select('SELECT first_name , last_name , id FROM patients WHERE id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id='.$slp.')');
+        $paitentExcepCuur = DB::select('SELECT first_name , last_name , national_id , users_id FROM patients WHERE users_id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id AND slp_id='.$slp.')');
         
         $compare=$request->patient_id;
 
 
         foreach( $LinkedP as $item)
         {
-            $compared=$item->id;
+            $compared=$item->users_id;
 
             if($compare == $compared)
             {
-              $LinkedSLP = DB::select('SELECT F_slp_name , L_slp_name , slp_email , work_place , id FROM slps WHERE id  IN (SELECT slp_id FROM slp_patients WHERE slps.id=slp_id AND  patient_id='.$compare.')');
-
+              $LinkedSLP = DB::select('SELECT F_slp_name , L_slp_name , work_place , users_id , email FROM slps , users WHERE users_id  IN (SELECT slp_id FROM slp_patients WHERE slps.users_id=slp_id AND users.id=slp_id AND patient_id='.$compare.')');
                 return view('SLP.patientProfile.linkPaitent', compact('paitentExcepCuur','slp' , 'LinkedSLP'));
 
                 // return redirect()->route('slpLinkP.create')

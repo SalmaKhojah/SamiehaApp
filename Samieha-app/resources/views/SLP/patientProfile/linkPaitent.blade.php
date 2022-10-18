@@ -57,14 +57,14 @@
                 <div class="card-body">
                 <input type="hidden" name="slp_id" value="{{$slp}}">
                   <div>
-                    <label for="exampleInputName1">اسم المريض</label>
+                    <label for="exampleInputName1">رقم هوية المريض</label>
                 @if(count($paitentExcepCuur)==0)
                   <select disabled class="form-control select2" style="width: 100%;">
                   <option selected="selected">لا يوجد مرضى مسجلين  </option>
                 @else
                 <select name="patient_id"  class="form-control select2" style="width: 100%;">
                   @foreach($paitentExcepCuur as $item)  
-                    <option value="{{$item->id}}" >{{$item->first_name}} {{$item->last_name}}</option>
+                    <option value="{{$item->users_id}}" >{{$item->national_id}}</option>
                     @endforeach
                   @endif
                   </select>
@@ -121,7 +121,7 @@
           <div class="container">
   <div class="row">
     <div class="col">البريد الإلكتروني للاختصاصي :
-    <a href="mailto:{{$item->slp_email}}" target="_blank">{{$item->slp_email}}</a>
+    <a href="mailto:{{$item->email}}" target="_blank">{{$item->email}}</a>
     </div>
     
     <div class="col">مقر العمل :
@@ -130,7 +130,7 @@
 
 </div>
 <br>
-          <h7>الرجاء التواصل مع الاختصاصي المسؤول عن المريض عن طريق <a href="{{$item->slp_email}}" target="_blank">البريد الإلكتروني</a> </h7>
+          <h7>الرجاء التواصل مع الاختصاصي المسؤول عن المريض عن طريق <a href="{{$item->email}}" target="_blank">البريد الإلكتروني</a> </h7>
         </div>
       </div>
       <!-- /.card-body -->
