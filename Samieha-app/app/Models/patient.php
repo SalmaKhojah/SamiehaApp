@@ -10,8 +10,6 @@ class patient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'p_email',
-        'p_password',
         'users_id',
         'national_id',
         'first_name',

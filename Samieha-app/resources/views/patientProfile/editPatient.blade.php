@@ -70,7 +70,7 @@
                     </ul>
                 </div>
               @endif
-             <form action="{{route('patientTable.update' , $editPatient->id)}}" method="POST" id="quickForm" >
+             <form action="{{route('patientTable.update' , $editPatient[0]->users_id)}}" method="POST" id="quickForm" >
                 @csrf
                 @method('PUT')
                 <div class="container">
@@ -78,27 +78,27 @@
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputName1">الاسم الأول</label>
-                        <input type="text"  value="{{ $editPatient->first_name }}" name="first_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
+                        <input type="text"  value="{{ $editPatient[0]->first_name }}" name="first_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
                       </div>
                    </div>
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputName2">الاسم الأخير</label>
-                        <input type="text" value="{{ $editPatient->last_name }}" name="last_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
+                        <input type="text" value="{{ $editPatient[0]->last_name }}" name="last_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
                       </div>
                    </div>
                    <div class="w-100"></div>
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputnational_id">رقم الهوية</label>
-                        <input type="text" value="{{ $editPatient->national_id }}"  name="national_id" class="form-control" id="exampleInputnational_id" placeholder="ادخل رقم الهوية">
+                        <input type="text" value="{{ $editPatient[0]->national_id }}"  name="national_id" class="form-control" id="exampleInputnational_id" placeholder="ادخل رقم الهوية">
                       </div>
                    </div>
                    <div class="col">
                    <div class="form-group">
                          <label for="exampleInputbirth_date">تاريخ الميلاد</label>
                              <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                 <input type="text" value="{{ $editPatient->birth_date }}"   name="birth_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                 <input type="text" value="{{ $editPatient[0]->birth_date }}"   name="birth_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
                                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                  </div>
@@ -111,26 +111,26 @@
                    <div class="col">
                    <div class="form-group">
                           <label for="exampleInputphone1">رقم الهاتف</label>
-                          <input type="tel" value="{{ $editPatient->phone }}"  name="phone" class="form-control" id="exampleInputphone1" placeholder="ادخل رقم الهاتف">
+                          <input type="tel" value="{{ $editPatient[0]->phone }}"  name="phone" class="form-control" id="exampleInputphone1" placeholder="ادخل رقم الهاتف">
                         </div>
                    </div>
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputnationality1">الجنسية</label>
-                        <input type="text" value="{{ $editPatient->nationality }}"  name="nationality" class="form-control" id="exampleInputnationality1" placeholder="ادخل الجنسية">
+                        <input type="text" value="{{ $editPatient[0]->nationality }}"  name="nationality" class="form-control" id="exampleInputnationality1" placeholder="ادخل الجنسية">
                       </div>
                    </div>
                    <div class="w-100"></div>
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputregion1">المنطقة</label>
-                        <input type="text" value="{{ $editPatient->region }}"  name="region" class="form-control" id="exampleInputregion1" placeholder="ادخل المنطقة">
+                        <input type="text" value="{{ $editPatient[0]->region }}"  name="region" class="form-control" id="exampleInputregion1" placeholder="ادخل المنطقة">
                       </div>
                    </div>
                    <div class="col">
                    <div class="form-group">
                         <label for="exampleInputcity1">المدينة</label>
-                        <input type="text" value="{{ $editPatient->city }}"  name="city" class="form-control" id="exampleInputcity1" placeholder="ادخل المدينة">
+                        <input type="text" value="{{ $editPatient[0]->city }}"  name="city" class="form-control" id="exampleInputcity1" placeholder="ادخل المدينة">
                       </div>
                    </div>
                  </div>
@@ -139,14 +139,14 @@
 
                    <div class="form-group">
                         <label for="exampleInputEmail1">البريد الإلكتروني</label>
-                        <input type="email" value="{{ $editPatient->p_email }}"  name="p_email" class="form-control" id="exampleInputEmail1" placeholder="xxxx@example.com">
+                        <input type="email" value="{{ $editPatient[0]->email }}"  name="email" class="form-control" id="exampleInputEmail1" placeholder="xxxx@example.com">
                       </div>
                    </div>
                    <div class="col">
                      
                    <div class="form-group">
                         <label for="exampleInputPassword1">كلمة المرور</label>
-                        <input type="password" value="{{ $editPatient->p_password }}"  name="p_password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
+                        <input type="password" value="{{ $editPatient[0]->password }}"  name="password" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
                       </div>
                    </div>
                  </div>
@@ -185,26 +185,26 @@
                                     <div class="col">
                                     <div class="form-group">
                                        <label for="exampleInputdiagnosis1">التشخيص</label>
-                                       <input type="text" value="{{ $editPatient->diagnosis }}"  name="diagnosis" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
+                                       <input type="text" value="{{ $editPatient[0]->diagnosis }}"  name="diagnosis" class="form-control" id="exampleInputdiagnosis1" placeholder="ادخل التشخيص">
                                      </div>
                                     </div>
                                     <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputcharacteristics1">الأعراض</label>
-                                        <input type="text" value="{{ $editPatient->characteristics }}"  name="characteristics" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
+                                        <input type="text" value="{{ $editPatient[0]->characteristics }}"  name="characteristics" class="form-control" id="exampleInputcharacteristics1" placeholder="ادخل الأعراض">
                                       </div>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputneurological_damage1">منطقة الإصابة العصبية</label>
-                                        <input type="text" value="{{ $editPatient->neurological_damage }}"  name="neurological_damage" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
+                                        <input type="text" value="{{ $editPatient[0]->neurological_damage }}"  name="neurological_damage" class="form-control" id="exampleInputneurological_damage1" placeholder="ادخل منطقة الإصابة">
                                       </div>    
                                     </div>
                                     <div class="col">
                                     <div class="form-group">
                                       <label for="exampleInputseverity1">شدة الإصابة العصبية</label>
-                                      <input type="text" value="{{ $editPatient->severity }}"  name="severity" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
+                                      <input type="text" value="{{ $editPatient[0]->severity }}"  name="severity" class="form-control" id="exampleInputseverity1" placeholder="ادخل شدة الإصابة">
                                     </div>
                                     </div>
                                   </div>
@@ -213,7 +213,7 @@
                                             
                               <div class="form-group">
                                 <label for="exampleInputassesment_method1">طريقة التقييم</label>
-                                <input type="text" value="{{ $editPatient->assesment_method }}"  name="assesment_method" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
+                                <input type="text" value="{{ $editPatient[0]->assesment_method }}"  name="assesment_method" class="form-control" id="exampleInputassesment_method1" placeholder="ادخل طريقة التقييم">
                               </div>
                                     </div>
                                     <div class="col"></div>   

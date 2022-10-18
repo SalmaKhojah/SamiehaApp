@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('p_email');
-            $table->string('p_password');
             $table->string('national_id');
             $table->string('first_name');
             $table->string('last_name');

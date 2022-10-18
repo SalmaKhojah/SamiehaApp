@@ -74,14 +74,14 @@
                     <td>{{$item->diagnosis}}</td>
                     <td>{{$item->severity}}</td>
                     <td>
-                    <a href="{{route('slpPaitentTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
-                    <a href="{{route('slpPaitentTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
-                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
+                    <a href="{{route('slpPaitentTable.show' , $item->users_id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+                    <a href="{{route('slpPaitentTable.edit' , $item->users_id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
 
-                    <form action="{{ route('slpPaitentTable.destroy', $item->id) }}" method="POST">
+                    <form action="{{ route('slpPaitentTable.destroy', $item->users_id) }}" method="POST">
                       <!-- Modal -->
                       
-                    <div class="modal fade" id="exampleModalCenter{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalCenter{{$item->users_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -94,7 +94,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
                             @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">حذف</button>                          </div>
+                          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}">حذف</button>                          </div>
                         </div>
                       </div>
                     </div>

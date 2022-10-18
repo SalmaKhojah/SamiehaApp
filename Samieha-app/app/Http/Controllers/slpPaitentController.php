@@ -19,9 +19,7 @@ class slpPaitentController extends Controller
      */
     public function index()
     {
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $id=$slpId[0]->id;
-        $data = DB::select('SELECT * FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
+        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id AND slp_id= '.Auth::user()->id.')');
         return view('SLP.slpPaitentsTable', compact('data'));
     }
 
@@ -46,8 +44,8 @@ class slpPaitentController extends Controller
     {
         
         $request->validate([
-            'p_email' => 'required',
-            'p_password' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'national_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -66,15 +64,13 @@ class slpPaitentController extends Controller
         $User_p_id=DB::table('users')->insertGetId([
             'role' => '1',
             'name' => $request->first_name,
-            'email' => $request->p_email,
-            'password' => $request->p_password,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
       
             $Patient=patient::create([
             'users_id'=>$User_p_id,
-            'p_email' => $request->p_email,
-            'p_password' => $request->p_password,
             'national_id' => $request->national_id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -90,12 +86,12 @@ class slpPaitentController extends Controller
             'assesment_method' => $request->assesment_method,
         ]);
 
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $SLPid=$slpId[0]->id;
+        // $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
+        // $SLPid=$slpId[0]->id;
 
         $linkPatient=DB::table('slp_patients')->insertGetId([
-            'slp_id' => $SLPid,
-            'patient_id' => $Patient->id,
+            'slp_id' => Auth::user()->id,
+            'patient_id' => $Patient->users_id,
         ]);
      
        
@@ -111,7 +107,7 @@ class slpPaitentController extends Controller
      */
     public function show($id)
     {
-        $viewPatient=patient::findOrFail($id); 
+        $viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
         return view('SLP.patientProfile.viewPatient')->with('viewPatient',$viewPatient);  
     }
 

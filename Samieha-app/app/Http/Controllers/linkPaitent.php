@@ -31,8 +31,8 @@ class linkPaitent extends Controller
      */
     public function create()
     {
-        $NotLinkedP = DB::select('SELECT first_name , last_name , id FROM patients WHERE id NOT IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id)');
-        $slps = DB::select('SELECT F_slp_name , L_slp_name , id FROM slps ');
+        $NotLinkedP = DB::select('SELECT first_name , last_name ,national_id, users_id FROM patients WHERE users_id NOT IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id)');
+        $slps = DB::select('SELECT email, F_slp_name , L_slp_name , users_id FROM slps, users WHERE users_id=id AND role=2');
         return view('linkPaitents.linkPaitent', compact('NotLinkedP', 'slps'));
     }
 

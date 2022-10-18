@@ -61,7 +61,7 @@
                 @else
                 <select name="slp_id" class="form-control select2" style="width: 100%;">
                   @foreach($slps as $item)  
-                  <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
+                  <option value="{{$item->users_id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}} - {{$item->email}}</option>
                     @endforeach
                   @endif
                   </select>
@@ -70,14 +70,14 @@
                  <div><br></div>
 
                   <div>
-                    <label for="exampleInputName1">اسم المريض</label>
+                    <label for="exampleInputName1">رقم هوية المريض</label>
                 @if(count($NotLinkedP)==0)
                   <select disabled class="form-control select2" style="width: 100%;">
                   <option selected="selected">لا يوجد مرضى غير مرتبيطن بأخصائيين</option>
                 @else
                 <select name="patient_id"  class="form-control select2" style="width: 100%;">
                   @foreach($NotLinkedP as $item)  
-                    <option value="{{$item->id}}" >{{$item->first_name}} {{$item->last_name}}</option>
+                    <option value="{{$item->users_id}}" >{{$item->national_id}}</option>
                     @endforeach
                   @endif
                   </select>

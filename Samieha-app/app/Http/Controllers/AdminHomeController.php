@@ -16,10 +16,10 @@ class AdminHomeController extends Controller
      */
     public function index()
     {
-        $Paitents = DB::select('SELECT id FROM patients');
+        $Paitents = DB::select('SELECT users_id FROM patients');
         $NoOfPatients=count($Paitents);
 
-        $slpss = DB::select('SELECT id FROM slps');
+        $slpss = DB::select('SELECT users_id FROM slps');
         $NoOfslps=count($slpss);
 
         $sessions = DB::select('SELECT id FROM session');

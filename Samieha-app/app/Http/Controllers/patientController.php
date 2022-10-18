@@ -16,7 +16,7 @@ class patientController extends Controller
     
     public function index()
     {
-        $data=patient::all();
+        $data=DB::select('SELECT email, first_name, last_name, national_id , diagnosis, severity, users_id FROM users, patients WHERE role=1 AND users.id=patients.users_id');
         return view('patientProfile.patientTable')->with('data',$data);
     }
 
@@ -31,8 +31,8 @@ class patientController extends Controller
     {
         
         $request->validate([
-            'p_email' => 'required',
-            'p_password' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'national_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -51,15 +51,13 @@ class patientController extends Controller
         $User_p_id=DB::table('users')->insertGetId([
             'role' => '1',
             'name' => $request->first_name,
-            'email' => $request->p_email,
-            'password' => $request->p_password,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
 
             $Patient=patient::create([
             'users_id'=>$User_p_id,
-            'p_email' => $request->p_email,
-            'p_password' => $request->p_password,
             'national_id' => $request->national_id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -84,23 +82,23 @@ class patientController extends Controller
  
     public function show($id)
     {
-        $viewPatient=patient::findOrFail($id); 
+        $viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
         return view('patientProfile.viewPatient')->with('viewPatient',$viewPatient);
     }
 
  
     public function edit($id)
     {
-        $editPatient=patient::findOrFail($id); 
+        $editPatient = DB::select('SELECT patients.* , users_id , email , password FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
         return view('patientProfile.editPatient')->with('editPatient',$editPatient);
     }
 
 
     public function update(Request $request,$id)
     {
-        $validatedData = $request->validate([
-            'p_email' => 'required',
-            'p_password' => 'required',
+         $request->validate([
+            'email' => 'required',
+            'password' => 'required',
             'national_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -116,7 +114,26 @@ class patientController extends Controller
             'assesment_method' => 'required',
         ]);
 
-        patient::whereId($id)->update($validatedData);
+        User::whereId($id)->update(([
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]));
+
+        patient::where('users_id',$id)->update(([
+            'national_id'=>$request->national_id,
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'birth_date'=>$request->birth_date,
+            'phone'=>$request->phone,
+            'nationality'=>$request->nationality,
+            'region'=>$request->region,
+            'city'=>$request->city,
+            'diagnosis'=>$request->diagnosis,
+            'characteristics'=>$request->characteristics,
+            'neurological_damage'=>$request->neurological_damage,
+            'severity'=>$request->severity,
+            'assesment_method'=>$request->assesment_method,
+        ]));
 
        
         return redirect()->route('patientTable.index')
@@ -126,8 +143,9 @@ class patientController extends Controller
  
     public function destroy($id)
     {
-        $patient=patient::find($id); 
-        $user=User::where('id',$patient->users_id); 
+
+        $patient=patient::where('users_id',$id); 
+        $user=User::where('id',$id); 
         $patient->delete();
         $user->delete();
         return redirect()->route('patientTable.index')

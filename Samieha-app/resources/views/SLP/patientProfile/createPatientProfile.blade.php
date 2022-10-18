@@ -153,9 +153,9 @@
     <div class="col">
     <div class="form-group">
                         <label for="exampleInputEmail1">البريد الإلكتروني</label>
-                        <input type="email" name="p_email" value="{{ old('p_email') }}" class="form-control" id="exampleInputEmail1" placeholder="example@example.com">
-                        @if ($errors->has('p_email'))
-                          <span class="text-danger">{{ $errors->first('p_email') }}</span>
+                        <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="exampleInputEmail1" placeholder="example@example.com">
+                        @if ($errors->has('email'))
+                          <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
                       </div>
     </div>
@@ -163,9 +163,9 @@
      
     <div class="form-group">
                         <label for="exampleInputPassword1">كلمة المرور</label>
-                        <input type="password" name="p_password" value="{{ old('p_password') }}" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
-                        @if ($errors->has('p_password'))
-                          <span class="text-danger">{{ $errors->first('p_password') }}</span>
+                        <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="exampleInputPassword1" placeholder="ادخل كلمة المرور">
+                        @if ($errors->has('password'))
+                          <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
                       </div>
     </div>

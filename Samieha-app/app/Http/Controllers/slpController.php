@@ -18,14 +18,7 @@ class slpController extends Controller
     
     public function index()
     {
-       // $data=slp::all();
         $data=DB::select('SELECT email, F_slp_name, L_slp_name, work_place , users_id as id FROM users, slps WHERE role=2 AND users.id=slps.users_id');
-
-        // $emails = [];
-        // foreach($emailSlps as $row)
-        // {
-        //     $emails[] = $row->email;
-        // }
         return view('slpProfile.slpTable', compact('data'));
     }
 
