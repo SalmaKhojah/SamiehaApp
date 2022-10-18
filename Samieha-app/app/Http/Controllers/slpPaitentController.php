@@ -119,7 +119,7 @@ class slpPaitentController extends Controller
      */
     public function edit($id)
     {
-        $editPatient=patient::findOrFail($id); 
+        $editPatient = DB::select('SELECT patients.* , email , password FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
         return view('SLP.patientProfile.editPatient')->with('editPatient',$editPatient);
     }
 
@@ -132,9 +132,9 @@ class slpPaitentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'p_email' => 'required',
-            'p_password' => 'required',
+         $request->validate([
+            'email' => 'required',
+            'password' => 'required',
             'national_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
@@ -150,7 +150,27 @@ class slpPaitentController extends Controller
             'assesment_method' => 'required',
         ]);
 
-        patient::whereId($id)->update($validatedData);
+        User::whereId($id)->update(([
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]));
+
+
+        patient::where('users_id',$id)->update(([
+            'national_id' => $request->national_id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'birth_date' => $request->birth_date,
+            'phone' => $request->phone,
+            'nationality' => $request->nationality,
+            'region' => $request->region,
+            'city' => $request->city,
+            'diagnosis' => $request->diagnosis,
+            'characteristics' => $request->characteristics,
+            'neurological_damage' => $request->neurological_damage,
+            'severity' => $request->severity,
+            'assesment_method' => $request->assesment_method,
+        ]));
 
        
         return redirect()->route('slpPaitentTable.index')
@@ -165,9 +185,6 @@ class slpPaitentController extends Controller
      */
     public function destroy($id)
     {
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $SLPid=$slpId[0]->id;
-
         $deLinkPatient=slp_patients::where('patient_id',$id); 
         $deLinkPatient->delete();
 
