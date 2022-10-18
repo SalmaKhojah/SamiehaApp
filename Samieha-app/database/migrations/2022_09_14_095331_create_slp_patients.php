@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('slp_patients', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patient_id')->unique()->nullable();
-            $table->foreign('patient_id')->nullable()->references('id')->on('patients')->onDelete('SET NULL')->onUpdate('cascade');
+            $table->foreign('patient_id')->nullable()->references('users_id')->on('patients')->onDelete('SET NULL')->onUpdate('cascade');
             $table->unsignedBigInteger('slp_id')->nullable();
-            $table->foreign('slp_id')->nullable()->references('id')->on('slps')->onDelete('SET NULL')->onUpdate('cascade');
+            $table->foreign('slp_id')->nullable()->references('users_id')->on('slps')->onDelete('SET NULL')->onUpdate('cascade');
             $table->timestamps();
         });
     }

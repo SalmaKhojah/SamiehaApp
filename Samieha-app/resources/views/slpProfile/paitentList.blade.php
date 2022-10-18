@@ -105,7 +105,7 @@
                                   <label for="exampleInputName1">اسم الاختصاصي</label>
                                 <select name="slp_id" class="form-control select2" style="width: 100%;">
                                 @foreach($allSlpsExceptCurrent as $item)  
-                                <option value="{{$item->id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}}</option>
+                                <option value="{{$item->users_id}}" >{{$item->F_slp_name}} {{$item->L_slp_name}} - {{$item->email}}</option>
                                 @endforeach 
                                 </select>
                                 </div>   
@@ -114,7 +114,7 @@
                               <!-- /.card-body -->
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">نقل</button>        
+                              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}">نقل</button>        
                             </div>
                           </form>
 

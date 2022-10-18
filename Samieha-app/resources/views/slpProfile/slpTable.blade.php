@@ -70,7 +70,7 @@
                @foreach($data as $item)  
                   <tr>
                     <td>{{$item->F_slp_name}} {{$item->L_slp_name}}</td>
-                    <td>{{$item->slp_email}}</td>
+                    <td>{{$item->email}}</td>
                     <td>{{$item->work_place}}</td>
                     <td>
                     <a href="{{route('paitentsList.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>

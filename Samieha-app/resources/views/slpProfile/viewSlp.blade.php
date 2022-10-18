@@ -42,16 +42,16 @@
                  <div class="row">
                    <div class="col">
                    <label for="exampleInputName1">الاسم:</label>
-                    <b>{{ $viewslp->F_slp_name }} {{ $viewslp->L_slp_name }}</b>
+                    <b>{{ $viewslp[0]->F_slp_name }} {{ $viewslp[0]->L_slp_name }}</b>
                    </div>
                    <div class="col">
                    <label for="exampleInputWorkPlace">مقر العمل:</label>
-                    <b>{{ $viewslp->work_place }}</b>
+                    <b>{{ $viewslp[0]->work_place }}</b>
                    </div>
                    <div class="w-100"></div>
                    <div class="col">
                    <label for="exampleInputslp_email">البريد الإلكتروني:</label>
-                    <b>{{ $viewslp->slp_email }}</b>
+                    <b>{{ $viewslp[0]->email }}</b>
                    </div>
                  </div>
 

@@ -66,7 +66,7 @@
                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputslp_email">البريد الإلكتروني</label>
-                    <input type="email" name="slp_email" class="form-control" id="exampleInputslp_email" placeholder="example@example.com">
+                    <input type="email" name="email" class="form-control" id="exampleInputslp_email" placeholder="example@example.com">
                   </div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                   <div class="col">
                   <div class="form-group">
                         <label for="exampleInputslp_password">كلمة المرور</label>
-                        <input type="password" name="slp_password" class="form-control" id="exampleInputslp_password" placeholder="ادخل كلمة المرور">
+                        <input type="password" name="password" class="form-control" id="exampleInputslp_password" placeholder="ادخل كلمة المرور">
                       </div>
                   </div>
                   <div class="col"></div>

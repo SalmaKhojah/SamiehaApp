@@ -41,7 +41,7 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form action="{{route('slpTable.update',  $editSlp->id )}}" method="POST" id="quickForm">
+              <form action="{{route('slpTable.update',  $editSlp[0]->id )}}" method="POST" id="quickForm">
                 @csrf
                 @method('PUT')
                 <div class="container">
@@ -49,26 +49,26 @@
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputName1">الاسم الأول</label>
-                    <input type="text" name="F_slp_name" class="form-control" id="exampleInputName1" value="{{ $editSlp->F_slp_name }}">
+                    <input type="text" name="F_slp_name" class="form-control" id="exampleInputName1" value="{{ $editSlp[0]->F_slp_name }}">
                   </div>
                     </div>
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputName2">الاسم الأخير</label>
-                    <input type="text" name="L_slp_name" class="form-control" id="exampleInputName2" value="{{ $editSlp->L_slp_name }}">
+                    <input type="text" name="L_slp_name" class="form-control" id="exampleInputName2" value="{{ $editSlp[0]->L_slp_name }}">
                   </div>
                     </div>
                     <div class="w-100"></div>
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputWorkPlace">مقر العمل</label>
-                    <input type="text" name="work_place" class="form-control" id="exampleInputWorkPlace" value="{{ $editSlp->work_place }}">
+                    <input type="text" name="work_place" class="form-control" id="exampleInputWorkPlace" value="{{ $editSlp[0]->work_place }}">
                   </div>
                     </div>
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputslp_email">البريد الإلكتروني</label>
-                    <input type="email" name="slp_email" class="form-control" id="exampleInputslp_email" value="{{ $editSlp->slp_email }}">
+                    <input type="email" name="email" class="form-control" id="exampleInputslp_email" value="{{ $editSlp[0]->email }}">
                   </div>
                     </div>
                   </div>
@@ -76,7 +76,7 @@
                     <div class="col">
                     <div class="form-group">
                         <label for="exampleInputslp_password">كلمة المرور</label>
-                        <input type="password" name="slp_password" class="form-control" id="exampleInputslp_password" value="{{ $editSlp->slp_password }}">
+                        <input type="password" name="password" class="form-control" id="exampleInputslp_password" value="{{ $editSlp[0]->password }}">
                       </div>
                     </div>
                     <div class="col"></div>

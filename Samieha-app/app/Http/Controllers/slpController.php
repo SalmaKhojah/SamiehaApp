@@ -18,44 +18,29 @@ class slpController extends Controller
     
     public function index()
     {
-        $data=slp::all();
-        return view('slpProfile.slpTable')->with('data',$data);
+       // $data=slp::all();
+        $data=DB::select('SELECT email, F_slp_name, L_slp_name, work_place , users_id as id FROM users, slps WHERE role=2 AND users.id=slps.users_id');
+
+        // $emails = [];
+        // foreach($emailSlps as $row)
+        // {
+        //     $emails[] = $row->email;
+        // }
+        return view('slpProfile.slpTable', compact('data'));
     }
 
    
     public function create()
     {
-        $emails = DB::select('SELECT email from users');
-
-        $email = [];
-
-        foreach( $emails as $em )
-        {
-            $email[] = $em->email;
-        }
-
-//dd($email);
-
-           if(isset($email)){
-
-        return view('slpProfile.createSlpProfile')->with('emails',$email);
-
-        }
-
-        else{
-
         return view('slpProfile.createSlpProfile');
-        
-        }
-
     }
 
   
     public function store(Request $request)
     {
         $request->validate([
-            'slp_email'=>'required',
-            'slp_password'=>'required',
+            'email'=>'required',
+            'password'=>'required',
             'F_slp_name'=>'required',
             'L_slp_name'=>'required',
             'work_place'=>'required',
@@ -64,16 +49,14 @@ class slpController extends Controller
         $User_slp_id=DB::table('users')->insertGetId([
             'role' => '2',
             'name' => $request->F_slp_name,
-            'email' => $request->slp_email,
-            'password' => $request->slp_password,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
 
 
         $Sllp=slp::create([
             'users_id'=>$User_slp_id,
-            'slp_email'=>$request->slp_email,
-            'slp_password'=>$request->slp_password,
             'F_slp_name'=>$request->F_slp_name,
             'L_slp_name'=>$request->L_slp_name,
             'work_place'=>$request->work_place,
@@ -87,29 +70,41 @@ class slpController extends Controller
   
     public function show($id)
     {
-     $viewslp = slp::findOrFail($id);
-     return view('slpProfile.viewSlp')->with('viewslp',$viewslp);
+     $viewslp = DB::select('SELECT slps.* , email FROM slps, users WHERE users.id='.$id.' AND users_id='.$id.'');
+     return view('slpProfile.viewSlp', compact('viewslp'));
     }
 
    
     public function edit($id)
     {
-        $editSlp=slp::findOrFail($id); 
-        return view('slpProfile.editSlp')->with('editSlp',$editSlp);
+        $editSlp = DB::select('SELECT slps.* , users_id as id  , email , password FROM slps, users WHERE users.id='.$id.' AND users_id='.$id.'');
+        return view('slpProfile.editSlp', compact('editSlp'));
     }
 
 
     public function update(Request $request, $id)
     {
-        $validatedData =  $request->validate([
-            'slp_email'=>'required',
-            'slp_password'=>'required',
+
+          $request->validate([
+            'email'=>'required',
+            'password'=>'required',
             'F_slp_name'=>'required',
             'L_slp_name'=>'required',
             'work_place'=>'required',
         ]);
         
-        slp::whereId($id)->update( $validatedData);
+        User::whereId($id)->update(([
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]));
+
+
+
+        slp::where('users_id',$id)->update(([
+            'F_slp_name'=>$request->F_slp_name,
+            'L_slp_name'=>$request->L_slp_name,
+            'work_place'=>$request->work_place,
+        ]));
 
         return redirect()->route('slpTable.index')
                          ->with('success','تم التعديل بنجاح');
@@ -118,8 +113,8 @@ class slpController extends Controller
   
     public function destroy($id)
     {
-        $Slp=slp::find($id); 
-        $user=User::where('id',$Slp->users_id); 
+        $Slp=slp::where('users_id',$id); 
+        $user=User::where('id',$id); 
         $Slp->delete();
         $user->delete();
         return redirect()->route('slpTable.index')
