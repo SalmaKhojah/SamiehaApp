@@ -108,8 +108,8 @@ class slpPaitentController extends Controller
     public function show($id)
     {
         $viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
-        return view('SLP.patientProfile.viewPatient')->with('viewPatient',$viewPatient);  
-    }
+        $patientsession =  DB::select('SELECT * FROM session WHERE  patient_id= '.$id.'');
+        return view('SLP.patientProfile.viewPatient', compact('viewPatient','patientsession'));     }
 
     /**
      * Show the form for editing the specified resource.

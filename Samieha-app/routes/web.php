@@ -80,6 +80,8 @@ Route::middleware(['auth', 'slp'])->group(function () {
     Route::resource('/slpPaitentTable' , slpPaitentController::class);
 
     Route::resource('/slpLinkP' ,  SlpLinksPaitentController::class);
+    Route::resource('/result' ,  SlpLinksPaitentController::class);
+
 
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
 

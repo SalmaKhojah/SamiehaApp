@@ -155,6 +155,31 @@
         </div>
         <!-- /.row -->
       </div>
+
+      <br>
+   <h2>الجلسات</h2>
+   <table  class="table">
+
+<thead>
+</thead>
+<tbody>
+@foreach($patientsession as $item)
+
+<tr>
+
+ <ul class="list-group">
+ <td>
+   <li class="list-group"><h5>{{$item->id}} الجلسة</h5></li>
+   </td>
+   <td>
+   <a href="#" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+</td>
+</ul>
+
+</tr>
+@endforeach
+
+</tbody>
 </section>
   
 

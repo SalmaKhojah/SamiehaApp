@@ -23,7 +23,7 @@ class slp_patients extends Seeder
             
             [ 
              'patient_id'=>'3',
-              'slp_id'=>'12'
+              'slp_id'=>'11'
             ],
             
             [ 
