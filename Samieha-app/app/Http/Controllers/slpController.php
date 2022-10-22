@@ -40,9 +40,9 @@ class slpController extends Controller
             ->letters()
             ->numbers()
             ->symbols()],
-            'F_slp_name'=>'required|min:2|max:15',
-            'L_slp_name'=>'required|min:2|max:15',
-            'work_place'=>'required|min:2|max:15',
+            'F_slp_name'=>'required|min:2',
+            'L_slp_name'=>'required|min:2',
+            'work_place'=>'required|min:2',
         ]);
 
         $User_slp_id=DB::table('users')->insertGetId([
@@ -91,9 +91,9 @@ class slpController extends Controller
             ->letters()
             ->numbers()
             ->symbols()],
-            'F_slp_name'=>'required|min:2|max:15',
-            'L_slp_name'=>'required|min:2|max:15',
-            'work_place'=>'required|min:2|max:15',
+            'F_slp_name'=>'required|min:2',
+            'L_slp_name'=>'required|min:2',
+            'work_place'=>'required|min:2',
         ]);
         
         User::whereId($id)->update(([

@@ -22,12 +22,8 @@ class sessionController extends Controller
         $verbSub = subcategories::where('category_id', '2')->get();
         $adjSub = subcategories::where('category_id', '3')->get();
 
-        
-        $slpId = DB::select('SELECT id , users_id FROM slps WHERE users_id = '.Auth::user()->id.'');
-        $id=$slpId[0]->id;
-        $data = DB::select('SELECT * FROM patients WHERE id IN (SELECT patient_id FROM slp_patients WHERE patients.id = patient_id AND slp_id= '.$id.')');
+        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
       
-
            return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
