@@ -50,12 +50,18 @@
                     <div class="form-group">
                     <label for="exampleInputName1">الاسم الأول</label>
                     <input type="text" name="F_slp_name" class="form-control" id="exampleInputName1" value="{{ $editSlp[0]->F_slp_name }}">
+                    @if ($errors->has('F_slp_name'))
+                       <span class="text-danger">{{ $errors->first('F_slp_name') }}</span>
+                     @endif
                   </div>
                     </div>
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputName2">الاسم الأخير</label>
                     <input type="text" name="L_slp_name" class="form-control" id="exampleInputName2" value="{{ $editSlp[0]->L_slp_name }}">
+                    @if ($errors->has('L_slp_name'))
+                       <span class="text-danger">{{ $errors->first('L_slp_name') }}</span>
+                     @endif
                   </div>
                     </div>
                     <div class="w-100"></div>
@@ -63,12 +69,18 @@
                     <div class="form-group">
                     <label for="exampleInputWorkPlace">مقر العمل</label>
                     <input type="text" name="work_place" class="form-control" id="exampleInputWorkPlace" value="{{ $editSlp[0]->work_place }}">
+                    @if ($errors->has('work_place'))
+                       <span class="text-danger">{{ $errors->first('work_place') }}</span>
+                     @endif
                   </div>
                     </div>
                     <div class="col">
                     <div class="form-group">
                     <label for="exampleInputslp_email">البريد الإلكتروني</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputslp_email" value="{{ $editSlp[0]->email }}">
+                    <input type="email" name="email"  class="form-control" id="exampleInputslp_email" value="{{ $editSlp[0]->email }}">
+                    @if ($errors->has('email'))
+                       <span class="text-danger">{{ $errors->first('email') }}</span>
+                     @endif
                   </div>
                     </div>
                   </div>
@@ -77,6 +89,9 @@
                     <div class="form-group">
                         <label for="exampleInputslp_password">كلمة المرور</label>
                         <input type="password" name="password" class="form-control" id="exampleInputslp_password" value="{{ $editSlp[0]->password }}">
+                        @if ($errors->has('password'))
+                          <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col"></div>
@@ -112,7 +127,7 @@
 <script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 
-<!-- Page specific script -->
+<!-- Page specific script
 <script>
 $(function () {
   $('#quickForm').validate({
@@ -174,6 +189,6 @@ $(function () {
     }
   });
 });
-</script>
+</script> -->
 
  @endsection
