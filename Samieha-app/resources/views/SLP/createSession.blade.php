@@ -330,7 +330,7 @@
   <option selected>المريض..</option>
 
   @foreach($data as $item)  
-  <option value="{{$item->id}}">{{$item->first_name}} {{$item->last_name}}</option>
+  <option value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
   @endforeach
 </select>
                       </div>
