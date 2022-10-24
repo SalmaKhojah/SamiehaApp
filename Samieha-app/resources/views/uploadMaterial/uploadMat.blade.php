@@ -83,6 +83,7 @@
                        <span class="text-danger">{{ $errors->first('subcategory') }}</span>
                      @endif
                   </div>
+
                   <script type="text/javascript">
                      $(document).ready(function () {
                          $('#category').on('change', function () {
@@ -105,6 +106,21 @@
                  </script>
 
               
+                   <!-- to set the name value of SubCategory of id=subcategoryother -->
+                   <script>
+                  $(document).on("change","#subcategory", function(){
+                    var SubCategory = $(this).val();
+                    if(SubCategory === "أخرى"){
+                      $("#subcategoryother").attr("name", "subcategory");
+                    }
+                  });
+                </script>
+
+
+                  <div id="subcategoryother" class="form-group" style="display:none;">
+                    <label for="exampleInput">التصنيف الفرعي</label>
+                    <input name="" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
+                  </div>
 
                  </div>
                  <div class="w-100"><br></div>
@@ -242,6 +258,16 @@
   )
 </script>
 
+<script>
+$(document).on("change","#subcategory", function(){
+  var SubCategory = $(this).val();
+  if(SubCategory === "أخرى"){
+    $("#subcategoryother").show();
+  }else{
+    $("#subcategoryother").hide();
+  }
+});
+</script>
 
 <script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
  
