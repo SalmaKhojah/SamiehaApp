@@ -57,6 +57,7 @@ Route::get('/uploadMat', function () {
     return view('uploadMat');
 });
 
+Route::get('get-Subcategory', [MaterialController::class, 'getSubcategory'])->name('getSubcategory');
 
 
 Route::get('/new', function () {
