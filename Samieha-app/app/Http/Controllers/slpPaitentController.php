@@ -22,6 +22,7 @@ class slpPaitentController extends Controller
     public function index()
     {
         $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id AND slp_id= '.Auth::user()->id.')');
+
         return view('SLP.slpPaitentsTable', compact('data'));
     }
 

@@ -8,7 +8,7 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\linkPaitent;
 use App\Http\Controllers\paitentsList;
 use App\Http\Controllers\sessionController;
-
+use App\Http\Controllers\PatientResultController;
 use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\slpPaitentController;
 use App\Http\Controllers\SlpLinksPaitentController;
@@ -81,7 +81,7 @@ Route::middleware(['auth', 'slp'])->group(function () {
     Route::resource('/slpPaitentTable' , slpPaitentController::class);
 
     Route::resource('/slpLinkP' ,  SlpLinksPaitentController::class);
-    Route::resource('/result' ,  SlpLinksPaitentController::class);
+    Route::resource('/result' ,  PatientResultController::class);
 
 
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);
