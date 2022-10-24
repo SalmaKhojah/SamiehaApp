@@ -65,7 +65,7 @@
                   <select class="form-control select2"  name="category" id="category" style="width: 100%;">
                   <option selected disabled>اختر التصنيف الرئيسي</option>
                   @foreach($categories as $cat )
-                  <option value="{{$cat->id}}">{{$cat->category}}</option>
+                  <option value="{{$cat->id}}" >{{$cat->category}}</option>
                   @endforeach
                   </select>
                   @if ($errors->has('category'))
@@ -83,7 +83,6 @@
                        <span class="text-danger">{{ $errors->first('subcategory') }}</span>
                      @endif
                   </div>
-
                   <script type="text/javascript">
                      $(document).ready(function () {
                          $('#category').on('change', function () {
@@ -93,7 +92,7 @@
                                  url: '{{ route('getSubcategory') }}?category_id='+category_id,
                                  type: 'get',
                                  success: function (res) {
-                                     $('#subcategory').html('<option selected disabled value="">اختر التصنيف الفرعي</option>');
+                                     $('#subcategory').html('<option selected disabled value="">اختر التصنيف الفرعي</option> <option value="أخرى">أخرى</option>');
                                      $.each(res, function (key, value) {
                                          $('#subcategory').append('<option value="' + value
                                              .subcategory + '">' + value.subcategory + '</option>');
@@ -112,7 +111,7 @@
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">الكلمة كتابة</label>
-                    <input name="cue6"  type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
+                    <input name="cue6"  type="text"  value="{{ old('cue6') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
                     <input name="word"  type="hidden" value="d"  class="form-control" id="exampleInputt">
                     @if ($errors->has('cue6'))
                        <span class="text-danger">{{ $errors->first('cue6') }}</span>
@@ -122,7 +121,7 @@
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">الحرف الأول كتابة</label>
-                    <input name="cue5" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
+                    <input name="cue5" type="text" value="{{ old('cue5') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
                     @if ($errors->has('cue5'))
                        <span class="text-danger">{{ $errors->first('cue5') }}</span>
                      @endif
@@ -133,7 +132,7 @@
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">الإشارة الدلالية للكلمة</label>
-                    <input name="cue1" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الإشارة الدلالية للكلمة">
+                    <input name="cue1" type="text" value="{{ old('cue1') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الإشارة الدلالية للكلمة">
                     @if ($errors->has('cue1'))
                        <span class="text-danger">{{ $errors->first('cue1') }}</span>
                      @endif
@@ -142,7 +141,7 @@
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">إتمام الجملة</label>
-                    <input name="cue2" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل إتمام الجملة">
+                    <input name="cue2" type="text"  value="{{ old('cue2') }}" class="form-control" id="exampleInputt" placeholder="ادخل إتمام الجملة">
                     @if ($errors->has('cue2'))
                        <span class="text-danger">{{ $errors->first('cue2') }}</span>
                      @endif
@@ -153,7 +152,7 @@
                  <div class="col">
                   <div class="form-group">
                      <label for="exampleInputName1">صوت الحرف الأول</label>
-                       <input name="cue3" type="file" class="form-control-file" id="exampleFormControlFile1">
+                       <input name="cue3" type="file"  class="form-control-file" id="exampleFormControlFile1">
                        @if ($errors->has('cue3'))
                        <span class="text-danger">{{ $errors->first('cue3') }}</span>
                      @endif
