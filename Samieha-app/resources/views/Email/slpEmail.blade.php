@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ar" dir="rtl">
 <head>
+<link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -56,14 +59,61 @@
     </style>
 </head>
 <body>
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <div class="title m-b-md">
-            {{$details['title']}}
-        </div>
-        <p>  {{$details['body']}} </p>
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+          
+            <!-- /.card -->
+         
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{$details['title']}}</h3>
+                
+              </div>
+              
+              <!-- /.card-header search -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>رقم التكرار </th>
+                    <th>الكلمة </th>
+                    <th>الصورة </th>
+                    <th>الاجابات </th>
+                    <th>التلميح المستخدم</th>
+                    <th> استجابة المريض</th>
 
-    </div>
-</div>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($resultp as $item)  
+                  <tr>
+                  <td>{{$item->trial_id}}</td>
+                  <td>{{$item->word}}</td>
+                  <td>{{$item->word_id}}</td>
+                    <td>{{$item->check_answer}}</td>
+                    <td>{{$item->used_cues}}</td>
+                    <td>
+                    
+
+                      {{$item->patient_record}}
+                      
+                    </td>
+   
+                  </tr>
+                @endforeach
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
 </body>
 </html>
+

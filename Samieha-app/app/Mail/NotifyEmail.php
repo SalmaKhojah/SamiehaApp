@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
 
 class NotifyEmail extends Mailable
 {
@@ -24,6 +25,8 @@ class NotifyEmail extends Mailable
 
     public function build()
     {
-        return $this->view('Email.slpEmail');
+        $resultp =  DB::select('SELECT session_material.*, words.* FROM session_material , words WHERE session_material.word_id = words.id ');
+
+        return $this->view('Email.slpEmail',compact('resultp'));
     }
 }

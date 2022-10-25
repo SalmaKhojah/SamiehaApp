@@ -36,8 +36,10 @@ class notify extends Command
     public function handle()
     {
        // $user = User::select('email')->get();
-        $emails = User::pluck('email')->toArray();
-        $data=['title'=> 'progrmming' , 'body' => 'php'];
+       //$user= DB:: select('SELECT email FROM users WHERE role=2');
+
+        $emails =DB:: select('SELECT email FROM users WHERE role=2');
+        $data=['title'=> 'التقرير الاسبوعي' ];
 
         foreach($emails as $email){
             Mail:: To($email )->send(new NotifyEmail($data));
