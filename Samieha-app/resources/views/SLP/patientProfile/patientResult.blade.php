@@ -47,8 +47,14 @@
          
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">نتائج الجلسة </h3>
-                
+                <h3 class="card-title">نتائج الجلسة </h3><br>
+                @foreach($paitentName as $item)  
+
+                <h4 class="card-title">{{$item->first_name}}
+                {{$item->last_name}}
+                </h4>
+                @endforeach
+
               </div>
               
               <!-- /.card-header search -->
