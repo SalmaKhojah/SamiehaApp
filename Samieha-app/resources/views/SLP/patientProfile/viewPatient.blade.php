@@ -180,6 +180,8 @@
 @endforeach
 
 </tbody>
+</table>
+
 </section>
   
 
