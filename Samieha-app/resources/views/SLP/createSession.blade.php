@@ -87,6 +87,7 @@
     <div class="card-header text-center">
    أسماء
   </div>
+  
   <nav class="mt-2 mb-3 ">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -94,8 +95,8 @@
 
 
           @foreach ($nounSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
+          <li class="nav-item nav-link bg-white">
+          <a href="#" class="R">
              {{$sub->subcategory}}
              <i style="float: left"class="my-1 fas fa-angle-left right"></i>
 
@@ -134,8 +135,8 @@
 
 
           @foreach ($verbSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
+          <li class="nav-item nav-link bg-white">
+          <a href="#" class="R">
              {{$sub->subcategory}}
              <i style="float: left"class="my-1 fas fa-angle-left right"></i>
 
@@ -176,8 +177,8 @@
 
 
           @foreach ($adjSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
+          <li class="nav-item nav-link bg-white">
+          <a href="#" class="R">
              {{$sub->subcategory}}
              <i style="float: left"class="my-1 fas fa-angle-left right"></i>
 
@@ -375,6 +376,22 @@
   @endsection
 
   @section('scripts')
+  <script>
+var coll = document.getElementsByClassName("R");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 <!-- jQuery -->
 <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jquery-validation -->
