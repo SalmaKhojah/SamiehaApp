@@ -105,11 +105,11 @@
                      });
                  </script>
 
-
+<!-- 
                  <div id="subcategoryother" class="form-group" style="display:none;">
                     <label for="exampleInput">التصنيف الفرعي</label>
                     <input name="subcategory" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
-                  </div>
+                  </div> -->
 
                    <!-- to set the name value of SubCategory of id=subcategoryother -->
                    <script>

@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('session_id');
             $table->foreign('session_id')->references('id')->on('session')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('trial_id');
+            $table->string('trial_id')->nullable();
             $table->unsignedBigInteger('word_id');
             $table->foreign('word_id')->references('id')->on('words')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('patient_record');
-            $table->string('check_answer');
-            $table->string('used_cues');
+            $table->string('patient_record')->nullable();
+            $table->string('check_answer')->nullable();
+            $table->string('included_cues')->nullable();
+            $table->string('used_cues')->nullable();
             $table->timestamps();
         });
     }
