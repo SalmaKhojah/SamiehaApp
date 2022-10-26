@@ -178,44 +178,44 @@
                         </div>
 
 
-                       <!-- Adjective  -->    
-                       
-                        <div class="col bg-light mx-1">
-                        <div class="card-header text-center">
-                           صفات
-                         </div>
-                         <nav class="mt-2 mb-3 ">
-                               <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-                                 <!-- Add icons to the links using the .nav-icon class
-                                      with font-awesome or any other icon font library -->
-                       
-                       
-                                 @foreach ($adjSub as $sub)
-                                 <li class="nav-item nav-link bg-white">
-                                 <a href="#" class="R">
-                                    {{$sub->subcategory}}
-                                    <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
-                       
-                                   </a>
-                                   <ul class="nav nav-treeview">
-                                   @foreach ($sub->words as $word)
-                       
-                                     <li class=" my-1 nav-item">
-                                     <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
-                                     <label class="mx-5 form-check-label" >
-                                     {{$word->word}}
-                                    </label>
-                                     </li>
-                                     @endforeach
-                       
-                                   </ul>
-                                 </li>
-                                 @endforeach
-                                
-                              
-                       </ul>
-                       </nav>
+                     <!-- Adjective  -->    
+                     
+                         <div class="col bg-light mx-1">
+                         <div class="card-header text-center">
+                         صفات
                        </div>
+                       <nav class="mt-2 mb-3 ">
+                             <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+                               <!-- Add icons to the links using the .nav-icon class
+                                    with font-awesome or any other icon font library -->
+                     
+                     
+                               @foreach ($adjSub as $sub)
+                               <li class="nav-item nav-link bg-white">
+                               <a href="#" class="R">
+                                  {{$sub->subcategory}}
+                                  <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
+                     
+                                 </a>
+                                 <ul class="nav nav-treeview">
+                                 @foreach ($sub->words as $word)
+                     
+                                   <li class=" my-1 nav-item">
+                                   <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
+                                   <label class="mx-5 form-check-label" >
+                                   {{$word->word}}
+                                  </label>
+                                   </li>
+                                   @endforeach
+                     
+                                 </ul>
+                               </li>
+                               @endforeach
+                              
+                            
+                     </ul>
+                     </nav>
+                     </div>
 
   </div>
 </div>
