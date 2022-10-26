@@ -69,12 +69,6 @@ class sessionController extends Controller
                 'included_cues' => implode(",",$request->cues),
             ]);
         }
-        // DB::table('session_material')->insert([
-        //     'session_id'=>$session_id,
-        //     'word_id' => $word,
-        //     'included_cues' =>  implode(",",$request->cues),
-        // ]);
-     
 
        return redirect()->route('session.index')
        ->with('success','تمت الإضافة بنجاح');

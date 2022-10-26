@@ -12,13 +12,17 @@
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 
+      <!-- Select2 -->
+      <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
   @endsection
 
 
 
-  <!-- @section('link2')
-   {{route('patientTable.index')}}
-   @endsection -->
+@section('link1')
+   {{route('slpPaitentTable.index')}}
+   @endsection
 
    @section('sessionlink') active @endsection
 
@@ -331,20 +335,18 @@
 
 
                     <div class="card-body">
-                      <div class="form-group">
-                        <label for="exampleInputdiagnosis1">اختر اسم المريض</label>
-                        <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" placeholder="اختر المريض" name="patient_id">
-  <option selected>المريض..</option>
+                      <div>
+                        <label for="exampleInputName1">اختر اسم المريض</label>
+                        <select  class="form-control select2" style="width: 100%;" placeholder="اختر المريض" name="patient_id">
 
-  @foreach($data as $item)  
-  <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
-  @endforeach
-</select>
+                         <option selected disabled>المريض..</option>
+
+                         @foreach($data as $item)  
+                         <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
+                         @endforeach
+                       </select>
                       </div>
                       
-
-
-
                      </div>
                      <!-- /.card-body -->
                       <div class="card-footer">
@@ -396,6 +398,19 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })}
+  )
+</script>
+
 <!-- jQuery -->
 <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jquery-validation -->
@@ -442,5 +457,6 @@ for (i = 0; i < coll.length; i++) {
       
 </script>
 
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 
  @endsection
