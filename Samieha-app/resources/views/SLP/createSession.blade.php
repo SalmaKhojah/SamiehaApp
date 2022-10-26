@@ -7,7 +7,6 @@
  
 
   @section('css')
- 
   <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <!-- CSS -->
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
@@ -98,7 +97,8 @@
           <li class="nav-item nav-link bg-white">
           <a href="#" class="R">
              {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
+             <i  onclick="myFunction(this)" style="float: left" class="my-1 fas fa-angle-left right"></i>
+
 
             </a>
             <ul class="nav nav-treeview">
@@ -138,7 +138,7 @@
           <li class="nav-item nav-link bg-white">
           <a href="#" class="R">
              {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
+             <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
 
             </a>
             <ul class="nav nav-treeview">
@@ -180,7 +180,7 @@
           <li class="nav-item nav-link bg-white">
           <a href="#" class="R">
              {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
+             <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
 
             </a>
             <ul class="nav nav-treeview">
@@ -219,9 +219,7 @@
                     
                     
                     </div>
-                     <!-- /.card-body prim -->   
-                     <div class="card-footer">
-                     </div> 
+            
             </div>
             <!-- /.card -->
             </div>
@@ -297,9 +295,7 @@
 
                       
                      </div>
-                     <!-- /.card-body -->
-                      <div class="card-footer">
-                     </div> 
+             
             </div>
             <!-- /.card -->
             </div>
@@ -364,18 +360,16 @@
 
 </div> 
 
-<script>
-  $(function () {
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-  })
 
-</script>
   @endsection
 
   @section('scripts')
+
+  <script>
+    function myFunction(x) {
+  x.classList.toggle("fa-angle-up");
+}
+  </script>
   <script>
 var coll = document.getElementsByClassName("R");
 var i;
@@ -418,37 +412,7 @@ for (i = 0; i < coll.length; i++) {
 
 
 
-<script>
 
-function toggle(source) {
-
-  checkboxes = document.getElementsByName('foo');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-
-
-
-    var $ = require( "jquery" );
-    require( "smartwizard/dist/css/smart_wizard_all.css");
-    const smartWizard = require("smartwizard");
-    
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    </script>
-    
-    <script>
-    import $ from "jquery";
-    import "smartwizard/dist/css/smart_wizard_all.css";
-    import smartWizard from 'smartwizard';
-    
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    
-</script>
 
 <script>
 
