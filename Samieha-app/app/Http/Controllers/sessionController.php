@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\subcategories;
 use App\Models\words;
+use App\Models\session_material;
+use App\Models\session;
 use Illuminate\Support\Facades\DB;
 use Auth;
 
@@ -45,7 +47,36 @@ class sessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+         'words'=>'required',
+         'cues'=>'required',
+         'patient_id'=>'required',
+        ]);
+
+        $session_id=DB::table('session')->insertGetId([
+            'patient_id' => $request->patient_id,
+            'slp_id' => Auth::user()->id,
+            'time_limit' => '5',
+        ]);
+
+        // $words=$request->words;
+
+
+        // DB::table('session_material')->insert([
+        //     'session_id'=>$session_id,
+        //     'word_id' => $word,
+        //     'included_cues' =>  implode(",",$request->cues),
+        // ]);
+        // session_material::create([
+        //     'session_id'=>$session_id,
+        //     'word_id' => $request->words,
+        //     'included_cues' => $request->cues,
+        // ]);
+
+       return redirect()->route('session.index')
+       ->with('success','تمت الإضافة بنجاح');
+
     }
 
     /**

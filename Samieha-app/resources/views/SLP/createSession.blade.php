@@ -31,6 +31,16 @@
   @endsection
 
   @section('content')
+
+
+  @if(session()->has('success'))
+       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
+       </div>
+      @endif
+
+      
 <!-- SmartWizard html -->
 <div id="smartwizard" class="mt-1">
 <ul class="nav nav-progress">
@@ -323,11 +333,11 @@
                     <div class="card-body">
                       <div class="form-group">
                         <label for="exampleInputdiagnosis1">اختر اسم المريض</label>
-                        <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" placeholder="اختر المريض">
+                        <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" placeholder="اختر المريض" name="patient_id">
   <option selected>المريض..</option>
 
   @foreach($data as $item)  
-  <option value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
+  <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
   @endforeach
 </select>
                       </div>
