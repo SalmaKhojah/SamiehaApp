@@ -262,43 +262,54 @@
                     <div class="container text-center">
   <div class="row" hieght="200px">
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="1" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="1" >
 <br >
-<p class="m-5">مقطع صوتي قصير
+<p class="mt-5"> 
+  الإشارة الدلالية للكلمة
 </p>
     </div>
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="2" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="2" >
 <br >
-<p class="m-5">مقطع صوتي طويل
+<p class="mt-5">إتمام الجملة 
 </p>
     </div>
 
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="3" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="3" >
 <br >
-<p class="m-5">  
-      أوصاف للصورة
+<p class="mt-5">  
+صوت الحرف الأول
 
 </p>
     </div>
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="4" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="4" >
 <br >
-<p class="m-5">  
-الحرف الأول مكتوب
+<p class="mt-5">  
+صوت المقطع الأول
 
 </p>
     </div>
    
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
 <br >
-<p class="m-5">  
+<p class="mt-5">  
     الكلمة مكتوبة
 
 </p>
     </div>
+
+    <div class="col bg-light pt-2 m-2">
+    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="6" >
+<br >
+<p class="mt-5">  
+    الكلمة نطقا
+
+</p>
+    </div>
+
 
   </div>
 </div>
