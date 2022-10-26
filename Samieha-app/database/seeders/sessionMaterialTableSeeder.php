@@ -15,7 +15,7 @@ class sessionMaterialTableSeeder extends Seeder
      */
     public function run()
     {
-      \DB::table('session_material')->insert(
+      \DB::table('session_materials')->insert(
 
         [
             [

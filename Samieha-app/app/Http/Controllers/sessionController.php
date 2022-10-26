@@ -60,19 +60,21 @@ class sessionController extends Controller
             'time_limit' => '5',
         ]);
 
-        // $words=$request->words;
+        $words=$request->words;
 
-
+        foreach($words as $word){
+            session_material::create([
+                'session_id'=>$session_id,
+                'word_id' => $word,
+                'included_cues' => implode(",",$request->cues),
+            ]);
+        }
         // DB::table('session_material')->insert([
         //     'session_id'=>$session_id,
         //     'word_id' => $word,
         //     'included_cues' =>  implode(",",$request->cues),
         // ]);
-        // session_material::create([
-        //     'session_id'=>$session_id,
-        //     'word_id' => $request->words,
-        //     'included_cues' => $request->cues,
-        // ]);
+     
 
        return redirect()->route('session.index')
        ->with('success','تمت الإضافة بنجاح');

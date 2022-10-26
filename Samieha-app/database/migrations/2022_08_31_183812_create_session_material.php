@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('session_material', function (Blueprint $table) {
+        Schema::create('session_materials', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('session_id');
             $table->foreign('session_id')->references('id')->on('session')->onDelete('cascade')->onUpdate('cascade');
