@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\patient;
 use App\Models\User;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
 
 class patientController extends Controller
@@ -17,7 +19,7 @@ class patientController extends Controller
     public function index()
     {
         $data=DB::select('SELECT email, first_name, last_name, national_id , diagnosis, severity, users_id FROM users, patients WHERE role=1 AND users.id=patients.users_id');
-        return view('patientProfile.patientTable')->with('data',$data);
+        return view('patientProfile.patientTable', compact('data'));
     }
 
  
@@ -31,20 +33,24 @@ class patientController extends Controller
     {
         
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'national_id' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'email'=>'required|unique:users,email',
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'national_id' => 'required|min:10|max:10|unique:patients,national_id',
+            'first_name' => 'required|min:2',
+            'last_name' => 'required|min:2',
             'birth_date' => 'required',
             'phone' => 'required',
-            'nationality' => 'required',
-            'region' => 'required',
-            'city' => 'required',
-            'diagnosis' => 'required',
-            'characteristics' => 'required',
-            'neurological_damage' => 'required',
-            'severity' => 'required',
+            'nationality' => 'required|min:2',
+            'region' => 'required|min:2',
+            'city' => 'required|min:2',
+            'diagnosis' => 'required|min:2',
+            'characteristics' => 'required|min:2',
+            'neurological_damage' => 'required|min:2',
+            'severity' => 'required|min:2',
             'assesment_method' => 'required',
         ]);
 
@@ -97,9 +103,13 @@ class patientController extends Controller
     public function update(Request $request,$id)
     {
          $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'national_id' => 'required',
+            'email'=>['required',Rule::unique('users')->ignore($id)],
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'national_id' => ['required','min:10','max:10',Rule::unique('patients')->ignore($id,'users_id')],
             'first_name' => 'required',
             'last_name' => 'required',
             'birth_date' => 'required',

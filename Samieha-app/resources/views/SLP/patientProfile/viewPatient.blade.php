@@ -172,7 +172,7 @@
    <li class="list-group"><h5>{{$item->id}} الجلسة</h5></li>
    </td>
    <td>
-   <a href="#" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+   <a href="{{route('result.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض النتائج</a>
 </td>
 </ul>
 
@@ -180,6 +180,8 @@
 @endforeach
 
 </tbody>
+</table>
+
 </section>
   
 

@@ -8,7 +8,9 @@
     <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-
+  <!---Dropdowon --->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
   @endsection
 
   @section('bar2')
@@ -29,17 +31,6 @@
 
 
   @section('content')
-
-  @if($errors->any())
-    <div class="alert alert-danger">
-        <p><strong>Opps Something went wrong</strong></p>
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-@endif
 
      @if(session()->has('success'))
        <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
@@ -71,28 +62,58 @@
                  <div class="col">
                  <div>
                     <label for="exampleInputName1">التصنيف الرئيسي</label>
-                  <select id="mainCategory" name="category" class="form-control select2" style="width: 100%;">
+                  <select class="form-control select2"  name="category" id="category" style="width: 100%;">
+                  <option selected disabled>اختر التصنيف الرئيسي</option>
                   @foreach($categories as $cat )
-                  <option value="{{$cat->category}}">{{$cat->category}}</option>
+                  <option value="{{$cat->id}}" >{{$cat->category}}</option>
                   @endforeach
                   </select>
+                  @if ($errors->has('category'))
+                       <span class="text-danger">{{ $errors->first('category') }}</span>
+                     @endif
                   </div> 
                  </div>
-                 <div class="col">
 
+                 <div class="col">
                  <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
-                  <select id="SubCategory" name="subcategory" class="form-control select2" style="width: 100%;">
-                    <option value="أثاث" selected="selected">أثاث</option>
-                    <option value="فواكه" >فواكه</option>
-                    <option value="ملابس">ملابس</option>
-                    <option value="أخرى">أخرى</option>
-                  </select>
+                  <select id="subcategory" name="subcategory"  class="form-control select2" style="width: 100%;">
+                 </select>
+                 @if ($errors->has('subcategory'))
+                       <span class="text-danger">{{ $errors->first('subcategory') }}</span>
+                     @endif
                   </div>
 
+                  <script type="text/javascript">
+                     $(document).ready(function () {
+                         $('#category').on('change', function () {
+                             var category_id = this.value;
+                             $('#subcategory').html('');
+                             $.ajax({
+                                 url: '{{ route('getSubcategory') }}?category_id='+category_id,
+                                 type: 'get',
+                                 success: function (res) {
+                                     $('#subcategory').html('<option selected disabled value="">اختر التصنيف الفرعي</option> <option value="أخرى">أخرى</option>');
+                                     $.each(res, function (key, value) {
+                                         $('#subcategory').append('<option value="' + value
+                                             .subcategory + '">' + value.subcategory + '</option>');
+                                     });
+             
+                                   }
+                             });
+                         });
+                     });
+                 </script>
+
+<!-- 
+                 <div id="subcategoryother" class="form-group" style="display:none;">
+                    <label for="exampleInput">التصنيف الفرعي</label>
+                    <input name="subcategory" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
+                  </div> -->
+
                    <!-- to set the name value of SubCategory of id=subcategoryother -->
-                  <script>
-                  $(document).on("change","#SubCategory", function(){
+                   <script>
+                  $(document).on("change","#subcategory", function(){
                     var SubCategory = $(this).val();
                     if(SubCategory === "أخرى"){
                       $("#subcategoryother").attr("name", "subcategory");
@@ -100,25 +121,28 @@
                   });
                 </script>
 
-<br>
-                  <div id="subcategoryother" class="form-group" style="display:none;">
-                    <label for="exampleInput">التصنيف الفرعي</label>
-                    <input name="" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
-                  </div>
+
+              
+
                  </div>
                  <div class="w-100"><br></div>
                  <div class="col">
                  <div class="form-group">
-                    <label for="exampleInputt">الكلمة</label>
-                    <input name="word"  type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
-                    <input name="cue6"  type="hidden" value="d"  class="form-control" id="exampleInputt">
-
+                    <label for="exampleInputt">الكلمة كتابة</label>
+                    <input name="cue6"  type="text"  value="{{ old('cue6') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الكلمة">
+                    <input name="word"  type="hidden" value="d"  class="form-control" id="exampleInputt">
+                    @if ($errors->has('cue6'))
+                       <span class="text-danger">{{ $errors->first('cue6') }}</span>
+                     @endif
                   </div>
                  </div>
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">الحرف الأول كتابة</label>
-                    <input name="cue5" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
+                    <input name="cue5" type="text" value="{{ old('cue5') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الحرف الأول كتابة">
+                    @if ($errors->has('cue5'))
+                       <span class="text-danger">{{ $errors->first('cue5') }}</span>
+                     @endif
                   </div> 
                  </div>
                </div>
@@ -126,28 +150,41 @@
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">الإشارة الدلالية للكلمة</label>
-                    <input name="cue1" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الإشارة الدلالية للكلمة">
+                    <input name="cue1" type="text" value="{{ old('cue1') }}"  class="form-control" id="exampleInputt" placeholder="ادخل الإشارة الدلالية للكلمة">
+                    @if ($errors->has('cue1'))
+                       <span class="text-danger">{{ $errors->first('cue1') }}</span>
+                     @endif
                   </div>
                  </div>
                  <div class="col">
                  <div class="form-group">
                     <label for="exampleInputt">إتمام الجملة</label>
-                    <input name="cue2" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل إتمام الجملة">
+                    <input name="cue2" type="text"  value="{{ old('cue2') }}" class="form-control" id="exampleInputt" placeholder="ادخل إتمام الجملة">
+                    @if ($errors->has('cue2'))
+                       <span class="text-danger">{{ $errors->first('cue2') }}</span>
+                     @endif
                   </div>
                  </div>
+
                  <div class="w-100"><br></div>
                  <div class="col">
-          
-                 <div class="form-group">
-                    <label for="exampleInputt">الكلمة كتابة</label>
-                    <input name="cue6" type="text"   class="form-control" id="exampleInputt" placeholder="ادخل الكلمة كتابة">
-                  </div> 
-              
-                 </div>
-                 <div class="col">
-                 <div class="form-group">
+                  <div class="form-group">
                      <label for="exampleInputName1">صوت الحرف الأول</label>
-                       <input name="cue3" type="file" class="form-control-file" id="exampleFormControlFile1">
+                       <input name="cue3" type="file"  class="form-control-file" id="exampleFormControlFile1">
+                       @if ($errors->has('cue3'))
+                       <span class="text-danger">{{ $errors->first('cue3') }}</span>
+                     @endif
+                   </div>
+                 </div>
+
+                 <div class="col">
+
+                  <div class="form-group">
+                     <label for="exampleInputName1">صوت المقطع الأول</label>
+                       <input name="cue4" type="file" class="form-control-file" id="exampleFormControlFile1">
+                       @if ($errors->has('cue4'))
+                       <span class="text-danger">{{ $errors->first('cue4') }}</span>
+                     @endif
                   </div>
 
                  </div>
@@ -155,23 +192,24 @@
                <div class="row">
                  <div class="col">
                  <div class="form-group">
-                     <label for="exampleInputName1">صوت المقطع الأول</label>
-                       <input name="cue4" type="file" class="form-control-file" id="exampleFormControlFile1">
+                     <label for="exampleInputName1">الكلمة نطقا</label>
+                       <input name="cue7" type="file" class="form-control-file" id="exampleFormControlFile1">
+                       @if ($errors->has('cue7'))
+                       <span class="text-danger">{{ $errors->first('cue7') }}</span>
+                     @endif
                   </div>
                 
                  </div>
                  <div class="col">
                  <div class="form-group">
-                     <label for="exampleInputName1">الكلمة نطقا</label>
-                       <input name="cue7" type="file" class="form-control-file" id="exampleFormControlFile1">
-                  </div>
-                 </div>
-                 <div class="w-100"><br></div>
-                 <div class="col">    <div class="form-group">
                      <label for="exampleInputName1">الصورة</label>
                        <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
+                       @if ($errors->has('image'))
+                       <span class="text-danger">{{ $errors->first('image') }}</span>
+                     @endif
                      </div>
-             </div>
+                 </div>
+         
                </div>
              </div>
              
@@ -209,126 +247,6 @@
 
 <!-- Page specific script -->
 
-<!-- <script>
-
-  $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
-  	   return this.optional( element ) || /^[\u0621-\u064A ]+$/.test( value );
-        } ,
-        "يجب أن يتكون الاسم الأول من أحرف عربية"
-        ); 
-  
-  $(function () {
-    $('#quickForm').validate({
-      rules: {
-        category: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 2
-        },
-        subcategory: {
-          required: true,
-        },
-        image: {
-          required: true,
-        },
-        word: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 2
-        },
-        cue1: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 2
-        },
-        cue2: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 2
-        },
-        cue3: {
-          required: true,
-        },
-        cue4: {
-          required: true,
-        },
-        cue5: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 1
-        },
-        cue6: {
-          required: true,
-          acceptArabicCharSpaces:true,
-          minlength: 2
-        },
-        cure7: {
-          required: true,
-        },
-      },
-      messages: {
-        category: {
-          required: "الرجاء إدخال التصنيف الرئيسي",
-          acceptArabicCharSpaces:"يجب أن يتكون التصنيف الرئيسي من أحرف عربية",
-          minlength: "يجب أن يتكون التصنيف الرئيسي من حرفين على الأقل"
-        },
-        subcategory: {
-          required: "الرجاء إدخال التصنيف الفرعي",
-          acceptArabicCharSpaces:"يجب أن يتكون التصنيف الفرعي من أحرف عربية",
-          minlength: "يجب أن يتكون التصنيف الفرعي من حرفين على الأقل"
-        },
-        image: {
-          required: "الرجاء اختيار الصورة",
-        },
-        word: {
-          required: "الرجاء إدخال الكلمة",
-          acceptArabicCharSpaces:"يجب أن تتكون الكلمة من أحرف عربية",
-          minlength: "يجب أن تتكون الكلمة من حرفين على الأقل"
-        },
-        cue1: {
-          required: "الرجاء إدخال الإشارة الدلالية للكلمة",
-          acceptArabicCharSpaces:"يجب أن تتكون الإشارة الدلالية من أحرف عربية",
-          minlength: "يجب أن تتكون الإشارة الدلالية للكلمة من حرفين على الأقل"
-        },
-        cue2: {
-          required: "الرجاء إدخال إتمام الجملة ",
-          acceptArabicCharSpaces:"يجب أن تتكون إتمام الجملة من أحرف عربية",
-          minlength: "يجب أن تتكون إتمام الجملة الدلالية من حرفين على الأقل"
-        },
-        cue3: {
-          required: "الرجاء إدخال صوت الحرف الأول",
-        },
-        cue4: {
-          required: "الرجاء إدخال صوت المقطع الأول",
-        },
-        cue5: {
-          required: "الرجاء إدخال الحرف الأول كتابة",
-          acceptArabicCharSpaces:"يجب أن تتكون الحرف الأول كتابة من أحرف عربية",
-          minlength: "يجب أن تتكون الحرف الأول كتابة من حرف على الأقل"
-        },
-        cue6: {
-          required: "الرجاء إدخال الحرف الكلمة كتابة",
-          acceptArabicCharSpaces:"يجب أن تتكون الكلمة كتابة من أحرف عربية",
-          minlength: "يجب أن تتكون الكلمة كتابة من حرفين على الأقل"
-        },
-        cue7: {
-          required: "الرجاء إدخال الكلمة نطقا",
-        },
-      },
-      errorElement: 'span',
-      errorPlacement: function (error, element) {
-        error.addClass('invalid-feedback');
-        element.closest('.form-group').append(error);
-      },
-      highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
-      },
-      unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-      }
-    });
-  });
-</script> -->
 
 <script>
   $(function () {
@@ -342,12 +260,10 @@
   )
 </script>
 
-
 <script>
-$(document).on("change","#SubCategory", function(){
+$(document).on("change","#subcategory", function(){
   var SubCategory = $(this).val();
   if(SubCategory === "أخرى"){
-    $("#subcategoryother").attr("name", "subcategory");
     $("#subcategoryother").show();
   }else{
     $("#subcategoryother").hide();
@@ -356,6 +272,7 @@ $(document).on("change","#SubCategory", function(){
 </script>
 
 <script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
+ 
 
  @endsection
 

@@ -15,6 +15,7 @@ class session_material extends Model
         'word_id',
         'patient_record',
         'check_answer',
+        'included_cues',
         'used_cues',
     ];
 }

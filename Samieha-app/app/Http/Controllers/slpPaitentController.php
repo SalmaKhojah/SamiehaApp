@@ -8,6 +8,8 @@ use App\Models\slp;
 use App\Models\slp_patients;
 use App\Models\User;
 use Auth;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
 
 class slpPaitentController extends Controller
@@ -20,6 +22,7 @@ class slpPaitentController extends Controller
     public function index()
     {
         $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE patients.users_id = patient_id AND slp_id= '.Auth::user()->id.')');
+
         return view('SLP.slpPaitentsTable', compact('data'));
     }
 
@@ -44,20 +47,24 @@ class slpPaitentController extends Controller
     {
         
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'national_id' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'email'=>'required|unique:users,email',
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'national_id' => 'required|min:10|max:10|unique:patients,national_id',
+            'first_name' => 'required|min:2',
+            'last_name' => 'required|min:2',
             'birth_date' => 'required',
             'phone' => 'required',
-            'nationality' => 'required',
-            'region' => 'required',
-            'city' => 'required',
-            'diagnosis' => 'required',
-            'characteristics' => 'required',
-            'neurological_damage' => 'required',
-            'severity' => 'required',
+            'nationality' => 'required|min:2',
+            'region' => 'required|min:2',
+            'city' => 'required|min:2',
+            'diagnosis' => 'required|min:2',
+            'characteristics' => 'required|min:2',
+            'neurological_damage' => 'required|min:2',
+            'severity' => 'required|min:2',
             'assesment_method' => 'required',
         ]);
 
@@ -132,10 +139,14 @@ class slpPaitentController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'national_id' => 'required',
+        $request->validate([
+            'email'=>['required',Rule::unique('users')->ignore($id)],
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'national_id' => ['required','min:10','max:10',Rule::unique('patients')->ignore($id,'users_id')],
             'first_name' => 'required',
             'last_name' => 'required',
             'birth_date' => 'required',

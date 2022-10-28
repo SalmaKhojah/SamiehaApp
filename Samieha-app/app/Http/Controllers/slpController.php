@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\slp;
 use App\Models\User;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
 
 
@@ -32,11 +34,15 @@ class slpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email'=>'required',
-            'password'=>'required',
-            'F_slp_name'=>'required',
-            'L_slp_name'=>'required',
-            'work_place'=>'required',
+            'email'=>'required|unique:users,email',
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'F_slp_name'=>'required|min:2',
+            'L_slp_name'=>'required|min:2',
+            'work_place'=>'required|min:2',
         ]);
 
         $User_slp_id=DB::table('users')->insertGetId([
@@ -78,12 +84,16 @@ class slpController extends Controller
     public function update(Request $request, $id)
     {
 
-          $request->validate([
-            'email'=>'required',
-            'password'=>'required',
-            'F_slp_name'=>'required',
-            'L_slp_name'=>'required',
-            'work_place'=>'required',
+        $request->validate([
+            'email'=>['required',Rule::unique('users')->ignore($id)],
+            'password'=>['required',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()],
+            'F_slp_name'=>'required|min:2',
+            'L_slp_name'=>'required|min:2',
+            'work_place'=>'required|min:2',
         ]);
         
         User::whereId($id)->update(([

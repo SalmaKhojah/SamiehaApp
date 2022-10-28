@@ -29,46 +29,23 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        // $Nounes = DB::select('SELECT subcategory from subcategories where category_id = 1');
-        // $Verbs = DB::select('SELECT subcategory from subcategories where category_id = 2');
-        // $Adjectives = DB::select('SELECT subcategory from subcategories where category_id = 3');
+        $categories = \DB::table('categories')
+        ->get();
 
-        // $Noune = [];
-        // $Verb = [];
-        // $Adjective = [];
-
-        // foreach( $Nounes as $Nou )
-        // {
-        //     $Noune[] = $Nou->subcategory;
-        // }
-
-        // foreach( $Verbs as $Ver )
-        // {
-        //     $Verb[] = $Ver->subcategory;
-        // }
-
-        // foreach( $Adjectives as $Adj )
-        // {
-        //     $Adjective[] = $Adj->subcategory;
-        // }
-
-
-        // if(isset($Nounes)&&isset($Verbs)&&isset($Adjectives)){
-        //     return view('uploadMaterial.uploadMat',compact('Nounes' ,'Verbs', 'Adjectives'));
-
-        // }else{
-        // }
-
-        $categories = DB::select('SELECT category FROM categories');
-        $Nounes = DB::select('SELECT subcategory FROM subcategories where category_id = 1');
-        $Verbs = DB::select('SELECT subcategory FROM subcategories where category_id = 2');
-        $Adjectives = DB::select('SELECT subcategory FROM subcategories where category_id = 3');
-
-        return view('uploadMaterial.uploadMat', compact('Nounes', 'Verbs' , 'Adjectives' , 'categories'));
-
+        return view('uploadMaterial.uploadMat', compact('categories'));
     }
 
-    
+    public function getSubcategory(Request $request)
+    {
+        $subcategories = \DB::table('subcategories')
+            ->where('category_id', $request->category_id)
+            ->get();
+        
+        if (count($subcategories) > 0) {
+            return response()->json($subcategories);
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -102,8 +79,6 @@ class MaterialController extends Controller
         ]);
 
 
-           $category_id=categories::where('category', $request->category )->first()->id;
-
            $subcategory_id=subcategories::where('subcategory', $request->subcategory )->first();
 
            if(isset($subcategory_id)){
@@ -112,7 +87,7 @@ class MaterialController extends Controller
            else{
              $subcategoryId=DB::table('subcategories')->insertGetId([
                  'subcategory'=>$request->subcategory,
-                 'category_id'=>$category_id,
+                 'category_id'=>$request->category,
                 ]); 
            }
 
@@ -124,7 +99,7 @@ class MaterialController extends Controller
            
             $word=words::create([
                 'subcategory_id'=>$subcategoryId,
-                'word'=>$request->word,
+                'word'=>$request->cue6,
                 'image'=>$pathImage,
                 'cue1'=>$request->cue1,
                 'cue2'=>$request->cue2,

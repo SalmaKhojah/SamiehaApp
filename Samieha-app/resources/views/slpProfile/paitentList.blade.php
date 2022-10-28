@@ -83,15 +83,15 @@
                     <td>{{$item->diagnosis}}</td>
                     <td>{{$item->severity}}</td>
                     <td>
-                    <a href="{{route('patientTable.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
-                    <a href="{{route('patientTable.edit' , $item->id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
+                    <a href="{{route('patientTable.show' , $item->users_id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+                    <a href="{{route('patientTable.edit' , $item->users_id)}}" class="btn btn-app"><i class="fas fa-edit"></i>تعديل</a>
                
-                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-minus" aria-hidden="true"></i>نقل</a>
+                    <a data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}" class="btn btn-app"><i class="fa fa-minus" aria-hidden="true"></i>نقل</a>
 
                     <form action="{{route('paitentsList.store')}}" method="POST" id="quickForm">
                      @csrf
                       <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalCenter{{$item->users_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -99,7 +99,7 @@
                           </div>
                           <div class="modal-body">
                           هل أنت متأكد أنك تريد نقل المريض؟
-                          <input type="hidden" name="patient_id" value="{{$item->id}}"></input>
+                          <input type="hidden" name="patient_id" value="{{$item->users_id}}"></input>
                               <div class="card-body">
                                 <div>
                                   <label for="exampleInputName1">اسم الاختصاصي</label>

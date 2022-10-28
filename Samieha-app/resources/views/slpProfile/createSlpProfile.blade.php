@@ -47,26 +47,38 @@
                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputName1">الاسم الأول</label>
-                    <input type="text" name="F_slp_name" class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
+                    <input type="text" name="F_slp_name" value="{{ old('F_slp_name') }}"  class="form-control" id="exampleInputName1" placeholder="ادخل الاسم الأول">
+                    @if ($errors->has('F_slp_name'))
+                       <span class="text-danger">{{ $errors->first('F_slp_name') }}</span>
+                     @endif
                   </div>
                   </div>
                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputName2">الاسم الأخير</label>
-                    <input type="text" name="L_slp_name" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
+                    <input type="text" name="L_slp_name" value="{{ old('L_slp_name') }}" class="form-control" id="exampleInputName2" placeholder="ادخل الاسم الأخير">
+                    @if ($errors->has('L_slp_name'))
+                       <span class="text-danger">{{ $errors->first('L_slp_name') }}</span>
+                     @endif
                   </div>
                   </div>
                   <div class="w-100"></div>
                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputWorkPlace">مقر العمل</label>
-                    <input type="text" name="work_place" class="form-control" id="exampleInputWorkPlace" placeholder="ادخل مقر العمل">
+                    <input type="text" name="work_place" value="{{ old('work_place') }}"  class="form-control" id="exampleInputWorkPlace" placeholder="ادخل مقر العمل">
+                    @if ($errors->has('work_place'))
+                       <span class="text-danger">{{ $errors->first('work_place') }}</span>
+                     @endif
                   </div>
                   </div>
                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputslp_email">البريد الإلكتروني</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputslp_email" placeholder="example@example.com">
+                    <input type="email" name="email" value="{{ old('email') }}"  class="form-control" id="exampleInputslp_email" placeholder="example@example.com">
+                    @if ($errors->has('email'))
+                       <span class="text-danger">{{ $errors->first('email') }}</span>
+                     @endif
                   </div>
                   </div>
                 </div>
@@ -74,7 +86,10 @@
                   <div class="col">
                   <div class="form-group">
                         <label for="exampleInputslp_password">كلمة المرور</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputslp_password" placeholder="ادخل كلمة المرور">
+                        <input type="password" name="password"  value="{{ old('password') }}" class="form-control" id="exampleInputslp_password" placeholder="ادخل كلمة المرور">
+                        @if ($errors->has('password'))
+                          <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
                       </div>
                   </div>
                   <div class="col"></div>
@@ -111,7 +126,7 @@
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 
 <!-- Page specific script -->
-<script>
+<!-- <script>
 
 $.validator.addMethod( "acceptArabicCharSpaces" , function( value,element ) {
 	   return this.optional( element ) || /^[\u0621-\u064A ]+$/.test( value );
@@ -196,6 +211,6 @@ $(function () {
     }
   });
 });
-</script>
+</script> -->
 
  @endsection

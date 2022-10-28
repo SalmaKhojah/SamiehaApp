@@ -7,19 +7,22 @@
  
 
   @section('css')
- 
   <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <!-- CSS -->
     <link href="https://unpkg.com/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 
+      <!-- Select2 -->
+      <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
   @endsection
 
 
 
-  <!-- @section('link2')
-   {{route('patientTable.index')}}
-   @endsection -->
+@section('link1')
+   {{route('slpPaitentTable.index')}}
+   @endsection
 
    @section('sessionlink') active @endsection
 
@@ -32,6 +35,16 @@
   @endsection
 
   @section('content')
+
+
+  @if(session()->has('success'))
+       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
+       </div>
+      @endif
+
+      
 <!-- SmartWizard html -->
 <div id="smartwizard" class="mt-1">
 <ul class="nav nav-progress">
@@ -79,130 +92,131 @@
                         <label for="exampleInputName2"></label><br/>
 
         
-                        <div class="container  ">
-  <div class="row ">
+                        <div class="container">
+                         <div class="row ">
+                       
+                           <!-- nouns  -->    
+                           <div class="col bg-light mx-1 ">
+                           <div class="card-header text-center">
+                          أسماء
+                         </div>
+                         
+                         <nav class="mt-2 mb-3 ">
+                               <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+                                 <!-- Add icons to the links using the .nav-icon class
+                                      with font-awesome or any other icon font library -->
+                       
+                       
+                                 @foreach ($nounSub as $sub)
+                                 <li class="nav-item nav-link bg-white">
+                                 <a href="#" class="R">
+                                    {{$sub->subcategory}}
+                                    <i  onclick="myFunction(this)" style="float: left" class="my-1 fas fa-angle-left right"></i>
+                       
+                       
+                                   </a>
+                                   <ul class="nav nav-treeview">
+                                   @foreach ($sub->words as $word)
+                       
+                                     <li class=" my-1 nav-item">
+                                     <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
+                                     <label class="mx-5 form-check-label" >
+                                     {{$word->word}}
+                                    </label>
+                                     </li>
+                                     @endforeach
+                       
+                                   </ul>
+                                 </li>
+                                 @endforeach
+                                
+                              
+                       </ul>
+                       </nav>
+                       
+                       
+                      </div>
 
-    <!-- nouns  -->    
-    <div class="col bg-light mx-1 ">
-    <div class="card-header text-center">
-   أسماء
-  </div>
-  <nav class="mt-2 mb-3 ">
-        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-
-          @foreach ($nounSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
-             {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
-
-            </a>
-            <ul class="nav nav-treeview">
-            @foreach ($sub->words as $word)
-
-              <li class=" my-1 nav-item">
-              <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
-              <label class="mx-5 form-check-label" >
-              {{$word->word}}
-             </label>
-              </li>
-              @endforeach
-
-            </ul>
-          </li>
-          @endforeach
-         
-       
-</ul>
-</nav>
-
-
-    </div>
-
-<!-- verb  -->    
-    <div class="col bg-light mx-1">
-    <div class="card-header text-center">
-    أفعال
-  </div>
-  <nav class="mt-2 mb-3 ">
-        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-
-          @foreach ($verbSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
-             {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
-
-            </a>
-            <ul class="nav nav-treeview">
-            @foreach ($sub->words as $word)
-
-              <li class=" my-1 nav-item">
-              <input class="mx-2 form-check-input" type="checkbox" name="words[]"  value="{{$word->id}}" >
-              <label class="mx-5 form-check-label" >
-              {{$word->word}}
-             </label>
-              </li>
-              @endforeach
-
-            </ul>
-          </li>
-          @endforeach
-         
-       
-</ul>
-</nav>
-
-
-    </div>
-
-
-<!-- Adjective  -->    
-
-    <div class="col bg-light mx-1">
-    <div class="card-header text-center">
-    صفات
-  </div>
-  <nav class="mt-2 mb-3 ">
-        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                    <!-- verb  -->    
+                        <div class="col bg-light mx-1">
+                          <div class="card-header text-center">
+                          أفعال
+                        </div>
+                         <nav class="mt-2 mb-3 ">
+                               <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+                                 <!-- Add icons to the links using the .nav-icon class
+                                      with font-awesome or any other icon font library -->
+                       
+                       
+                                 @foreach ($verbSub as $sub)
+                                 <li class="nav-item nav-link bg-white">
+                                 <a href="#" class="R">
+                                    {{$sub->subcategory}}
+                                    <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
+                       
+                                   </a>
+                                   <ul class="nav nav-treeview">
+                                   @foreach ($sub->words as $word)
+                       
+                                     <li class=" my-1 nav-item">
+                                     <input class="mx-2 form-check-input" type="checkbox" name="words[]"  value="{{$word->id}}" >
+                                     <label class="mx-5 form-check-label" >
+                                     {{$word->word}}
+                                    </label>
+                                     </li>
+                                     @endforeach
+                       
+                                   </ul>
+                                 </li>
+                                 @endforeach
+                                
+                              
+                       </ul>
+                       </nav>
+                    
+                    
+                        </div>
 
 
-          @foreach ($adjSub as $sub)
-          <li class="nav-item">
-          <a href="#" class="nav-link bg-white">
-             {{$sub->subcategory}}
-             <i style="float: left"class="my-1 fas fa-angle-left right"></i>
+                     <!-- Adjective  -->    
+                     
+                         <div class="col bg-light mx-1">
+                         <div class="card-header text-center">
+                         صفات
+                       </div>
+                       <nav class="mt-2 mb-3 ">
+                             <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+                               <!-- Add icons to the links using the .nav-icon class
+                                    with font-awesome or any other icon font library -->
+                     
+                     
+                               @foreach ($adjSub as $sub)
+                               <li class="nav-item nav-link bg-white">
+                               <a href="#" class="R">
+                                  {{$sub->subcategory}}
+                                  <i onclick="myFunction(this)" style="float: left"class="my-1 fas fa-angle-left right"></i>
+                     
+                                 </a>
+                                 <ul class="nav nav-treeview">
+                                 @foreach ($sub->words as $word)
+                     
+                                   <li class=" my-1 nav-item">
+                                   <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
+                                   <label class="mx-5 form-check-label" >
+                                   {{$word->word}}
+                                  </label>
+                                   </li>
+                                   @endforeach
+                     
+                                 </ul>
+                               </li>
+                               @endforeach
+                              
+                            
+                     </ul>
+                     </nav>
+                     </div>
 
-            </a>
-            <ul class="nav nav-treeview">
-            @foreach ($sub->words as $word)
-
-              <li class=" my-1 nav-item">
-              <input class="mx-2 form-check-input" type="checkbox" name="words[]" value="{{$word->id}}" >
-              <label class="mx-5 form-check-label" >
-              {{$word->word}}
-             </label>
-              </li>
-              @endforeach
-
-            </ul>
-          </li>
-          @endforeach
-         
-       
-</ul>
-</nav>
-
- 
-    </div>
   </div>
 </div>
 
@@ -218,9 +232,7 @@
                     
                     
                     </div>
-                     <!-- /.card-body prim -->   
-                     <div class="card-footer">
-                     </div> 
+            
             </div>
             <!-- /.card -->
             </div>
@@ -249,43 +261,54 @@
                     <div class="container text-center">
   <div class="row" hieght="200px">
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="1" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="1" >
 <br >
-<p class="m-5">مقطع صوتي قصير
+<p class="mt-5"> 
+  الإشارة الدلالية للكلمة
 </p>
     </div>
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="2" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="2" >
 <br >
-<p class="m-5">مقطع صوتي طويل
+<p class="mt-5">إتمام الجملة 
 </p>
     </div>
 
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="3" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="3" >
 <br >
-<p class="m-5">  
-      أوصاف للصورة
+<p class="mt-5">  
+صوت الحرف الأول
 
 </p>
     </div>
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="4" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="4" >
 <br >
-<p class="m-5">  
-الحرف الأول مكتوب
+<p class="mt-5">  
+صوت المقطع الأول
 
 </p>
     </div>
    
     <div class="col bg-light pt-2 m-2">
-    <input class="  form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
 <br >
-<p class="m-5">  
+<p class="mt-5">  
     الكلمة مكتوبة
 
 </p>
     </div>
+
+    <div class="col bg-light pt-2 m-2">
+    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="6" >
+<br >
+<p class="mt-5">  
+    الكلمة نطقا
+
+</p>
+    </div>
+
 
   </div>
 </div>
@@ -296,9 +319,7 @@
 
                       
                      </div>
-                     <!-- /.card-body -->
-                      <div class="card-footer">
-                     </div> 
+             
             </div>
             <!-- /.card -->
             </div>
@@ -324,20 +345,18 @@
 
 
                     <div class="card-body">
-                      <div class="form-group">
-                        <label for="exampleInputdiagnosis1">اختر اسم المريض</label>
-                        <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example" placeholder="اختر المريض">
-  <option selected>المريض..</option>
+                      <div>
+                        <label for="exampleInputName1">اختر اسم المريض</label>
+                        <select  class="form-control select2" style="width: 100%;" placeholder="اختر المريض" name="patient_id">
 
-  @foreach($data as $item)  
-  <option value="{{$item->id}}">{{$item->first_name}} {{$item->last_name}}</option>
-  @endforeach
-</select>
+                         <option selected disabled>المريض..</option>
+
+                         @foreach($data as $item)  
+                         <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
+                         @endforeach
+                       </select>
                       </div>
                       
-
-
-
                      </div>
                      <!-- /.card-body -->
                       <div class="card-footer">
@@ -363,18 +382,45 @@
 
 </div> 
 
-<script>
-  $(function () {
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-  })
 
-</script>
   @endsection
 
   @section('scripts')
+
+  <script>
+    function myFunction(x) {
+  x.classList.toggle("fa-angle-up");
+}
+  </script>
+  <script>
+var coll = document.getElementsByClassName("R");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })}
+  )
+</script>
+
 <!-- jQuery -->
 <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jquery-validation -->
@@ -401,37 +447,7 @@
 
 
 
-<script>
 
-function toggle(source) {
-
-  checkboxes = document.getElementsByName('foo');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-
-
-
-    var $ = require( "jquery" );
-    require( "smartwizard/dist/css/smart_wizard_all.css");
-    const smartWizard = require("smartwizard");
-    
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    </script>
-    
-    <script>
-    import $ from "jquery";
-    import "smartwizard/dist/css/smart_wizard_all.css";
-    import smartWizard from 'smartwizard';
-    
-    $(function() {
-        $('#smartwizard').smartWizard();
-    });
-    
-</script>
 
 <script>
 
@@ -451,5 +467,6 @@ function toggle(source) {
       
 </script>
 
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
 
  @endsection
