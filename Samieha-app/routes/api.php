@@ -10,10 +10,9 @@ use App\Http\Controllers\Auth\TokenController;
     return $request->user();
 });*/
 
+
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
+ 
 
     Route::get('/user/posts', function (Request $request) {
         return $request->user()->posts;

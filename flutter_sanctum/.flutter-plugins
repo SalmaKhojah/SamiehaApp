@@ -1,12 +1,12 @@
 # This is a generated file; do not edit or check into version control.
-device_info=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\device_info-2.0.3\\
-flutter_secure_storage=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_secure_storage-6.0.0\\
-flutter_secure_storage_linux=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_linux-1.1.1\\
-flutter_secure_storage_macos=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_macos-1.1.1\\
-flutter_secure_storage_web=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_web-1.0.2\\
-flutter_secure_storage_windows=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_windows-1.1.2\\
-platform_device_id=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\platform_device_id-1.0.1\\
-platform_device_id_linux=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\platform_device_id_linux-1.0.0\\
-platform_device_id_macos=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\platform_device_id_macos-1.0.0\\
-platform_device_id_web=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\platform_device_id_web-1.0.0\\
-platform_device_id_windows=C:\\Users\\User\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\platform_device_id_windows-1.0.0\\
+device_info=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\device_info-2.0.3\\
+flutter_secure_storage=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage-6.0.0\\
+flutter_secure_storage_linux=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_linux-1.1.1\\
+flutter_secure_storage_macos=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_macos-1.1.1\\
+flutter_secure_storage_web=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_web-1.0.2\\
+flutter_secure_storage_windows=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_windows-1.1.2\\
+platform_device_id=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\platform_device_id-1.0.1\\
+platform_device_id_linux=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\platform_device_id_linux-1.0.0\\
+platform_device_id_macos=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\platform_device_id_macos-1.0.0\\
+platform_device_id_web=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\platform_device_id_web-1.0.0\\
+platform_device_id_windows=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\platform_device_id_windows-1.0.0\\
