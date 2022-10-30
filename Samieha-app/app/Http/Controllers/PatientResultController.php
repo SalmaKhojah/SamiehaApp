@@ -96,7 +96,7 @@ class PatientResultController extends Controller
 
 
         $session->delete();
-        $session->delete();
+        $session_material->delete();
 
         return redirect()->route('slpPaitentTable.index')
                         ->with('success','تم  حذف الجلسة بنجاح');
