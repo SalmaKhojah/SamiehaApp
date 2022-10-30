@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\session_material;
+use App\Models\session;
 use App\Models\words;
 
 use Illuminate\Http\Request;
@@ -90,10 +91,14 @@ class PatientResultController extends Controller
      */
     public function destroy($id)
     {
-        $deLinkPatient=session_material::where('session_id',$id); 
-        $deLinkPatient->delete();
+        $session=session::where('id',$id); 
+        $session_material=session_material::where('session_id',$id); 
 
-        return redirect()->route('slpPaitentTable.show')
+
+        $session->delete();
+        $session->delete();
+
+        return redirect()->route('slpPaitentTable.index')
                         ->with('success','تم  حذف الجلسة بنجاح');
     }
 }
