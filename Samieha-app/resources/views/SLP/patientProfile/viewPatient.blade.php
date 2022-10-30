@@ -173,6 +173,30 @@
    </td>
    <td>
    <a href="{{route('result.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض النتائج</a>
+   <a data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
+
+                    <form action="{{ route('result.destroy', $item->id) }}" method="POST">
+                      <!-- Modal -->
+                      
+                    <div class="modal fade" id="exampleModalCenter{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات الجلسة {{$item->id}}</h5>
+                          </div>
+                          <div class="modal-body">
+                          هل أنت متأكد أنك تريد حذف الجلسة؟
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                            @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->id}}">حذف</button>                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    </form>
 </td>
 </ul>
 
@@ -191,6 +215,48 @@
 
  @endsection
 
+ @section('scripts')
+<!-- Bootstrap 4 -->
+<script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{{URL::asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="{{URL::asset('assets/js/demo.js')}}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, 
+      "lengthChange": false, 
+      "autoWidth": false,
+      // "buttons": ["copy", "excel", "pdf", "print", "colvis"]
+    // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    // $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+<script>$("#creatSuccessMessage").show().delay(2000).fadeOut();</script>
+@endsection
 
 
  

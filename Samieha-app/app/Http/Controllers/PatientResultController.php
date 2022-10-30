@@ -90,6 +90,10 @@ class PatientResultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deLinkPatient=session_material::where('session_id',$id); 
+        $deLinkPatient->delete();
+
+        return redirect()->route('slpPaitentTable.show')
+                        ->with('success','تم  حذف الجلسة بنجاح');
     }
 }
