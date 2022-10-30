@@ -19,7 +19,13 @@ class sessionController extends Controller
      */
     public function index()
     {
+        $sessions = session::where('slp_id', Auth::user()->id)->get();
+        dd($sessions);
+       /// $session_materials = session_material::where('slp_id', Auth::user()->id)->get();
+
+
         
+        return view('SLP.viewSessionList',compact('sessions'));
       
     }
 
