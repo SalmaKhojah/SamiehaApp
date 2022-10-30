@@ -39,7 +39,7 @@
           </li>
 
           <li class="nav-item  ">
-            <a href="{{route('session.index')}}" class="nav-link ">
+            <a href="{{route('session.create')}}" class="nav-link ">
             <i class="nav-icon fas fa-edit"></i>
               <p>
               إضافة جلسة علاجية 
