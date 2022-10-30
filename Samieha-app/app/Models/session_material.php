@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class session_material extends Model
 {
     use HasFactory;
-
+    protected $table= 'session_materials';
     protected $fillable = [
         'session_id',
         'trial_id',
