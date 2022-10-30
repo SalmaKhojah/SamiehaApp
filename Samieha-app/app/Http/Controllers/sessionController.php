@@ -20,13 +20,7 @@ class sessionController extends Controller
     public function index()
     {
         
-        $nounSub = subcategories::where('category_id', '1')->get();
-        $verbSub = subcategories::where('category_id', '2')->get();
-        $adjSub = subcategories::where('category_id', '3')->get();
-
-        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
       
-           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**
@@ -36,7 +30,13 @@ class sessionController extends Controller
      */
     public function create()
     {
-        //
+        $nounSub = subcategories::where('category_id', '1')->get();
+        $verbSub = subcategories::where('category_id', '2')->get();
+        $adjSub = subcategories::where('category_id', '3')->get();
+
+        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
+      
+           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**
