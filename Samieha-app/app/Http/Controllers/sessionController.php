@@ -90,7 +90,9 @@ class sessionController extends Controller
      */
     public function show($id)
     {
-        //
+        $session_materials = session_material::where('session_id', $id)->get();
+        return view('SLP.session.viewSession', compact('session_materials'));
+        
     }
 
     /**

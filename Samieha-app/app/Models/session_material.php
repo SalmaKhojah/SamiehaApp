@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\softDeletes;
 
 class session_material extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory;
     protected $table= 'session_materials';
     
     protected $fillable = [
@@ -21,5 +20,8 @@ class session_material extends Model
         'used_cues',
     ];
 
-    protected $dates = ['deleted_at'];
+    public function words()
+    {
+        return $this->hasMany(words::class,'id');
+    }
 }

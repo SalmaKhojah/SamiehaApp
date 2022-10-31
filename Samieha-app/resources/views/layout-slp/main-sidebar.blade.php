@@ -42,7 +42,7 @@
             <a href="{{route('session.index')}}" class="nav-link  @yield('sessionindex') ">
             <i class="nav-icon fas fa-table"></i>
               <p>
-              عرض الجلسات العلاجية 
+              قائمة الجلسات العلاجية 
               </p>
             </a>
           </li>
