@@ -59,8 +59,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>المريض</th>
-                    <th>رقم الهوية</th>
+                    <th>الجلسات العلاجية</th>
                     <th>العمليات</th>
                   </tr>
                   </thead>
@@ -68,7 +67,6 @@
                   @foreach($sessions as $session)  
                   <tr>
                     <td>{{$session->id}}</td>
-                    <td>{{$session->patient_id}}</td>
                     <td>{{$session->included_cues}}</td>
                   </tr>
                 @endforeach
@@ -76,7 +74,6 @@
                   <tfoot>
                   <tr>
                     <th>اسم المريض</th>
-                    <th>رقم الهوية</th>
                     <th>العمليات</th>
                   </tr>
                   </tfoot>

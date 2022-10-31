@@ -54,7 +54,6 @@ class sessionController extends Controller
     public function store(Request $request)
     {
 
-  
         $request->validate([
          'words'=>'required',
          'cues'=>'required',
