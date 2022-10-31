@@ -67,7 +67,7 @@
                   @foreach($sessions as $session)  
                   <tr>
                     <td>{{$session->id}}</td>
-                    <td>{{$session->included_cues}}</td>
+                    <td><a href="{{route('session.show' , $session->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a></td>
                   </tr>
                 @endforeach
                   </tbody>

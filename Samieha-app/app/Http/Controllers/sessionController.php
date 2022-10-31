@@ -20,12 +20,9 @@ class sessionController extends Controller
     public function index()
     {
         $sessions = session::where('slp_id', Auth::user()->id)->get();
-       // dd($sessions);
-       /// $session_materials = session_material::where('slp_id', Auth::user()->id)->get();
-
 
         
-        return view('SLP.viewSessionList',compact('sessions'));
+        return view('SLP.session.viewSessionList',compact('sessions'));
       
     }
 
@@ -42,7 +39,7 @@ class sessionController extends Controller
 
         $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
       
-           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
+           return view('SLP.session.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**
@@ -69,7 +66,6 @@ class sessionController extends Controller
         $session_id=DB::table('session')->insertGetId([
             'patient_id' => $patient_id,
             'slp_id' => Auth::user()->id,
-            'time_limit' => '5',
         ]);
 
         foreach($words as $word){
