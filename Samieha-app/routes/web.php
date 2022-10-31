@@ -82,6 +82,8 @@ Route::middleware(['auth', 'slp'])->group(function () {
 
     Route::resource('/slpLinkP' ,  SlpLinksPaitentController::class);
     Route::resource('/result' ,  PatientResultController::class);
+    Route::get('softdelete/{id}' , [slpPaitentController::class, 'softDelete'])->name('soft.delete');
+
 
 
 // Route::get('/SLPhome', [App\Http\Controllers\slpController::class, 'home']);

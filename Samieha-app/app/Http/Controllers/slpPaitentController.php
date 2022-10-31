@@ -7,7 +7,9 @@ use App\Models\patient;
 use App\Models\slp;
 use App\Models\slp_patients;
 use App\Models\User;
+use App\Models\session_material;
 use Auth;
+use Redirect;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
@@ -201,5 +203,14 @@ class slpPaitentController extends Controller
 
         return redirect()->route('slpPaitentTable.index')
                         ->with('success','تم  حذف المريض بنجاح');
+    }
+
+    public function softDelete( $id)
+    {
+
+        $session_material=session_material::find($id); 
+
+        $session_material->delete();
+        return Redirect::back()->with('success','تم  حذف الجلسة بنجاح');
     }
 }

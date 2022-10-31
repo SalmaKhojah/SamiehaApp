@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('session_materials', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('session_id');
-            $table->foreign('session_id')->references('id')->on('session')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('session_id')->references('id')->on('session');
+            $table->softDeletes();
             $table->string('trial_id')->nullable();
             $table->unsignedBigInteger('word_id');
             $table->foreign('word_id')->references('id')->on('words')->onDelete('cascade')->onUpdate('cascade');

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\session_material;
 use App\Models\session;
 use App\Models\words;
+use Redirect;
 
 use Illuminate\Http\Request;
 
@@ -91,14 +92,16 @@ class PatientResultController extends Controller
      */
     public function destroy($id)
     {
-        $session=session::where('id',$id); 
-        $session_material=session_material::where('session_id',$id); 
+        //$session=session::where('id',$id); 
+        $session_material=session_material::where('session_id',$id)->first(); 
 
-
-        $session->delete();
+        //$session->delete();
         $session_material->delete();
 
-        return redirect()->route('slpPaitentTable.index')
-                        ->with('success','تم  حذف الجلسة بنجاح');
+        return Redirect::back()->with('success','تم  حذف الجلسة بنجاح');
+
     }
+
+
+   
 }

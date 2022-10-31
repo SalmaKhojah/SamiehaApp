@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class session_material extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
     protected $table= 'session_materials';
     
     protected $fillable = [
@@ -19,4 +20,6 @@ class session_material extends Model
         'included_cues',
         'used_cues',
     ];
+
+    protected $dates = ['deleted_at'];
 }
