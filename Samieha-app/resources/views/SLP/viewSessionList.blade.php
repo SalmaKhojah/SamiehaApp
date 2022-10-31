@@ -65,11 +65,11 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach($sessions as $item)  
+                  @foreach($sessions as $session)  
                   <tr>
-                    <td>{{$item->session_id}}</td>
-                    <td>{{$item->word_id}}</td>
-                    <td>{{$item->included_cues}}</td>
+                    <td>{{$session->id}}</td>
+                    <td>{{$session->patient_id}}</td>
+                    <td>{{$session->included_cues}}</td>
                   </tr>
                 @endforeach
                   </tbody>

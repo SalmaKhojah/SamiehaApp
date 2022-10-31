@@ -20,7 +20,7 @@ class sessionController extends Controller
     public function index()
     {
         $sessions = session::where('slp_id', Auth::user()->id)->get();
-        dd($sessions);
+       // dd($sessions);
        /// $session_materials = session_material::where('slp_id', Auth::user()->id)->get();
 
 
@@ -54,19 +54,24 @@ class sessionController extends Controller
     public function store(Request $request)
     {
 
+  
         $request->validate([
          'words'=>'required',
          'cues'=>'required',
          'patient_id'=>'required',
         ]);
 
+
+        $patient_ids=$request->patient_id;
+        $words=$request->words;
+
+    foreach($patient_ids as $patient_id){
+
         $session_id=DB::table('session')->insertGetId([
-            'patient_id' => $request->patient_id,
+            'patient_id' => $patient_id,
             'slp_id' => Auth::user()->id,
             'time_limit' => '5',
         ]);
-
-        $words=$request->words;
 
         foreach($words as $word){
             session_material::create([
@@ -75,6 +80,7 @@ class sessionController extends Controller
                 'included_cues' => implode(",",$request->cues),
             ]);
         }
+    }
 
        return redirect()->route('session.index')
        ->with('success','تمت الإضافة بنجاح');
