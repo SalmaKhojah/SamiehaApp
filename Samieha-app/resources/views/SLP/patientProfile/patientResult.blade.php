@@ -35,7 +35,12 @@
          <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
        </div>
       @endif
-
+      <style>
+        #photo{
+          height: 50px;
+          width: 50px;
+        }
+</style>
 
     <!-- Main content -->
     <section class="content">
@@ -76,14 +81,15 @@
                   <tr>
                   <td>{{$item->trial_id}}</td>
                   <td>{{$item->word}}</td>
-                  <td>{{$item->word_id}}</td>
+                  <td><img src="{{asset($item->image)}}" id="photo"></td>
                     <td>{{$item->check_answer}}</td>
                     <td>{{$item->used_cues}}</td>
                     <td>
                     
 
-                      {{$item->patient_record}}
-                      
+                    <audio controls>
+                        <source src ="{{asset($item->patient_record)}}" type="audio/mpeg">
+                       </audio>                      
                     </td>
    
                   </tr>
