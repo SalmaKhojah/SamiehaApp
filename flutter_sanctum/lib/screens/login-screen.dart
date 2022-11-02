@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
   }
 
 }
+//obscureText: true,
 
 class LoginState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
@@ -88,6 +89,7 @@ class LoginState extends State<LoginScreen> {
                       labelText: 'كلمة المرور',
                       hintText: 'أدخل كلمة المرور'
                   ),
+                  obscureText: true,
                   validator: (value) {
                     if (value.isEmpty) {
                        return 'أدخل كلمة المرور';

@@ -19,8 +19,10 @@ class TokenController extends Controller
             throw new AuthenticationException();
         }
 
-        return [
-            'token' => auth()->user()->createToken($request->deviceId)->plainTextToken
+        return [                                //$request->deviceId
+            'token' => auth()->user()->createToken('web')->plainTextToken
+            // 'name' => auth()->user()->name
+
         ];
     }
 

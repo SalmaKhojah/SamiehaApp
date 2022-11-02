@@ -1,6 +1,6 @@
-com/mindscms/flutter_sanctum/MainActivity.java
- com.mindscms.flutter_sanctum.MainActivity
-com/mindscms/flutter_sanctum/BuildConfig.java
- com.mindscms.flutter_sanctum.BuildConfig
 io/flutter/plugins/GeneratedPluginRegistrant.java
  io.flutter.plugins.GeneratedPluginRegistrant
+com/mindscms/flutter_sanctum/BuildConfig.java
+ com.mindscms.flutter_sanctum.BuildConfig
+com/mindscms/flutter_sanctum/MainActivity.java
+ com.mindscms.flutter_sanctum.MainActivity
