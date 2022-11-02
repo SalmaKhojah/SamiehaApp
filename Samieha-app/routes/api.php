@@ -14,8 +14,14 @@ use App\Http\Controllers\Auth\TokenController;
 Route::group(['middleware' => 'auth:sanctum'], function () {
  
     Route::get('/user', function (Request $request) {
-        error_log($request->user());
-        return $request->user();
+        // return $request->user();
+        return [
+        'id' => $request->user()->id,
+        'name' => $request->user()->name,
+        'email' => $request->user()->email,
+        'phone' => $request->user()->info->phone,
+
+         ];
     });
     Route::get('/user/posts', function (Request $request) {
         return $request->user()->posts;
