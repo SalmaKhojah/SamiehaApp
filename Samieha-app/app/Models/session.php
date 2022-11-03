@@ -17,9 +17,6 @@ class session extends Model
         'time_limit',
     ];
 
-    public function words()
-    {
-        return $this->hasMany(words::class,'id');
-    }
+   
 
 }

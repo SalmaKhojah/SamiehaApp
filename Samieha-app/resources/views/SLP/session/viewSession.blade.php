@@ -5,7 +5,12 @@
 @endsection
 
 @section('css')
-
+<style>
+        #photo{
+          height: 50px;
+          width: 50px;
+        }
+</style>
 @endsection
 
 @section('bar1')
@@ -19,6 +24,15 @@
 
 
 @section('content')
+                <?php 
+                  // use of explode 
+                  
+                  $string = $session_materials->first()->included_cues; 
+                  
+                  $str_arr = explode (",", $string); 
+
+
+                ?>
 
 <section class="content">
       <div class="container-fluid">
@@ -38,29 +52,61 @@
                       <th>#</th>
                       <th>الكلمة</th>
                       <th>الصورة</th>
-                      <th>الحرف الأول</th>
+                      @for($i = 0 ; $i < count($str_arr) ; $i++)
+                      @if($str_arr[$i]==1)
                       <th>الإشارة الدلالية للكلمة</th>
+                      @endif
+                      @if($str_arr[$i]==2)
                       <th>إتمام الجملة</th>
+                      @endif
+                      @if($str_arr[$i]==3)
                       <th>صوت الحرف الأول</th>
+                      @endif
+                      @if($str_arr[$i]==4)
                       <th>صوت المقطع الأول</th>
+                      @endif
+                      @if($str_arr[$i]==5)
+                      <th> الحرف الأول كتابة</th>
+                      @endif
+                      @if($str_arr[$i]==6)
+                      <th>الكلمة كتابة</th>
+                      @endif
+                      @if($str_arr[$i]==7)
                       <th>الكلمة نطقا</th>
+                      @endif
+                      @endfor
                     </tr>
                   </thead>
                   <tbody>
                @foreach($session_materials as $material)
-                 
-
                     <tr data-widget="expandable-table" aria-expanded="false">
                     <td>{{$material->word_id}}</td>
-                    <td>{{$material->included_cues}}</td>
                     @foreach($material->words as $word)
                       <td>{{$word->word}}</td>
-                      <td>{{$word->image}}</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td> 
-                      <td></td>
+                      <td><img id="photo" src="{{asset($word->image)}}"></td>
+                      @for($i = 0 ; $i < count($str_arr) ; $i++)
+                      @if($str_arr[$i]==1)
+                      <td>{{$word->cue1}}</td>
+                      @endif
+                      @if($str_arr[$i]==2)
+                      <td>{{$word->cue2}}</td>
+                      @endif
+                      @if($str_arr[$i]==3)
+                      <td>{{$word->cue3}}</td>
+                      @endif
+                      @if($str_arr[$i]==4)
+                      <td>{{$word->cue4}}</td>
+                      @endif
+                      @if($str_arr[$i]==5)
+                      <td>{{$word->cue5}}</td>
+                      @endif
+                      @if($str_arr[$i]==6)
+                      <td>{{$word->cue6}}</td>
+                      @endif
+                      @if($str_arr[$i]==7)
+                      <td>{{$word->cue7}}</td>
+                      @endif
+                      @endfor
                      </tr>
                   @endforeach 
 
