@@ -71,8 +71,8 @@ class wordsTableSeeder extends Seeder
                     'subcategory_id'=>'2',
                     'word'=>'برتقال',
                     'image'=> 'img/nouns/fruits/orange.jpg',
-                    'cue1'=>'',
-                    'cue2'=>'',
+                    'cue1'=>'طعمه حامض ولونه برتقالي',
+                    'cue2'=>'أنت تشرب عصير ',
                     'cue3'=>'',
                     'cue4'=>'',
                     'cue5'=>'ب',
@@ -86,8 +86,8 @@ class wordsTableSeeder extends Seeder
                     'subcategory_id'=>'2',
                     'word'=>'تفاح',
                     'image'=> 'img/nouns/fruits/apple.jpg',
-                    'cue1'=>'',
-                    'cue2'=>'',
+                    'cue1'=>'طعمه حلو وله عدة ألوان ',
+                    'cue2'=>'أنت تأكل',
                     'cue3'=>'',
                     'cue4'=>'',
                     'cue5'=>'ت',
@@ -101,8 +101,8 @@ class wordsTableSeeder extends Seeder
                     'subcategory_id'=>'2',
                     'word'=>'موز',
                     'image'=> 'img/nouns/fruits/banana.jpg',
-                    'cue1'=>'',
-                    'cue2'=>'',
+                    'cue1'=>'لونه أصفر على شكل هلال',
+                    'cue2'=>'أنت تأكل',
                     'cue3'=>'',
                     'cue4'=>'',
                     'cue5'=>'م',
@@ -119,7 +119,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ف',
                     'cue6'=>'فستان',
                     'cue7'=>'',
 
@@ -133,7 +133,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ب',
                     'cue6'=>'بنطال',
                     'cue7'=>'',
 
@@ -147,7 +147,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'م',
                     'cue6'=>'معطف',
                     'cue7'=>'',
 
@@ -160,7 +160,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يركض',
                     'cue7'=>'',
 
@@ -173,7 +173,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يمشي',
                     'cue7'=>'',
 
@@ -186,7 +186,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يحبو',
                     'cue7'=>'',
 
@@ -199,7 +199,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يزرع',
                     'cue7'=>'',
 
@@ -212,7 +212,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يحرث',
                     'cue7'=>'',
 
@@ -225,7 +225,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يحصد',
                     'cue7'=>'',
 
@@ -239,7 +239,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يركل',
                     'cue7'=>'',
 
@@ -252,7 +252,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يرمي',
                     'cue7'=>'',
 
@@ -265,7 +265,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ي',
                     'cue6'=>'يسدد',
                     'cue7'=>'',
 
@@ -279,7 +279,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ح',
                     'cue6'=>'حزين',
                     'cue7'=>'',
 
@@ -292,7 +292,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'س',
                     'cue6'=>'سعيد',
                     'cue7'=>'',
 
@@ -305,7 +305,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ق',
                     'cue6'=>'قلق',
                     'cue7'=>'',
 
@@ -319,7 +319,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ك',
                     'cue6'=>'كبير',
                     'cue7'=>'',
 
@@ -332,7 +332,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ط',
                     'cue6'=>'طويل',
                     'cue7'=>'',
 
@@ -345,7 +345,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ق',
                     'cue6'=>'قصير',
                     'cue7'=>'',
 
@@ -358,7 +358,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'خ',
                     'cue6'=>'خشن',
                     'cue7'=>'',
 
@@ -371,7 +371,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'ن',
                     'cue6'=>'ناعم',
                     'cue7'=>'',
 
@@ -384,7 +384,7 @@ class wordsTableSeeder extends Seeder
                     'cue2'=>'',
                     'cue3'=>'',
                     'cue4'=>'',
-                    'cue5'=>'',
+                    'cue5'=>'م',
                     'cue6'=>'منتظم',
                     'cue7'=>'',
 
