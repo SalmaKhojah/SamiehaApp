@@ -92,10 +92,18 @@
                       <td>{{$word->cue2}}</td>
                       @endif
                       @if($str_arr[$i]==3)
-                      <td>{{$word->cue3}}</td>
+                      <td>
+                      <audio src ="{{asset($word->cue3)}}" type="audio/mpeg" controls>
+                        
+
+                       </audio>
+                      </td>
                       @endif
                       @if($str_arr[$i]==4)
-                      <td>{{$word->cue4}}</td>
+                      <td>
+                      <audio src ="{{asset($word->cue4)}}" type="audio/mpeg" controls>
+                       </audio>
+                      </td>
                       @endif
                       @if($str_arr[$i]==5)
                       <td>{{$word->cue5}}</td>
@@ -104,7 +112,11 @@
                       <td>{{$word->cue6}}</td>
                       @endif
                       @if($str_arr[$i]==7)
-                      <td>{{$word->cue7}}</td>
+                      <td> 
+                        <audio controls>
+                        <source src ="{{asset($word->cue7)}}" type="audio/mpeg">
+                       </audio>
+                        </td>
                       @endif
                       @endfor
                      </tr>
