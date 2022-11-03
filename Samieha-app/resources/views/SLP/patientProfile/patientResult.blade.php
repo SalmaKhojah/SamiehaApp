@@ -55,7 +55,7 @@
                 <h3 class="card-title">نتائج الجلسة </h3><br>
                 @foreach($paitentName as $item)  
 
-                <h4 class="card-title">{{$item->first_name}}
+                <h4 class="card-title">اسم المريض: {{$item->first_name}}
                 {{$item->last_name}}
                 </h4>
                 @endforeach
@@ -95,7 +95,7 @@
                   </tr>
                 @endforeach
                   </tbody>
-                  <tfoot>
+                <!--  <tfoot>
                   <tr>
                   <th>رقم التكرار </th>
                     <th>الكلمة </th>
@@ -104,7 +104,7 @@
                     <th>التلميح المستخدم</th>
                     <th> استجابة المريض</th>
                   </tr>
-                  </tfoot>
+                  </tfoot>-->
                 </table>
               </div>
               <!-- /.card-body -->

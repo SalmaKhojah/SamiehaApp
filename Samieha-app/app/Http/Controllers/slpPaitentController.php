@@ -8,6 +8,7 @@ use App\Models\slp;
 use App\Models\slp_patients;
 use App\Models\User;
 use App\Models\session_material;
+use App\Models\session;
 use Auth;
 use Redirect;
 use Illuminate\Validation\Rule;

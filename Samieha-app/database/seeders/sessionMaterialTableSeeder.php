@@ -19,12 +19,12 @@ class sessionMaterialTableSeeder extends Seeder
 
         [
             [
-            'session_id'=>'1',
+            'session_id'=>'3',
             'trial_id'=>'2',
             'word_id'=>'1',
             'patient_record'=>'patient_record',
-            'check_answer'=>'check_answer',
-            'used_cues'=>'5'
+            'check_answer'=>'خاطئة',
+            'used_cues'=>'الكلمة مكتوبة'
             ],
             
             [
@@ -33,7 +33,7 @@ class sessionMaterialTableSeeder extends Seeder
             'word_id'=>'2',
             'patient_record'=>'patient_record',
             'check_answer'=>'خاطئة',
-            'used_cues'=>'5'
+            'used_cues'=>'صوت الحرف الأول'
             ],
 
             [
@@ -42,7 +42,7 @@ class sessionMaterialTableSeeder extends Seeder
             'word_id'=>'3',
             'patient_record'=>'audio/AudioChair.MP3',
             'check_answer'=>'صحيحة',
-            'used_cues'=>'5'
+            'used_cues'=>'إتمام الجملة'
                 ],
         
                 [
@@ -51,7 +51,7 @@ class sessionMaterialTableSeeder extends Seeder
                     'word_id'=>'3',
                     'patient_record'=>'patient_record',
                     'check_answer'=>'check_answer',
-                    'used_cues'=>'5'
+                    'used_cues'=>'الكلمة نطقا'
                     ]
         ]
     
