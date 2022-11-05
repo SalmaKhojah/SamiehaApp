@@ -73,6 +73,7 @@
                     <th>الاجابات </th>
                     <th>التلميح المستخدم</th>
                     <th> استجابة المريض</th>
+                    
 
                   </tr>
                   </thead>
@@ -93,18 +94,14 @@
                     </td>
    
                   </tr>
+                 
                 @endforeach
                   </tbody>
-                <!--  <tfoot>
+                 <tfoot>
                   <tr>
-                  <th>رقم التكرار </th>
-                    <th>الكلمة </th>
-                    <th>الصورة </th>
-                    <th>الاجابات </th>
-                    <th>التلميح المستخدم</th>
-                    <th> استجابة المريض</th>
+                  <th colspan = "6">  <p>  متوسط الاجابات الصحيحة: {{$avg_stars}} </p></th>
                   </tr>
-                  </tfoot>-->
+                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->

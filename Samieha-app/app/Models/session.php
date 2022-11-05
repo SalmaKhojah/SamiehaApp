@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class session extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'session';
 
@@ -16,6 +16,8 @@ class session extends Model
         'slp_id',
         'time_limit',
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function words()
     {

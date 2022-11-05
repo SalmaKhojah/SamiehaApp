@@ -22,7 +22,7 @@ class sessionMaterialTableSeeder extends Seeder
             'session_id'=>'3',
             'trial_id'=>'2',
             'word_id'=>'1',
-            'patient_record'=>'patient_record',
+            'patient_record'=>'audio/AudioBedWord.MP3',
             'check_answer'=>'خاطئة',
             'used_cues'=>'الكلمة مكتوبة'
             ],
@@ -49,8 +49,8 @@ class sessionMaterialTableSeeder extends Seeder
                     'session_id'=>'4',
                     'trial_id'=>'7',
                     'word_id'=>'3',
-                    'patient_record'=>'patient_record',
-                    'check_answer'=>'check_answer',
+                    'patient_record'=>'audio/AudioChair.MP3',
+                    'check_answer'=>'خاطئة',
                     'used_cues'=>'الكلمة نطقا'
                     ]
         ]
