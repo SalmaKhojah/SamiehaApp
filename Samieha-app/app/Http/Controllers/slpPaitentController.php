@@ -118,8 +118,14 @@ class slpPaitentController extends Controller
     public function show($id)
     {
         $viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
-        $patientsession =  DB::select('SELECT * FROM session WHERE  patient_id= '.$id.'');
-        return view('SLP.patientProfile.viewPatient', compact('viewPatient','patientsession'));     }
+        $patientsession =  DB::select('SELECT * FROM session WHERE deleted_at = NULL AND patient_id= '.$id.'');
+        $delete = DB::select('SELECT deleted_at FROM session WHERE  patient_id= '.$id.'  ');
+        $completed = session::where('patient_id', $id)->onlyTrashed()->get();
+        $incompleted = session::where('patient_id', $id)->get();
+
+
+    //    dd($incompleted);
+        return view('SLP.patientProfile.viewPatient', compact('viewPatient','patientsession','incompleted'));     }
 
     /**
      * Show the form for editing the specified resource.
@@ -209,7 +215,7 @@ class slpPaitentController extends Controller
     public function softDelete( $id)
     {
 
-        $session_material=session_material::find($id); 
+        $session_material=session::find($id); 
 
         $session_material->delete();
         return Redirect::back()->with('success','تم  حذف الجلسة بنجاح');

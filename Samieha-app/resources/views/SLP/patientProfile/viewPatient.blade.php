@@ -163,8 +163,7 @@
 <thead>
 </thead>
 <tbody>
-@foreach($patientsession as $item)
-
+@foreach($incompleted as $item)
 <tr>
 
  <ul class="list-group">
