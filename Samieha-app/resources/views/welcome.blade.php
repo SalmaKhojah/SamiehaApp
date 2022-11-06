@@ -18,13 +18,8 @@
 
 
   @section('content')
-  @if(session()->has('success'))
-       <div id="creatSuccessMessage" class="container alert alert-success alert-dismissible">
-         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-         <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
-       </div>
-      @endif
-
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   
 
     <!-- Main content -->
@@ -83,6 +78,36 @@
       </div><!-- /.container-fluid -->
     </section>
   <!-- End Main content -->
+  <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+
+<script>
+var xValues = ["عدد الاختصاصيين", "عدد المرضى", "عدد الجلسات"];
+var yValues = [{{$NoOfslps}}, {{$NoOfPatients}}, {{$NoOfsessions}}];
+var barColors = [
+  "#379237",
+  "#EEB76B",
+  "#E2703A"
+  
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: ""
+    }
+  }
+});
+</script>
+
   @endsection
 
 
