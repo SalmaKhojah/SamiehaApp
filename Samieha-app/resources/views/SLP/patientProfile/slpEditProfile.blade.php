@@ -34,9 +34,9 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">إضافة معلومات الاختصاصي</h3>
+                <h3 class="card-title">  تعديل الملف الشخصي</h3>
               </div>
               <br>
               <!-- /.card-header -->
@@ -101,7 +101,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">تحديث</button>
+                  <button type="submit" class="btn btn-info">تحديث</button>
                 </div>
               </form>
 
