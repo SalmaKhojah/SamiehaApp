@@ -10,6 +10,57 @@
           height: 50px;
           width: 50px;
         }
+        audio {
+  width: 100px;
+  height: 25px;
+
+}
+
+audio::-webkit-media-controls-panel {
+  -webkit-justify-content: center;
+  height: 25px;
+  background:#fff;
+}
+
+/* Removes the timeline */
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+}
+        audio::-webkit-media-controls-timeline, -webkit-media-controls-timeline {
+    display: none;
+}
+         audio::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+} */
+
+/* Removes mute-button */
+audio::-webkit-media-controls-mute-button {
+  display: none;
+}
+/* Removes the time stamp */
+audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+
+/* audio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+} */
+
 </style>
 @endsection
 
@@ -98,7 +149,7 @@
                       @endif
                       @if($str_arr[$i]==3)
                       <td>
-                      <audio src ="{{asset($word->cue3)}}" type="audio/mpeg" controls>
+                      <audio src ="{{asset($word->cue3)}}" type="audio/mpeg" controls  controlsList="nodownload noplaybackrate  ">
                         
 
                        </audio>
@@ -106,7 +157,7 @@
                       @endif
                       @if($str_arr[$i]==4)
                       <td>
-                      <audio src ="{{asset($word->cue4)}}" type="audio/mpeg" controls>
+                      <audio src ="{{asset($word->cue4)}}" type="audio/mpeg" controls  controlsList="nodownload noplaybackrate ">
                        </audio>
                       </td>
                       @endif
@@ -119,7 +170,7 @@
                       @if($str_arr[$i]==7)
                       <td> 
                         <audio controls>
-                        <source src ="{{asset($word->cue7)}}" type="audio/mpeg">
+                        <source src ="{{asset($word->cue7)}}" type="audio/mpeg" controls  controlsList="nodownload noplaybackrate ">
                        </audio>
                         </td>
                       @endif
