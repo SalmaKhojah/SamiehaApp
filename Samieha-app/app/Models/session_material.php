@@ -22,6 +22,6 @@ class session_material extends Model
 
     public function words()
     {
-        return $this->hasMany(words::class,'id');
+        return $this->hasMany(words::class,'id', 'word_id' );
     }
 }

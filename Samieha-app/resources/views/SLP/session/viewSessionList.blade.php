@@ -58,57 +58,25 @@
               
               <!-- /.card-header search -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>الجلسات العلاجية</th>
-                    <th>العمليات</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($sessions as $session)  
-                  <tr>
-                    <td> الجلسة {{$seNo++}}</td>
-                    <td>
-                      <a href="{{route('session.show' , $session->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
-                      
-                      <!-- <a data-toggle="modal" data-target="#exampleModalCenter{{$session->id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
-
-                      <form action="{{ route('soft.delete', $session->id) }}" method="GET">
-                    
-                        
-                      <div class="modal fade" id="exampleModalCenter{{$session->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات الجلسة </h5>
-                            </div>
-                            <div class="modal-body">
-                            هل أنت متأكد أنك تريد حذف الجلسة؟
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                              @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$session->id}}">حذف</button>                          </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      </form> -->
-                     
-                    </td>
-
-                  </tr>
-                @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>الجلسات العلاجية</th>
-                    <th>العمليات</th>
-                  </tr>
-                  </tfoot>
-                </table>
+              <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">الجلسات العلاجية</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach($sessions as $session) 
+    <tr>
+      <th scope="row">الجلسة {{$seNo++}}</th>
+      <td>
+      <a href="{{route('session.show' , $session->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض</a>
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+       
               </div>
               <!-- /.card-body -->
             </div>
