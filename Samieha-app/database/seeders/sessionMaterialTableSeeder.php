@@ -19,7 +19,7 @@ class sessionMaterialTableSeeder extends Seeder
 
         [
             [
-            'session_id'=>'1',
+            'session_id'=>'3',
             'trial_id'=>'2',
             'word_id'=>'1',
             'patient_record'=>'audio/AudioBedWord.MP3',
