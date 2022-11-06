@@ -172,7 +172,9 @@
    </td>
    <td>
    <a href="{{route('result.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض النتائج</a>
-   <a  class="btn btn-warning" href="{{ route('soft.delete',$item->id)}}"> Soft delete </a>
+   <a  class="btn btn-app" onclick="return confirm('هل أنت متأكد أنك تريد حذف الجلسة؟')" href="{{ route('soft.delete',$item->id)}}"> <i class="fa fa-trash" ></i>حذف  </a>
+
+
 
    
 
