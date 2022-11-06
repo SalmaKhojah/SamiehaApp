@@ -295,18 +295,27 @@
 
 </p>
     </div>
-   
+
     <div class="col bg-light pt-2 m-2">
     <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
 <br >
 <p class="mt-5">  
-    الكلمة مكتوبة
+    الحرف الأول كتابة
+
+</p>
+    </div>
+   
+    <div class="col bg-light pt-2 m-2">
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="6" >
+<br >
+<p class="mt-5">  
+    الكلمة كتابة
 
 </p>
     </div>
 
     <div class="col bg-light pt-2 m-2">
-    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="6" >
+    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="7" >
 <br >
 <p class="mt-5">  
     الكلمة نطقا
