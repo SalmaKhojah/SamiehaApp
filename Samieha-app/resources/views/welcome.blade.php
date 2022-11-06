@@ -76,9 +76,11 @@
         <!-- /.row -->
    
       </div><!-- /.container-fluid -->
+      
     </section>
   <!-- End Main content -->
-  <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+  
+  <center><canvas id="myChart" style="width:100%;max-width:1000px"></canvas></center>
 
 <script>
 var xValues = ["عدد الاختصاصيين", "عدد المرضى", "عدد الجلسات"];
