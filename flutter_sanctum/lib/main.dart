@@ -67,20 +67,34 @@ class _MyHomePageState extends State<MyHomePage> {
               return Text(auth.user.name +' مرحبا بك ');
             } else {
               return
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-
-                child: Container(
-                  color: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
-                  child: const Text(
-                    'تسجيل دخول',
-                    style: TextStyle(color: Colors.white, fontSize: 14.0),
-                  ),
+              Column(children: [
+                SizedBox( height: 150 ,),
+                Image.asset(
+                  'Asset/logo.png',
+                  width: 300,
                 ),
-              );
+
+                SizedBox( height: 20 ,),
+                Text('لإعادة تأهيل المصابين بالحبسة الكلامية'),
+                SizedBox( height: 40 ,),
+
+                TextButton(
+            onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+            },
+
+            child: Container(
+            color: Colors.black87,
+            padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 30),
+            child: const Text(
+            'تسجيل دخول',
+            style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
+            ),
+            )
+
+              ],);
+
 
             }
           },

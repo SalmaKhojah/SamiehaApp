@@ -17,7 +17,11 @@ class ProfileScreen extends StatefulWidget {
 
 }
 //obscureText: true,
-
+class _MyTextStyle {
+  static final style1 = TextStyle(
+    fontSize: 16
+  );
+}
 class ProfileState extends State<ProfileScreen> {
   final _formKey = GlobalKey<FormState>();
 
@@ -47,16 +51,36 @@ class ProfileState extends State<ProfileScreen> {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                     Text('الاسم: '+auth.user.name),
-                    Text('البريد: '+auth.user.email),
-                    Text('الهاتف: '+auth.user.phone),
-                    Text('التشخيص: '+auth.user.diagnosis),
-                    Text(' الاختصاصي: '+auth.user.slp_name),
-                    Text('بريد الاختصاصي: '+auth.user.slp_email),
+                  children:
+                  <Widget>[
+                    Image.asset(
+                      'Asset/profile.png',
+                      width: 120,
+                    ),
+                    SizedBox( height: 25 ,),
+
+                    Text('الاسم:   '+auth.user.name ,  textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.right,style: _MyTextStyle.style1),
+                    Text('البريد:   '+auth.user.email,  textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.right,style: _MyTextStyle.style1),
+                    Text('الهاتف:   '+auth.user.phone,  textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.right,style: _MyTextStyle.style1),
+                    Text('التشخيص:   '+auth.user.diagnosis,  textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.right,style: _MyTextStyle.style1),
+                    SizedBox( height: 30 ,),
+                    Image.asset(
+                      'Asset/doc.png',
+                      width: 120,
+                    ),
+                    SizedBox( height: 25 ,),
+
+                    Text(' الاختصاصي: '+auth.user.slp_name,  textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.right,style: _MyTextStyle.style1),
+                    Text('بريد الاختصاصي: '+auth.user.slp_email,  textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.right,style: _MyTextStyle.style1),
 
 
-                    Text('Rochambeau!', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0)),
+                    // Text('Rochambeau!', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0)),
                   ],
                 );Text(auth.user.name +' مرحبا بك ');
 
