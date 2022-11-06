@@ -172,8 +172,30 @@
    </td>
    <td>
    <a href="{{route('result.show' , $item->id)}}" class="btn btn-app"><i class="fa fa-search"></i>عرض النتائج</a>
-   <a  class="btn btn-app" onclick="return confirm('هل أنت متأكد أنك تريد حذف الجلسة؟')" href="{{ route('soft.delete',$item->id)}}"> <i class="fa fa-trash" ></i>حذف  </a>
+   <a data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}" class="btn btn-app"><i class="fa fa-trash"></i>حذف</a>
 
+<form action="{{ route('soft.delete', $item->id) }}" method="GET">
+  <!-- Modal -->
+  
+<div class="modal fade" id="exampleModalCenter{{$item->users_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">حذف بيانات الجلسة {{$item->first_name}} {{$item->last_name}}</h5>
+      </div>
+      <div class="modal-body">
+      هل أنت متأكد أنك تريد حذف الجلسة؟
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+        @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$item->users_id}}">حذف</button>                          </div>
+    </div>
+  </div>
+</div>
+
+</form>
 
 
    
