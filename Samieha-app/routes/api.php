@@ -20,6 +20,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         'name' => $request->user()->name,
         'email' => $request->user()->email,
         'phone' => $request->user()->info->phone,
+        'diagnosis'=> $request->user()->info->diagnosis,
+        
+        'slp_name' => $request->user()->slp()->name,
+        'slp_email' => $request->user()->slp()->email,
+
+
 
          ];
     });

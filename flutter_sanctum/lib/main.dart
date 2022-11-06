@@ -3,6 +3,8 @@ import 'package:flutter_sanctum/providers/auth.dart';
 import 'package:flutter_sanctum/widgets/nav-drawer.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_sanctum/screens/login-screen.dart';
+
 
 void main() {
   runApp(
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Samieha',
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
@@ -62,9 +64,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Consumer<Auth>(
           builder: (context, auth, child) {
             if (auth.authenticated) {
-              return Text('تم تسجيل الدخول');
+              return Text(auth.user.name +' مرحبا بك ');
             } else {
-              return Text('أنت غير مسجل');
+              return
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+
+                child: Container(
+                  color: Colors.green,
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
+                  child: const Text(
+                    'تسجيل دخول',
+                    style: TextStyle(color: Colors.white, fontSize: 14.0),
+                  ),
+                ),
+              );
+
             }
           },
         )
