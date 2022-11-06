@@ -26,15 +26,15 @@ class wordsTableSeeder extends Seeder
                     //sentence completion
                     'cue2'=>'أنت تنام على ....',
                     //first sound 
-                    'cue3'=>'',
+                    'cue3'=>'audio/bedfirstsound.MP3',
                     //first syllable 
-                    'cue4'=>'',
+                    'cue4'=>'audio/bedfirstsound.MP3',
                     //first letter (written only)
                     'cue5'=>'س',
                     // written word (written only) 
                     'cue6'=>'سرير',
                     //spoken word(modeling) 
-                    'cue7'=>'',
+                    'cue7'=>'audio/bedspokenword.MP3',
 
                 ],
 
@@ -47,7 +47,7 @@ class wordsTableSeeder extends Seeder
                     'cue3'=>'',
                     'cue4'=>'',
                     'cue5'=>'ط',
-                    'cue6'=>'طا',
+                    'cue6'=>'طاولة',
                     'cue7'=>'',
 
                 ],
@@ -61,8 +61,8 @@ class wordsTableSeeder extends Seeder
                     'cue3'=>'',
                     'cue4'=>'',
                     'cue5'=>'ك',
-                    'cue6'=>'ك',
-                    'cue7'=>'',
+                    'cue6'=>'كرسي',
+                    'cue7'=>'audio/AudioChair.MP3',
 
                 ],
 
@@ -71,7 +71,6 @@ class wordsTableSeeder extends Seeder
                     'subcategory_id'=>'2',
                     'word'=>'برتقال',
                     'image'=> 'img/nouns/fruits/orange.jpg',
-
                     'cue1'=>'طعمه حامض ولونه برتقالي',
                     'cue2'=>'أنت تشرب عصير ',
                     'cue3'=>'audio/B_sound.MP3',
@@ -102,7 +101,6 @@ class wordsTableSeeder extends Seeder
                     'subcategory_id'=>'2',
                     'word'=>'موز',
                     'image'=> 'img/nouns/fruits/banana.jpg',
-
                     'cue1'=>'لونه أصفر على شكل هلال',
                     'cue2'=>'أنت تأكل',
                     'cue3'=>'audio/Ma_sound.MP3',
@@ -133,7 +131,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/nouns/Clothes/pants.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/B_sound.MP3',
                     'cue4'=>'audio/Ben_sound.MP3',
                     'cue5'=>'ب',
@@ -148,7 +145,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/nouns/Clothes/coat.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ma_sound.MP3',
                     'cue4'=>'audio/Mea_sound.MP3',
                     'cue5'=>'م',
@@ -162,7 +158,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/movement/run.png',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yar_sound.MP3',
                     'cue5'=>'ي',
@@ -176,7 +171,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/movement/walk.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yam_sound.MP3',
                     'cue5'=>'ي',
@@ -190,7 +184,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/movement/crawling.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yah_sound.MP3',
                     'cue5'=>'ي',
@@ -217,7 +210,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/Farming/plough.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yah_sound.MP3',
                     'cue5'=>'ي',
@@ -231,7 +223,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/Farming/reaped.png',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yah_sound.MP3',
                     'cue5'=>'ي',
@@ -246,7 +237,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/sports/kicks.jpeg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yar_sound.MP3',
                     'cue5'=>'ي',
@@ -260,7 +250,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/sports/throws.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yar_sound.MP3',
                     'cue5'=>'ي',
@@ -274,7 +263,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/verbs/sports/shoot the goal.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/Ya_sound.MP3',
                     'cue4'=>'audio/Yo_sound.MP3',
                     'cue5'=>'ي',
@@ -289,7 +277,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/feelings/happy.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ح',
@@ -303,7 +290,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/feelings/happy.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'س',
@@ -317,7 +303,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/feelings/Worry.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ق',
@@ -332,7 +317,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/Sizes/big.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ك',
@@ -346,7 +330,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/Sizes/tall.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ط',
@@ -360,7 +343,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> 'img/adjectives/Sizes/tall.jpg',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ق',
@@ -374,7 +356,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> '',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'خ',
@@ -388,7 +369,6 @@ class wordsTableSeeder extends Seeder
                     'image'=> '',
                     'cue1'=>'',
                     'cue2'=>'',
-
                     'cue3'=>'audio/',
                     'cue4'=>'audio/',
                     'cue5'=>'ن',
