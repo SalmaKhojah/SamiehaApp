@@ -73,7 +73,8 @@ class slpController extends Controller
      return view('slpProfile.viewSlp', compact('viewslp'));
     }
 
-   
+  
+
     public function edit($id)
     {
         $editSlp = DB::select('SELECT slps.* , users_id as id  , email , password FROM slps, users WHERE users.id='.$id.' AND users_id='.$id.'');

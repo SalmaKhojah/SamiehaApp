@@ -67,8 +67,16 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a  href="{{ route('profileslp.show', Auth::user()->id) }}" class="nav-link  @yield('slpprofile')">
+            <i class="bi bi-person-badge"></i>
+              <p>
+                 الملف الشخصي 
+              </p>
+            </a>
+          </li>
 
-      
+
         
      
         </ul>
