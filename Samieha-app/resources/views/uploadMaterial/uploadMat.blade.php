@@ -77,7 +77,7 @@
                  <div class="col">
                  <div>
                     <label for="exampleInputName1">التصنيف الفرعي</label>
-                  <select id="subcategory" name="subcategory"  class="form-control select2" style="width: 100%;">
+                  <select id="subcat" name="subcategory"  class="form-control select2" style="width: 100%;">
                  </select>
                  @if ($errors->has('subcategory'))
                        <span class="text-danger">{{ $errors->first('subcategory') }}</span>
@@ -88,14 +88,14 @@
                      $(document).ready(function () {
                          $('#category').on('change', function () {
                              var category_id = this.value;
-                             $('#subcategory').html('');
+                             $('#subcat').html('');
                              $.ajax({
                                  url: '{{ route('getSubcategory') }}?category_id='+category_id,
                                  type: 'get',
                                  success: function (res) {
-                                     $('#subcategory').html('<option selected disabled value="">اختر التصنيف الفرعي</option> <option value="أخرى">أخرى</option>');
+                                     $('#subcat').html('<option selected disabled value="">اختر التصنيف الفرعي</option> <option value="أخرى">أخرى</option>');
                                      $.each(res, function (key, value) {
-                                         $('#subcategory').append('<option value="' + value
+                                         $('#subcat').append('<option value="' + value
                                              .subcategory + '">' + value.subcategory + '</option>');
                                      });
              
@@ -105,22 +105,24 @@
                      });
                  </script>
 
-<!-- 
-                 <div id="subcategoryother" class="form-group" style="display:none;">
-                    <label for="exampleInput">التصنيف الفرعي</label>
-                    <input name="subcategory" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
-                  </div> -->
-
-                   <!-- to set the name value of SubCategory of id=subcategoryother -->
-                   <script>
-                  $(document).on("change","#subcategory", function(){
+                           <!-- to set the name value of SubCategory of id=subcategoryother -->
+                  <script>
+                  $(document).on("change","#subcat", function(){
                     var SubCategory = $(this).val();
                     if(SubCategory === "أخرى"){
-                      $("#subcategoryother").attr("name", "subcategory");
+                      $("#scat").attr("name", "subcategory");
                     }
                   });
                 </script>
 
+
+
+                 <div id="subcategoryother" class="form-group" style="display:none;">
+                    <label for="exampleInput">التصنيف الفرعي</label>
+                    <input id="scat" name="" type="text"  class="form-control" id="exampleInputt" placeholder="ادخل التصنيف الفرعي">
+                  </div>
+
+          
 
               
 
@@ -261,9 +263,10 @@
 </script>
 
 <script>
-$(document).on("change","#subcategory", function(){
+$(document).on("change","#subcat", function(){
   var SubCategory = $(this).val();
   if(SubCategory === "أخرى"){
+    $("#scat").attr("name", "subcategory");    
     $("#subcategoryother").show();
   }else{
     $("#subcategoryother").hide();
