@@ -75,13 +75,27 @@ class PatientResultController extends Controller
               foreach(  $answare as  $answares){
                   $summ= $summ+1;
               }
-
-             
               $avg_stars = $sum/$summ;
             // dd($summ);
              
+            if($avg_stars >= 0  and 5 >= $avg_stars){
+                $suggestion = 200 ;
+              }
+              elseif($avg_stars >= 6  and 10 >= $avg_stars){
+                  $suggestion = 150 ;
+              }
+              elseif($avg_stars >= 11  and 50 >= $avg_stars){
+                  $suggestion = 50 ;
+              }
+              elseif($avg_stars >= 51){
+                  $suggestion = 10 ;
+              }
+              else{
+                  $suggestion = 2 ;
+  
+              }
 
-           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName', 'avg_stars'));  
+           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName', 'avg_stars', 'suggestion'));  
     }
 
     /**

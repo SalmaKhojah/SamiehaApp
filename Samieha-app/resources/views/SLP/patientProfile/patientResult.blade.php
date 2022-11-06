@@ -99,8 +99,10 @@
                   </tbody>
                  <tfoot>
                   <tr>
-                  <th colspan = "6">  <p>  متوسط الاجابات الصحيحة: {{$avg_stars}} </p></th>
+                  <th colspan = "3"> متوسط الاجابات الصحيحة: {{$avg_stars}} </th>
+                  <th colspan = "3">  <p>  عدد الجلسات المقترحة:  {{$suggestion}}</p></th>
                   </tr>
+                
                   </tfoot>
                 </table>
               </div>
