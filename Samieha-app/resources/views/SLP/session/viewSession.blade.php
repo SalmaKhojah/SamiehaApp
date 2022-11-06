@@ -31,7 +31,7 @@
                   
                   $str_arr = explode (",", $string); 
 
-
+                  $sNo = 1;
                 ?>
 
 
@@ -82,7 +82,7 @@
                   <tbody>
                @foreach($session_materials as $material)
                     <tr data-widget="expandable-table" aria-expanded="false">
-                    <td>{{$material->word_id}}</td>
+                    <td>{{$sNo++}}</td>
                     @foreach($material->words as $word)
                       <td>{{$word->word}}</td>
 
