@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Commands\notify;
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -14,12 +14,12 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        \App\Console\Commands\notify::class,
+        // \App\Console\Commands\notify::class,
      ];
 
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('notify:email')->everyMinute();
+        //  $schedule->command('notify:email')->everyMinute();
     }
 
     /**

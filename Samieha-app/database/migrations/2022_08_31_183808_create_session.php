@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('patient_id')->references('users_id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('slp_id');
             $table->foreign('slp_id')->references('users_id')->on('slps')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('time_limit');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

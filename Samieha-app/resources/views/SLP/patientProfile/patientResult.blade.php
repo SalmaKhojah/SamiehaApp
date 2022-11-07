@@ -35,7 +35,12 @@
          <h5><i class="icon fas fa-check"></i>{{ session()->get('success') }}</h5>
        </div>
       @endif
-
+      <style>
+        #photo{
+          height: 50px;
+          width: 50px;
+        }
+</style>
 
     <!-- Main content -->
     <section class="content">
@@ -50,7 +55,7 @@
                 <h3 class="card-title">نتائج الجلسة </h3><br>
                 @foreach($paitentName as $item)  
 
-                <h4 class="card-title">{{$item->first_name}}
+                <h4 class="card-title">اسم المريض: {{$item->first_name}}
                 {{$item->last_name}}
                 </h4>
                 @endforeach
@@ -68,6 +73,7 @@
                     <th>الاجابات </th>
                     <th>التلميح المستخدم</th>
                     <th> استجابة المريض</th>
+                    
 
                   </tr>
                   </thead>
@@ -76,28 +82,27 @@
                   <tr>
                   <td>{{$item->trial_id}}</td>
                   <td>{{$item->word}}</td>
-                  <td>{{$item->word_id}}</td>
+                  <td><img src="{{asset($item->image)}}" id="photo"></td>
                     <td>{{$item->check_answer}}</td>
                     <td>{{$item->used_cues}}</td>
                     <td>
                     
 
-                      {{$item->patient_record}}
-                      
+                    <audio controls>
+                        <source src ="{{asset($item->patient_record)}}" type="audio/mpeg">
+                       </audio>                      
                     </td>
    
                   </tr>
+                 
                 @endforeach
                   </tbody>
-                  <tfoot>
+                 <tfoot>
                   <tr>
-                  <th>رقم التكرار </th>
-                    <th>الكلمة </th>
-                    <th>الصورة </th>
-                    <th>الاجابات </th>
-                    <th>التلميح المستخدم</th>
-                    <th> استجابة المريض</th>
+                  <th colspan = "3"> متوسط الاجابات الصحيحة: {{$avg_stars}} </th>
+                  <th colspan = "3">  <p>  عدد الجلسات المقترحة:  {{$suggestion}}</p></th>
                   </tr>
+                
                   </tfoot>
                 </table>
               </div>

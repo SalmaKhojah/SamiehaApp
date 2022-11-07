@@ -16,6 +16,11 @@
       <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+
   @endsection
 
 
@@ -290,18 +295,27 @@
 
 </p>
     </div>
-   
+
     <div class="col bg-light pt-2 m-2">
     <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="5" >
 <br >
 <p class="mt-5">  
-    الكلمة مكتوبة
+    الحرف الأول كتابة
+
+</p>
+    </div>
+   
+    <div class="col bg-light pt-2 m-2">
+    <input class="form-control form-control-md form-check-input " type="checkbox" checked name="cues[]" value="6" >
+<br >
+<p class="mt-5">  
+    الكلمة كتابة
 
 </p>
     </div>
 
     <div class="col bg-light pt-2 m-2">
-    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="6" >
+    <input class="form-control form-check-input " type="checkbox" checked name="cues[]" value="7" >
 <br >
 <p class="mt-5">  
     الكلمة نطقا
@@ -347,16 +361,26 @@
                     <div class="card-body">
                       <div>
                         <label for="exampleInputName1">اختر اسم المريض</label>
-                        <select  class="form-control select2" style="width: 100%;" placeholder="اختر المريض" name="patient_id">
+                        <!-- <select class="selectpicker" multiple data-live-search="true" placeholder="اختر المريض"  style="z-index:1;">
+                        <option selected disabled>اختر المريض</option>
+                        @foreach($data as $item)  
+                         <option name="patient_id[]" value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
+                         @endforeach
+                          </select> -->
+
+
+                        <select  class="form-control select2" style="width: 100%;" placeholder="اختر المريض" name="patient_id[]" multiple="multiple">
 
                          <option selected disabled>المريض..</option>
 
                          @foreach($data as $item)  
-                         <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}}</option>
+                         <option  value="{{$item->users_id}}">{{$item->first_name}} {{$item->last_name}} - {{$item->national_id}}</option>
                          @endforeach
-                       </select>
+                       </select> 
                       </div>
                       
+              
+
                      </div>
                      <!-- /.card-body -->
                       <div class="card-footer">
@@ -386,12 +410,16 @@
   @endsection
 
   @section('scripts')
+  <script>
+$('select').selectpicker();
+  </script>
 
   <script>
     function myFunction(x) {
   x.classList.toggle("fa-angle-up");
 }
   </script>
+
   <script>
 var coll = document.getElementsByClassName("R");
 var i;
@@ -426,7 +454,8 @@ for (i = 0; i < coll.length; i++) {
 <!-- jquery-validation -->
 <script src="{{URL::asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
-
+<!-- Select2 -->
+<script src="{URL::asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- InputMask -->
 <script src="{{URL::asset('assets/plugins/moment/moment.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/inputmask/jquery.inputmask.min.js')}}"></script>

@@ -9,10 +9,14 @@ class session extends Model
 {
     use HasFactory;
 
+    protected $table = 'session';
+
     protected $fillable = [
         'patient_id',
         'slp_id',
         'time_limit',
     ];
+
+   
 
 }

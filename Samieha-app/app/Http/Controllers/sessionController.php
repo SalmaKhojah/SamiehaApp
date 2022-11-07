@@ -19,14 +19,11 @@ class sessionController extends Controller
      */
     public function index()
     {
-        
-        $nounSub = subcategories::where('category_id', '1')->get();
-        $verbSub = subcategories::where('category_id', '2')->get();
-        $adjSub = subcategories::where('category_id', '3')->get();
+        $sessions = session::where('slp_id', Auth::user()->id)->get();
 
-        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
+        
+        return view('SLP.session.viewSessionList',compact('sessions'));
       
-           return view('SLP.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**
@@ -36,7 +33,13 @@ class sessionController extends Controller
      */
     public function create()
     {
-        //
+        $nounSub = subcategories::where('category_id', '1')->get();
+        $verbSub = subcategories::where('category_id', '2')->get();
+        $adjSub = subcategories::where('category_id', '3')->get();
+
+        $data = DB::select('SELECT * FROM patients WHERE users_id IN (SELECT patient_id FROM slp_patients WHERE users_id = patient_id AND slp_id= '.Auth::user()->id.')');
+      
+           return view('SLP.session.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
 
     /**
@@ -54,13 +57,16 @@ class sessionController extends Controller
          'patient_id'=>'required',
         ]);
 
-        $session_id=DB::table('session')->insertGetId([
-            'patient_id' => $request->patient_id,
-            'slp_id' => Auth::user()->id,
-            'time_limit' => '5',
-        ]);
 
+        $patient_ids=$request->patient_id;
         $words=$request->words;
+
+    foreach($patient_ids as $patient_id){
+
+        $session_id=DB::table('session')->insertGetId([
+            'patient_id' => $patient_id,
+            'slp_id' => Auth::user()->id,
+        ]);
 
         foreach($words as $word){
             session_material::create([
@@ -69,6 +75,7 @@ class sessionController extends Controller
                 'included_cues' => implode(",",$request->cues),
             ]);
         }
+    }
 
        return redirect()->route('session.index')
        ->with('success','تمت الإضافة بنجاح');
@@ -83,7 +90,10 @@ class sessionController extends Controller
      */
     public function show($id)
     {
-        //
+        $session_materials = session_material::where('session_id', $id)->get();
+   
+        return view('SLP.session.viewSession', compact('session_materials'));
+        
     }
 
     /**

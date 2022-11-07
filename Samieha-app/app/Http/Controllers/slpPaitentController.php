@@ -7,7 +7,10 @@ use App\Models\patient;
 use App\Models\slp;
 use App\Models\slp_patients;
 use App\Models\User;
+use App\Models\session_material;
+use App\Models\session;
 use Auth;
+use Redirect;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
@@ -115,8 +118,14 @@ class slpPaitentController extends Controller
     public function show($id)
     {
         $viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
-        $patientsession =  DB::select('SELECT * FROM session WHERE  patient_id= '.$id.'');
-        return view('SLP.patientProfile.viewPatient', compact('viewPatient','patientsession'));     }
+        $patientsession =  DB::select('SELECT * FROM session WHERE deleted_at = NULL AND patient_id= '.$id.'');
+        $delete = DB::select('SELECT deleted_at FROM session WHERE  patient_id= '.$id.'  ');
+        $completed = session::where('patient_id', $id)->onlyTrashed()->get();
+        $incompleted = session::where('patient_id', $id)->get();
+
+
+    //    dd($incompleted);
+        return view('SLP.patientProfile.viewPatient', compact('viewPatient','patientsession','incompleted'));     }
 
     /**
      * Show the form for editing the specified resource.
@@ -201,5 +210,14 @@ class slpPaitentController extends Controller
 
         return redirect()->route('slpPaitentTable.index')
                         ->with('success','تم  حذف المريض بنجاح');
+    }
+
+    public function softDelete( $id)
+    {
+
+        $session_material=session::find($id); 
+
+        $session_material->delete();
+        return Redirect::back()->with('success','تم  حذف الجلسة بنجاح');
     }
 }

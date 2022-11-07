@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\session_material;
+use App\Models\session;
 use App\Models\words;
-
+use Redirect;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class PatientResultController extends Controller
@@ -55,8 +57,45 @@ class PatientResultController extends Controller
           // $resultp = DB::select('SELECT * FROM session_material WHERE session_id IN (SELECT word FROM words WHERE words.word_id = word_id )');
 //trial_id,word_id,patient_record,check_answer,used_cues, word
            //$resultp =  DB::select('SELECT * FROM results WHERE word_id IN (SELECT image AND word FROM words WHERE words.word_id = word_id )');
-   
-           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName'));  
+          // $avg_stars = DB::table('session_materials')
+              //  ->avg('check_answer');
+              $correct =  DB::select('SELECT check_answer FROM session_materials WHERE check_answer = '.'"صحيحة"'.' AND session_id='.$id.'');
+              $answare =  DB::select('SELECT check_answer FROM session_materials WHERE session_id='.$id.'' );
+              //$wordCount = $correct->count();
+             //$allans  = $answare->count();
+
+              $sum=0;
+
+              foreach(  $correct as  $correcst){
+                  $sum=+1;
+              }
+              
+              $summ=0;
+
+              foreach(  $answare as  $answares){
+                  $summ= $summ+1;
+              }
+              $avg_stars = $sum/$summ;
+            // dd($summ);
+             
+            if($avg_stars >= 0  and 5 >= $avg_stars){
+                $suggestion = 200 ;
+              }
+              elseif($avg_stars >= 6  and 10 >= $avg_stars){
+                  $suggestion = 150 ;
+              }
+              elseif($avg_stars >= 11  and 50 >= $avg_stars){
+                  $suggestion = 50 ;
+              }
+              elseif($avg_stars >= 51){
+                  $suggestion = 10 ;
+              }
+              else{
+                  $suggestion = 2 ;
+  
+              }
+
+           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName', 'avg_stars', 'suggestion'));  
     }
 
     /**
@@ -90,6 +129,16 @@ class PatientResultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $session=session::where('id',$id); 
+        $session_material=session_material::where('session_id',$id)->first(); 
+
+        $session->delete();
+        $session_material->delete();
+
+        return Redirect::back()->with('success','تم  حذف الجلسة بنجاح');
+
     }
+
+
+   
 }

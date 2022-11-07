@@ -30,7 +30,7 @@
 
 
           <li class="nav-item ">
-            <a href="/slpPaitentTable" class="nav-link ">
+            <a href="/slpPaitentTable" class="nav-link   @yield('patientlink') ">
             <i class="nav-icon fas fa-table"></i>
               <p>
                 قائمة المرضى
@@ -39,16 +39,27 @@
           </li>
 
           <li class="nav-item  ">
-            <a href="{{route('session.index')}}" class="nav-link ">
-            <i class="nav-icon fas fa-edit"></i>
+            <a href="{{route('session.index')}}" class="nav-link  @yield('sessionindex') ">
+            <i class="nav-icon fas fa-table"></i>
               <p>
-              إضافة جلسة علاجية 
+              قائمة الجلسات العلاجية 
               </p>
             </a>
           </li>
 
+          <li class="nav-item  ">
+            <a href="{{route('session.create')}}" class="nav-link  @yield('sessionlink') ">
+            <i class="nav-icon fas fa-edit"></i>
+              <p>
+              إنشاء جلسة علاجية 
+              </p>
+            </a>
+          </li>
+
+     
+
           <li class="nav-item ">
-            <a href="{{route('slpLinkP.create')}}" class="nav-link ">
+            <a href="{{route('slpLinkP.create')}}" class="nav-link  @yield('linklink')">
             <i class="nav-icon bi bi-link-45deg"></i>
               <p>
                 ربط المريض 
@@ -56,8 +67,16 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a  href="{{ route('profileslp.show', Auth::user()->id) }}" class="nav-link  @yield('slpprofile')">
+            <i class="bi bi-person-badge"></i>
+              <p>
+                 الملف الشخصي 
+              </p>
+            </a>
+          </li>
 
-      
+
         
      
         </ul>
