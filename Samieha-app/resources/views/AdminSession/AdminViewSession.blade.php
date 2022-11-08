@@ -105,10 +105,13 @@ audio::-webkit-media-controls-time-remaining-display {
               <div class="card-header">
                 <h3 class="card-title"> عرض محتوى الجلسة العلاجية </h3>
               </div>
-          
-                 <h3 class="card-title m-2"></h3>
-      
-            
+              @foreach($session_materials as $material)
+
+                <h3 class="card-title m-2">
+                 {{$material->session->slp->F_slp_name}} {{$material->session->slp->L_slp_name}}
+                 </h3>
+
+              @endforeach 
 
                   <!-- ./card-header -->
                   <div class="card-body">
@@ -145,6 +148,7 @@ audio::-webkit-media-controls-time-remaining-display {
                   </thead>
                   <tbody>
                @foreach($session_materials as $material)
+              
                     <tr data-widget="expandable-table" aria-expanded="false">
                     <td>{{$sNo++}}</td>
                     @foreach($material->words as $word)

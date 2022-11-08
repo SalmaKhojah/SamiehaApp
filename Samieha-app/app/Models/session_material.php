@@ -24,4 +24,10 @@ class session_material extends Model
     {
         return $this->hasMany(words::class,'id', 'word_id' );
     }
+
+    public function session()
+    {
+        return $this->hasOne(session::class,'id', 'session_id' );
+    }
+  
 }

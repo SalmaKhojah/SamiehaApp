@@ -17,6 +17,9 @@ class session extends Model
         'time_limit',
     ];
 
-
+    public function slp()
+    {
+        return $this->hasOne(slp::class,'users_id', 'slp_id' );
+    }
 
 }
