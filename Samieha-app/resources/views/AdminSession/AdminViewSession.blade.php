@@ -142,10 +142,11 @@ audio::-webkit-media-controls-time-remaining-display {
                   </thead>
                   <tbody>
                @foreach($session_materials as $material)
-               <h3 class="card-title m-2">
+              @if($sNo==1)
+                 <h3 class="card-title m-2">
                  اسم الاختصاصي : {{$material->session->slp->F_slp_name}} {{$material->session->slp->L_slp_name}}
                  </h3>
-
+               @endif
                     <tr data-widget="expandable-table" aria-expanded="false">
                     <td>{{$sNo++}}</td>
                     @foreach($material->words as $word)
