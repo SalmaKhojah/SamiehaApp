@@ -7,11 +7,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
+
 class emailResult extends Notification
 {
     use Queueable;
 
-    public $info;
+    public $data;
 
 
     /**
@@ -19,9 +20,9 @@ class emailResult extends Notification
      *
      * @return void
      */
-    public function __construct($info)
+    public function __construct($data)
     {
-        $this -> info = $info;
+        $this -> data = $data;
     }
 
     /**
@@ -44,11 +45,20 @@ class emailResult extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->subject('التقرير الأسبوعي لـ')
+        ->subject(' تقرير جلسة لـ'.$this->data['p_name'])
+        ->greeting('مرحبا الاختصاصيـ/ة '.$notifiable->name)
 
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+
+                    ->line('إليك ملخص جلسة رقم '.$this->data['session_id'].'  ومحاولة رقم '.$this->data['trial_id'].'  للمريض '.$this->data['p_name'])
+                    ->line(' مجموع الكلمات: '.$this->data['wordsTotal'])
+                    ->line('عدد الكلمات الصحيحة : '.$this->data['correct'])
+                    ->line('عدد الكلمات الصحيحة : '.$this->data['incorrect'])
+
+                    
+
+
+                    ->action('الدخول إلى موقع سميها', url('http://127.0.0.1:8000/'));
+
     }
 
     /**
