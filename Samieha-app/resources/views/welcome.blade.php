@@ -78,9 +78,39 @@
       </div><!-- /.container-fluid -->
       
     </section>
+       <!-- <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Pie Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                <center><canvas id="myChart" style="width:100%;max-width:1000px"></canvas></center>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- /.content -->
   <!-- End Main content -->
   
-  <center><canvas id="myChart" style="width:100%;max-width:1000px"></canvas></center>
+ <center><canvas id="myChart" style="width:100%;max-width:1000px"></canvas></center>
 
 <script>
 var xValues = ["عدد الاختصاصيين", "عدد المرضى", "عدد الجلسات"];

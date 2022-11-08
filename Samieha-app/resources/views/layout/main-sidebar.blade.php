@@ -52,6 +52,12 @@
                   <p>قائمة المرضى</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/Adminsession" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>  قائمة الجلسات العلاجية</p>
+                </a>
+              </li>
             </ul>
           </li>
 

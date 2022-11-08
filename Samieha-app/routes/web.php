@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\slpPaitentController;
 use App\Http\Controllers\SlpLinksPaitentController;
 use App\Http\Controllers\SlpProfileController;
+use App\Http\Controllers\AdminsessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::get('/',[AdminHomeController::class, 'index']);
 
 // Admin home page controller
 Route::resource('/AdminHome' , AdminHomeController::class);
+
+//
+Route::resource('/Adminsession' , AdminsessionController::class);
 
 /*Speeach and Language Pathologist route*/
 Route::resource('/slpTable' , slpController::class);
