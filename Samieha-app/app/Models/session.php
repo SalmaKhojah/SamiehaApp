@@ -17,6 +17,16 @@ class session extends Model
         'time_limit',
     ];
 
+    public function slp()
+{
+    return $this->belongsTo(User::class, 'slp_id');
+}
+
+public function patient()
+{
+    return $this->belongsTo(User::class, 'patient_id');
+}
+   
    
 
 }
