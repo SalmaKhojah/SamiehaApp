@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\patient;
+use Illuminate\Support\Facades\DB;
+
 
 class User extends Authenticatable
 {
@@ -42,4 +45,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function slp()
+    {
+
+        $id = DB::table('slp_patients')->where('patient_id', $this->id)->value('slp_id');
+        return User::find($id);
+
+    }
+
+    public function info()
+    {
+
+        return $this->hasOne(patient::class,'users_id');
+    }
 }

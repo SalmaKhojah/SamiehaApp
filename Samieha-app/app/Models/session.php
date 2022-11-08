@@ -22,4 +22,16 @@ class session extends Model
         return $this->hasOne(slp::class,'users_id', 'slp_id' );
     }
 
+    public function getslp()   
+{
+    return $this->belongsTo(User::class, 'slp_id');
+}
+
+public function patient()
+{
+    return $this->belongsTo(User::class, 'patient_id');
+}
+   
+   
+
 }

@@ -1,4 +1,4 @@
-#Thu Sep 29 13:39:06 GMT+03:00 2022
-base.0=C\:\\xampp\\htdocs\\conect flutter laravel\\flutter_sanctum\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Sun Nov 06 15:42:04 AST 2022
+base.0=C\:\\laragon\\www\\SamiehaApp\\flutter_sanctum\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

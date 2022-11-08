@@ -3,6 +3,8 @@ import 'package:flutter_sanctum/providers/auth.dart';
 import 'package:flutter_sanctum/screens/login-screen.dart';
 import 'package:flutter_sanctum/screens/posts-screen.dart';
 import 'package:flutter_sanctum/screens/session_screen.dart';
+import 'package:flutter_sanctum/screens/profile-screen.dart';
+
 import 'package:provider/provider.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -25,9 +27,9 @@ class NavDrawer extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('الجلسة الأولى'),
+                  title: Text('البيانات الشخصية'),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SessionScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
                   },
                 ),
                 ListTile(
