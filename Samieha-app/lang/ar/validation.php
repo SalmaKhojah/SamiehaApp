@@ -106,6 +106,13 @@ return [
         'string'  => 'يجب أن يحتوي النص :attribute على :size حروفٍ/حرفًا بالضبط',
         'array'   => 'يجب أن يحتوي :attribute على :size عنصرٍ/عناصر بالضبط',
     ],
+    'password' => [
+        'letters' => 'يجب أن تحتوي :attribute على حرف واحد على الأقل.',
+        'mixed' => 'يجب أن تحتوي :attribute على حرف كبير واحد وحرف صغير واحد على الأقل.',
+        'numbers' => 'يجب أن تحتوي :attribute على رقم واحد على الأقل.',
+        'symbols' => 'يجب أن تحتوي :attribute على رمز واحد على الأقل.',
+        'uncompromised' => 'ظهرت :attribute المعطاة في تسرب بيانات. الرجاء اختيار :attribute مختلفة:',
+    ],
     'string'               => 'يجب أن يكون :attribute نصآ.',
     'timezone'             => 'يجب أن يكون :attribute نطاقًا زمنيًا صحيحًا',
     'unique'               => 'قيمة :attribute مُستخدمة من قبل',
