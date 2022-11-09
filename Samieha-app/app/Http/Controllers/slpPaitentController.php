@@ -15,6 +15,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
 
+
 class slpPaitentController extends Controller
 {
     /**
