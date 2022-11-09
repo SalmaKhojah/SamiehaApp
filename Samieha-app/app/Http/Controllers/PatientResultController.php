@@ -50,19 +50,11 @@ class PatientResultController extends Controller
      */
     public function show($id)
     {
-           //$viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
-           //$resultp =  DB::select('SELECT * FROM session_material WHERE  session_id= '.$id.'');
            $resultp =  DB::select('SELECT session_materials.*, words.* FROM session_materials , words WHERE session_materials.word_id = words.id AND session_id='.$id.'');
            $paitentName= DB::select('SELECT first_name , last_name FROM patients , session WHERE  id='.$id.' AND patient_id = users_id ');
-          // $resultp = DB::select('SELECT * FROM session_material WHERE session_id IN (SELECT word FROM words WHERE words.word_id = word_id )');
-//trial_id,word_id,patient_record,check_answer,used_cues, word
-           //$resultp =  DB::select('SELECT * FROM results WHERE word_id IN (SELECT image AND word FROM words WHERE words.word_id = word_id )');
-          // $avg_stars = DB::table('session_materials')
-              //  ->avg('check_answer');
               $correct =  DB::select('SELECT check_answer FROM session_materials WHERE check_answer = '.'"صحيحة"'.' AND session_id='.$id.'');
               $answare =  DB::select('SELECT check_answer FROM session_materials WHERE session_id='.$id.'' );
-              //$wordCount = $correct->count();
-             //$allans  = $answare->count();
+            
 
               $sum=0;
 
@@ -76,7 +68,6 @@ class PatientResultController extends Controller
                   $summ= $summ+1;
               }
               $avg_stars = $sum/$summ;
-            // dd($summ);
              
             if($avg_stars >= 0  and 5 >= $avg_stars){
                 $suggestion = 200 ;
@@ -142,3 +133,14 @@ class PatientResultController extends Controller
 
    
 }
+  // $resultp = DB::select('SELECT * FROM session_material WHERE session_id IN (SELECT word FROM words WHERE words.word_id = word_id )');
+//trial_id,word_id,patient_record,check_answer,used_cues, word
+           //$resultp =  DB::select('SELECT * FROM results WHERE word_id IN (SELECT image AND word FROM words WHERE words.word_id = word_id )');
+          // $avg_stars = DB::table('session_materials')
+              //  ->avg('check_answer');
+
+                //$wordCount = $correct->count();
+             //$allans  = $answare->count();
+
+                        //$viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
+           //$resultp =  DB::select('SELECT * FROM session_material WHERE  session_id= '.$id.'');

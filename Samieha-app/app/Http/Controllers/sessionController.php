@@ -12,11 +12,6 @@ use Auth;
 
 class sessionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $sessions = session::where('slp_id', Auth::user()->id)->get();
@@ -26,11 +21,6 @@ class sessionController extends Controller
       
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $nounSub = subcategories::where('category_id', '1')->get();
@@ -41,13 +31,7 @@ class sessionController extends Controller
       
            return view('SLP.session.createSession',compact('nounSub', 'verbSub' , 'adjSub','data'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
 

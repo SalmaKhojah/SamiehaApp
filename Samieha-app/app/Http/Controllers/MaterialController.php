@@ -110,10 +110,6 @@ class MaterialController extends Controller
                 'cue7'=>$pathAudiocue7,
             ]);
 
-      
-
-    
-
         return redirect()->route('Material.create')
                          ->with('success','تمت الإضافة بنجاح');
 
