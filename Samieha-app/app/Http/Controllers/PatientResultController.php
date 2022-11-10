@@ -68,23 +68,6 @@ class PatientResultController extends Controller
                   $summ= $summ+1;
               }
               $avg_stars = $sum/$summ;
-             
-            if($avg_stars >= 0  and 5 >= $avg_stars){
-                $suggestion = 200 ;
-              }
-              elseif($avg_stars >= 6  and 10 >= $avg_stars){
-                  $suggestion = 150 ;
-              }
-              elseif($avg_stars >= 11  and 50 >= $avg_stars){
-                  $suggestion = 50 ;
-              }
-              elseif($avg_stars >= 51){
-                  $suggestion = 10 ;
-              }
-              else{
-                  $suggestion = 2 ;
-  
-              }
 
            return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName', 'avg_stars', 'suggestion'));  
     }
@@ -133,14 +116,4 @@ class PatientResultController extends Controller
 
    
 }
-  // $resultp = DB::select('SELECT * FROM session_material WHERE session_id IN (SELECT word FROM words WHERE words.word_id = word_id )');
-//trial_id,word_id,patient_record,check_answer,used_cues, word
-           //$resultp =  DB::select('SELECT * FROM results WHERE word_id IN (SELECT image AND word FROM words WHERE words.word_id = word_id )');
-          // $avg_stars = DB::table('session_materials')
-              //  ->avg('check_answer');
-
-                //$wordCount = $correct->count();
-             //$allans  = $answare->count();
-
-                        //$viewPatient = DB::select('SELECT patients.* , email FROM patients, users WHERE users.id='.$id.' AND users_id='.$id.'');
-           //$resultp =  DB::select('SELECT * FROM session_material WHERE  session_id= '.$id.'');
+ 
