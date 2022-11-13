@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\slp;
 use App\Models\User;
+use App\Models\session;
+use App\Models\slp_patients;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
@@ -117,10 +119,18 @@ class slpController extends Controller
   
     public function destroy($id)
     {
-        $Slp=slp::where('users_id',$id); 
+        // $Slp=slp::where('users_id',$id); 
+        // $se=session::where('slp_id',$id); 
         $user=User::where('id',$id); 
-        $Slp->delete();
+        // $deLinkPatient=slp_patients::where('slp_id',$id); 
+        // $se->delete();
+        // $deLinkPatient->delete();
         $user->delete();
+        // $Slp->delete();
+
+
+
+
         return redirect()->route('slpTable.index')
                         ->with('success','تم حذف الاختصاصي بنجاح');
     }

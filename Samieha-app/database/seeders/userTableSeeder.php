@@ -68,12 +68,7 @@ class userTableSeeder extends Seeder
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
-                [
-                    'role'=>'1',
-                    'name'=> 'هيفا الابراهيم',
-                    'email'=>'hayfaa@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
+         
 
                 [
                     'role'=>'1',
@@ -124,12 +119,6 @@ class userTableSeeder extends Seeder
                     'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
                 ],
 
-                [
-                    'role'=>'2',
-                    'name'=> 'هلا السيد',
-                    'email'=>'hala@gmail.com',
-                    'password'=>'$1$8vfLTxby$AfIiPny3aWim.vJrh10oN1'
-                ],
 
                 [
                     'role'=>'2',

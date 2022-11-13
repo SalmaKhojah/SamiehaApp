@@ -120,25 +120,9 @@ class patientTableSeeder extends Seeder
                 'assesment_method'=>'الأول'
              ],
 
-             [
-               'users_id'=>'8',
-                'national_id'=>'1101311014',
-                'first_name'=>'هيفا',
-                'last_name'=>'الابراهيم',
-                'birth_date'=>'18/07/1994',
-                'phone'=>'0500000007',
-                'nationality'=>'سعودي',
-                'region'=>'الجوف',
-                'city'=>'سكاكا',
-                'diagnosis'=>'الحبسة الكلامية',
-                'characteristics'=>'استخدام جمل لا يوجد لها معنى وغير مفهومة.',
-                'neurological_damage'=>'الصِّلات بين الفصّ الجبهي الأيسر و الفصّ الصدغي الأيسر',
-                'severity'=>'عادي',
-                'assesment_method'=>'الأول'
-             ],
 
              [
-               'users_id'=>'9',
+               'users_id'=>'8',
                 'national_id'=>'1991199800',
                 'first_name'=>'محمد',
                 'last_name'=>'زهير',
@@ -155,7 +139,7 @@ class patientTableSeeder extends Seeder
              ],
 
              [
-               'users_id'=>'10',
+               'users_id'=>'9',
                 'national_id'=>'1176453278',
                 'first_name'=>'جود',
                 'last_name'=>'العتيبي',

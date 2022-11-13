@@ -16,7 +16,7 @@
   الرئيسية  
  @endsection
  @section('link1')
-  /SLP/home
+  /slpPaitentTable
    @endsection
 
   @section('bar2')
@@ -67,7 +67,6 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>رقم التكرار </th>
                     <th>الكلمة </th>
                     <th>الصورة </th>
                     <th>الاجابات </th>
@@ -80,14 +79,11 @@
                   <tbody>
                   @foreach($resultp as $item)  
                   <tr>
-                  <td>{{$item->trial_id}}</td>
                   <td>{{$item->word}}</td>
                   <td><img src="{{asset($item->image)}}" id="photo"></td>
                     <td>{{$item->check_answer}}</td>
                     <td>{{$item->used_cues}}</td>
-                    <td>
-                    
-
+                    <td> 
                     <audio controls>
                         <source src ="{{asset($item->patient_record)}}" type="audio/mpeg">
                        </audio>                      
