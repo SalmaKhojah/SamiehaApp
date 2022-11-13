@@ -56,20 +56,9 @@ class PatientResultController extends Controller
               $answare =  DB::select('SELECT check_answer FROM session_materials WHERE session_id='.$id.'' );
             
 
-              $sum=0;
+          
 
-              foreach(  $correct as  $correcst){
-                  $sum=+1;
-              }
-              
-              $summ=0;
-
-              foreach(  $answare as  $answares){
-                  $summ= $summ+1;
-              }
-              $avg_stars = $sum/$summ;
-
-           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName', 'avg_stars', 'suggestion'));  
+           return view('SLP.patientProfile.patientResult', compact('resultp' , 'paitentName'));  
     }
 
     /**

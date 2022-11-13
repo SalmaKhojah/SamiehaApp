@@ -98,9 +98,7 @@
                 @endforeach
                   </tbody>
                  <tfoot>
-                  <tr>
-                  <th colspan = "6"> متوسط الاجابات الصحيحة: {{$avg_stars}} </th>
-                  </tr>
+    
                 
                   </tfoot>
                 </table>
